@@ -195,6 +195,33 @@
     border-top: 1px solid #e0e0e0;
 }
 
+.students-list-container {
+    overflow-x: auto;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.students-table th,
+.students-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.students-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+}
+
+.students-table tr:last-child td {
+    border-bottom: none;
+}
+
 /* Responsive styles */
 @media (max-width: 992px) {
     .stats-section {
