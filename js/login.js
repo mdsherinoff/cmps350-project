@@ -44,8 +44,6 @@ async function userInput() {
       case "administrator":
         window.location.href = "admin-home.html";
         break;
-      default:
-        break;
     }
 
     localStorage.setItem("user", JSON.stringify(user.id)); //rename this as userId since the whole user isnt pushed
