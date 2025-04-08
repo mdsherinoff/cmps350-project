@@ -5,6 +5,9 @@ async function userInput() {
   const students = await fetch("../data/students.json");
   const studentsData = await students.json();
 
+  const instructors = await fetch("../data/instructors.json");
+  const instructorsData = await instructors.json();
+
   const loginForm = document.querySelector("#loginForm");
   const username = document.querySelector("#username");
   const password = document.querySelector("#password");
@@ -53,10 +56,17 @@ async function userInput() {
 
     if (enteredUserType === "student") {
       const userId = JSON.parse(localStorage.getItem("userId"));
-      const currStudentInfo = studentsData.find(
+      const currUserInfo = studentsData.find(
         (student) => student.id === userId
       );
-      localStorage.setItem("currStudentInfo", JSON.stringify(currStudentInfo));
+      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+    }
+    if (enteredUserType === "instructor") {
+      const userId = JSON.parse(localStorage.getItem("userId"));
+      const currUserInfo = instructorsData.find(
+        (instructor) => instructor.id === userId
+      );
+      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
     }
   });
 }

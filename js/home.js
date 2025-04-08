@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
 
 const logoutButton = document.querySelector(".btn-logout");
-
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
@@ -244,7 +243,7 @@ function registerSection(course, section) {
 }
 
 function register(course, section) {
-  const studentInfo = JSON.parse(localStorage.currStudentInfo);
+  const studentInfo = JSON.parse(localStorage.currUserInfo);
   const studentCourses = studentInfo.courses;
 
   const completedCourse = studentCourses
