@@ -23,6 +23,7 @@ const progressContainer = document.querySelector(".progress-stats");
 const currentCoursesContainer = document.querySelector(".current-courses");
 const completedCoursesContainer = document.querySelector(".completed-courses");
 const pendingCoursesContainer = document.querySelector(".pending-courses");
+const studentName = document.querySelector(".header-right");
 const logoutButton = document.querySelector(".btn-logout");
 
 logoutButton.addEventListener("click", logout);
@@ -42,7 +43,10 @@ async function fetchData() {
 async function start() {
   const courses = JSON.parse(localStorage.courses);
 
-  //Comment from here
+  const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  studentName.innerHTML = `<div class="user-info">
+                <span>Welcome, <strong>${currUserName.name}</strong></span>`;
+
   const students = JSON.parse(localStorage.students);
   const student = students.find(
     (student) => String(student.id) == currentStudentId
@@ -78,14 +82,6 @@ async function start() {
     }
   }
 
-  //Till Here
-
-  // courses.forEach(course => learningPathGrid.innerHTML += `
-  //                             <!-- Course begin here -->
-  //                              <!-- Year 1 -->
-  //                             <div class="course-box">
-  //                                 ${course.code}
-  //                             </div>`)
   loadProgramProgress();
 }
 

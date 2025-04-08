@@ -2,6 +2,7 @@ const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
 
 document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
+const studentName = document.querySelector(".header-right");
 
 const logoutButton = document.querySelector(".btn-logout");
 logoutButton.addEventListener("click", logout);
@@ -21,6 +22,10 @@ async function fetchData() {
 async function start() {
   const courses = JSON.parse(localStorage.courses);
   courseGrid.innerHTML = "";
+
+  const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  studentName.innerHTML = `<div class="user-info">
+                <span>Welcome, <strong>${currUserName.name}</strong></span>`;
 
   courses.forEach((course) => {
     const courseCard = document.createElement("div");
