@@ -127,16 +127,6 @@ async function getEnrolledStudents(crn) {
     return formattedStudents;
 }
 
-function addEventListeners() {
-    document.querySelectorAll('.submit-grades').forEach(button => {
-        button.addEventListener('click', handleSubmit);
-    });
-    document.querySelectorAll('.grade-select').forEach(select => {
-        select.addEventListener('change', () => {
-        });
-    });
-}
-
 async function handleSubmit(event) {
     const button = event.target;
     const classCard = button.closest('.class-card');
