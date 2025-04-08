@@ -3,6 +3,10 @@ const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
 document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
 
+const logoutButton = document.querySelector(".btn-logout")
+
+logoutButton.addEventListener('click',logout)
+
 async function fetchData() {
   const courses = await fetch("../data/courses.json");
   let courseList = await courses.json();
@@ -250,4 +254,8 @@ function register(course, section) {
   }
 
   //Have to push into courses.json (Increase of student) and students.json (Increase of course)
+}
+function logout(){
+    window.location.href = "login.html";
+    localStorage.clear()
 }

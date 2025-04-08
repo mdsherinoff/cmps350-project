@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded",fetchData)
 const learningPathGrid = document.querySelector(".course-path-grid")
 const progressContainer = document.querySelector(".progress-stats")
 const currentCoursesContainer = document.querySelector(".current-courses")
+const completedCoursesContainer = document.querySelector(".completed-courses")
+
+const logoutButton = document.querySelector(".btn-logout")
+
+logoutButton.addEventListener('click',logout)
 
 
 async function fetchData(){
@@ -133,7 +138,26 @@ async function loadProgramProgress(){
                     }
                 }
             }
+
+            for(course1 of courseList){
+                for(course2 of completedCourses)
+                {
+                    if(course1.id == course2.courseId){
+                        completedCoursesContainer.innerHTML += `
+                        <div class="semester-course">
+                        <span class="course-code">${course1.code}</span>
+                        <span class="course-name">${course1.name}</span>
+                        <span class="course-status completed">${course2.grade}</span>
+                        </div>`
+                        }
+                    }
+                }
         }
+
+function logout(){
+    window.location.href = "login.html";
+    localStorage.clear()
+}
 
 
     
