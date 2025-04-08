@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QU Student Management System - Instructor Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/instructor-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <img src="images/QU Logo.png" alt="Qatar University Logo" class="small-logo">
+            <h1>CSE Department Instructor Portal</h1>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span>Welcome, <strong id="instructor-name">name here</strong></span>
+                <span class="user-role">[Instructor]</span>
+            </div>
+            <button class="btn btn-logout">Logout</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="instructor-home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-chalkboard"></i> My Classes</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section class="instructor-header">
+                <div class="instructor-title">
+                    <h2>Instructor Dashboard</h2>
+                    <p>Manage your classes and submit student grades</p>
+                </div>
+                <div class="instructor-actions">
+                    <button class="btn btn-primary" id="refreshClassesBtn">
+                        <i class="fas fa-sync-alt"></i> Refresh Data
+                    </button>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-classes">3</span>
+                        <span class="stat-label">Active Classes</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-students">78</span>
+                        <span class="stat-label">Total Students</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="graded-students">45</span>
+                        <span class="stat-label">Graded Students</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="pending-grades">33</span>
+                        <span class="stat-label">Pending Grades</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="my-classes-section">
+                <h3 class="section-title">My Classes</h3>
+                <div class="section-controls">
+                    <div class="search-filter">
+                        <input type="text" placeholder="Search classes..." class="search-input" id="class-search">
+                    </div>
+                </div>
+
+                <div class="classes-container card-view">
+                    <!-- Loaded Content Cards Go Here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Qatar University - CSE Department. All rights reserved.</p>
+    </footer>
+
+    <script src="js/instructor.js"></script>
+</body>
+
+</html>
