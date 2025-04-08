@@ -133,7 +133,7 @@ async function handleSubmit(event) {
     const courseId = button.dataset.courseId;
     const crn = button.dataset.crn;
 
-    const gradeSelects = courseCard.querySelectorAll('.grade-select');
+    const gradeSelects = classCard.querySelectorAll('.grade-select');
     
     const grades = [];
     let hasEmptyGrades = false;
@@ -167,7 +167,7 @@ async function handleSubmit(event) {
         }
     });
 
-    //Add it to the student json
+    //update in the api
 
     // Update UI to show success
     button.textContent = 'Grades Submitted';
