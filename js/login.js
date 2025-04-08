@@ -34,6 +34,8 @@ async function userInput() {
     );
     console.log(user.id);
 
+    localStorage.setItem("user", JSON.stringify(user.id)); //rename this as userId since the whole user isnt pushed
+
     switch (enteredUserType) {
       case "student":
         window.location.href = "student-home.html";
@@ -46,7 +48,6 @@ async function userInput() {
         break;
     }
 
-    localStorage.setItem("user", JSON.stringify(user.id)); //rename this as userId since the whole user isnt pushed
   });
 }
 
