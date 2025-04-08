@@ -211,7 +211,6 @@ async function viewClasses(course) {
 }
 
 function registerSection(course, section) {
-  console.log("Working");
   courseGrid.style.display = "flex";
   console.log(section);
 

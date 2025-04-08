@@ -13,12 +13,8 @@ async function userInput() {
   const password = document.querySelector("#password");
   const userType = document.querySelector("#userType");
 
-  if (!loginForm) return;
-
   loginForm.addEventListener("submit", function handleUserValidation(e) {
     e.preventDefault();
-
-    console.log("Login form submitted");
 
     const enteredUsername = username.value.trim();
     const enteredPassword = password.value.trim();
@@ -33,12 +29,11 @@ async function userInput() {
     if (user.role !== enteredUserType) {
       alert("False User Type");
       return;
+    } else {
+      alert(
+        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`
+      );
     }
-
-    alert(
-      `Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`
-    );
-    console.log(user.id);
 
     localStorage.setItem("userId", JSON.stringify(user.id));
 
