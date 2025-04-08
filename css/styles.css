@@ -65,13 +65,13 @@ body {
 }
 
 .btn-logout {
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--primary-color);
+  color: var(--light-color);
   border: 1px solid var(--grey-color);
 }
 
 .btn-logout:hover {
-  background-color: #e2e6ea;
+  background-color: #51102b;
 }
 
 /* Login Page Styles */
