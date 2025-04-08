@@ -56,14 +56,13 @@ function loadClasses() {
                     </div>
                 </div>
                 <div class="class-footer">
-                    <button class="btn btn-primary submit-grades" data-course-id="${course.id}" data-crn="${section.crn}">
+                    <button class="btn btn-primary submit-grades" data-course-id="${course.id}" data-crn="${section.crn}" onclick="handleSubmit(event)">
                         Submit Grades
                     </button>
                 </div>
             </div>
         `;
     });
-    // addEventListeners();
 }
 
 function setupEventListeners() {
@@ -130,7 +129,7 @@ async function getEnrolledStudents(crn) {
 
 function addEventListeners() {
     document.querySelectorAll('.submit-grades').forEach(button => {
-        button.addEventListener('click', handleSubmit());
+        button.addEventListener('click', handleSubmit);
     });
     document.querySelectorAll('.grade-select').forEach(select => {
         select.addEventListener('change', () => {
@@ -140,46 +139,9 @@ function addEventListeners() {
 
 async function handleSubmit(event) {
     const button = event.target;
-    const courseId = classCard.querySelector();
-    const crn = button.dataset.crn;
-    
-    const courseCard = button.closest('.class-card');
-    const gradeSelects = courseCard.querySelectorAll('.grade-select');
-    
-    // Collect all grades
-    const grades = [];
-    let hasEmptyGrades = false;
-    
-    gradeSelects.forEach(selectGrade => {
-        const grade = selectGrade.value;
-        if (!grade) {
-            hasEmptyGrades = true;
-        }
-        grades.push({
-            studentId: select.closest('tr').dataset.studentId,
-            grade: grade
-        });
-    });
+    const classCard = button.closest('.class-card');
 
-    if (hasEmptyGrades) {
-        alert('Please assign grades to all students before submitting.');
-        return;
-    }
-
-    // Fetch current students data
-    const response = await fetch('../data/students.json');
-    const students = await response.json();
-
-    // Update grades in students data
-    students.forEach(student => {
-        const studentGrade = grades.find(g => g.studentId === student.id);
-        if (studentGrade) {
-            const courseIndex = student.courses.findIndex(c => c.crn === crn);
-            if (courseIndex !== -1) {
-                student.courses[courseIndex].grade = studentGrade.grade;
-            }
-        }
-    });
+    //trying a new method for funtionality here
 
     // Update UI to show success
     button.textContent = 'Grades Submitted';

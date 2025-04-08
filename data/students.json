@@ -59,6 +59,7 @@
           {
             "courseId": "01101",
             "code": "CS 101",
+            "crn":"10001",
             "grade": "B",
             "status": "completed",
             "semester": "Spring 2023"
