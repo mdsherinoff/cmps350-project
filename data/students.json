@@ -9,14 +9,14 @@
             "courseId": "01101",
             "code": "CS 101",
             "crn": "10001",
-            "grade": "A-",
+            "grade": "A",
             "status": "completed",
             "semester": "Fall 2022"
           },
           {
             "courseId": "02102",
             "code": "CS 102",
-            "grade": "B+",
+            "grade": "B",
             "status": "completed",
             "semester": "Spring 2023"
           },
@@ -96,7 +96,7 @@
           {
             "courseId": "01101",
             "code": "CS 101",
-            "grade": "C+",
+            "grade": "C",
             "status": "completed",
             "semester": "Fall 2021"
           },
@@ -110,7 +110,7 @@
           {
             "courseId": "03205",
             "code": "CS 205",
-            "grade": "A-",
+            "grade": "A",
             "status": "completed",
             "semester": "Fall 2023"
           },
@@ -168,14 +168,14 @@
           {
             "courseId": "01101",
             "code": "CS 101",
-            "grade": "A-",
+            "grade": "A",
             "status": "completed",
             "semester": "Fall 2021"
           },
           {
             "courseId": "05204",
             "code": "CS 204",
-            "grade": "B+",
+            "grade": "B",
             "status": "completed",
             "semester": "Spring 2022"
           },
@@ -211,14 +211,14 @@
           {
             "courseId": "01101",
             "code": "CS 101",
-            "grade": "B+",
+            "grade": "B",
             "status": "completed",
             "semester": "Fall 2023"
           },
           {
             "courseId": "04104",
             "code": "CS 104",
-            "grade": "A-",
+            "grade": "A",
             "status": "completed",
             "semester": "Fall 2023"
           },
@@ -247,7 +247,7 @@
           {
             "courseId": "01101",
             "code": "CS 101",
-            "grade": "C+",
+            "grade": "C",
             "status": "completed",
             "semester": "Fall 2022"
           },
@@ -261,7 +261,7 @@
           {
             "courseId": "03305",
             "code": "CS 305",
-            "grade": "B+",
+            "grade": "B",
             "status": "completed",
             "semester": "Fall 2023"
           },
@@ -290,14 +290,14 @@
           {
             "courseId": "01201",
             "code": "CS 201",
-            "grade": "A-",
+            "grade": "A",
             "status": "completed",
             "semester": "Spring 2022"
           },
           {
             "courseId": "06301",
             "code": "CS 301",
-            "grade": "B+",
+            "grade": "B",
             "status": "completed",
             "semester": "Fall 2023"
           },
