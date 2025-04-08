@@ -63,6 +63,11 @@ async function userInput() {
       );
       localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
     }
+    if (enteredUserType === "administrator") {
+      const userId = JSON.parse(localStorage.getItem("userId"));
+      const currUserInfo = userData.find((user) => user.id === userId);
+      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+    }
   });
 }
 

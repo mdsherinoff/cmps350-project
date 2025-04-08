@@ -18,10 +18,7 @@
             <h1>CSE Department Administration</h1>
         </div>
         <div class="header-right">
-            <div class="user-info">
-                <span>Welcome, <strong id="admin-name">Dr. Khalid</strong></span>
-                <span class="user-role">[Department Administrator]</span>
-            </div>
+            <div class="header-username"><!-- Dynamically Load Username --></div>
             <button class="btn btn-logout">Logout</button>
         </div>
     </header>
@@ -57,7 +54,7 @@
                         <i class="fas fa-book"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-value" id="total-courses">35</span>
+                        <span class="stat-value" id="total-courses"></span>
                         <span class="stat-label">Total Courses</span>
                     </div>
                 </div>
@@ -66,7 +63,7 @@
                         <i class="fas fa-chalkboard"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-value" id="active-classes">18</span>
+                        <span class="stat-value" id="active-classes"></span>
                         <span class="stat-label">Active Classes</span>
                     </div>
                 </div>
@@ -75,8 +72,8 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-value" id="registered-students">423</span>
-                        <span class="stat-label">Registered Students</span>
+                        <span class="stat-value" id="total-students"></span>
+                        <span class="stat-label">Total Students</span>
                     </div>
                 </div>
                 <div class="stat-card">
