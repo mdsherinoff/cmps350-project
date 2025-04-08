@@ -3,9 +3,9 @@ const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
 document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
 
-const logoutButton = document.querySelector(".btn-logout")
+const logoutButton = document.querySelector(".btn-logout");
 
-logoutButton.addEventListener('click',logout)
+logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
   const courses = await fetch("../data/courses.json");
@@ -135,7 +135,7 @@ function searchCourses() {
 }
 
 function viewDetails(course) {
-  // Show details won't work for now because the course names are too
+  // Show details not fully working unIdentified ERROR
   const availableCourses = document.querySelector(".search-section");
   availableCourses.style.display = "none";
   courseGrid.style.display = "flex";
@@ -198,7 +198,7 @@ async function viewClasses(course) {
 }
 
 function registerSection(course, section) {
-  // Register won't work for now because the course names are too
+  // Register not fully working unIdentified ERROR
   console.log("Working");
   courseGrid.style.display = "flex";
   console.log(section);
@@ -244,18 +244,38 @@ function registerSection(course, section) {
 }
 
 function register(course, section) {
-  console.log(section.enrolled);
-  console.log(section.capacity);
+  const studentInfo = JSON.parse(localStorage.currStudentInfo);
+  const studentCourses = studentInfo.courses;
 
-  if (section.enrolled != section.capacity) {
-    alert("Successfully Registered");
-  } else {
-    alert("Unable to register, section is full");
+  const completedCourse = studentCourses
+    .filter((course) => course.status === "completed")
+    .map((course) => course.courseId);
+
+  const studentAttemptCourses = studentCourses.map((course) => course.courseId);
+
+  if (studentAttemptCourses.includes(course.id)) {
+    alert("This course is already present in your courses");
+    return;
   }
-
+  if (
+    completedCourse.includes(!course.prerequisites) ||
+    course.prerequisites.length !== 0
+  ) {
+    alert(
+      `Unable to register, you have pending prerequisites ${course.prerequisites}`
+    );
+    return;
+  }
+  if (section.enrolled == section.capacity) {
+    alert("Unable to register, section is full");
+    return;
+  } else {
+    alert("Course has been registered");
+  }
   //Have to push into courses.json (Increase of student) and students.json (Increase of course)
 }
-function logout(){
-    window.location.href = "login.html";
-    localStorage.clear()
+
+function logout() {
+  window.location.href = "login.html";
+  localStorage.clear();
 }
