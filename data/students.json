@@ -8,6 +8,7 @@
           {
             "courseId": "01101",
             "code": "CS 101",
+            "crn": "10001",
             "grade": "A-",
             "status": "completed",
             "semester": "Fall 2022"
