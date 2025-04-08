@@ -130,8 +130,44 @@ async function getEnrolledStudents(crn) {
 async function handleSubmit(event) {
     const button = event.target;
     const classCard = button.closest('.class-card');
+    const courseId = button.dataset.courseId;
+    const crn = button.dataset.crn;
 
-    //trying a new method for funtionality here
+    const gradeSelects = courseCard.querySelectorAll('.grade-select');
+    
+    const grades = [];
+    let hasEmptyGrades = false;
+
+    gradeSelects.forEach(select => {
+        const grade = select.value;
+        if (!grade) {
+            hasEmptyGrades = true;
+        }
+        grades.push({
+            studentId: select.closest('tr').dataset.studentId,
+            grade: grade
+        });
+    });
+
+    if (hasEmptyGrades) {
+        alert('Please assign grades to all students before submitting.');
+        return;
+    }
+
+    const response = await fetch('../data/students.json');
+    const students = await response.json();
+
+    students.forEach(student => {
+        const studentGrade = grades.find(g => g.studentId === student.id);
+        if (studentGrade) {
+            const courseIndex = student.courses.findIndex(c => c.crn === crn);
+            if (courseIndex !== -1) {
+                student.courses[courseIndex].grade = studentGrade.grade;
+            }
+        }
+    });
+
+    //Add it to the student json
 
     // Update UI to show success
     button.textContent = 'Grades Submitted';
@@ -139,4 +175,55 @@ async function handleSubmit(event) {
     button.classList.add('btn-success');
     
     alert('Grades submitted successfully!');
+}
+
+
+
+
+async function handleSubmit(event) {
+    
+    try {
+        // Fetch current students data
+        const response = await fetch('../data/students.json');
+        const students = await response.json();
+
+        // Update grades in students data
+        students.forEach(student => {
+            const studentGrade = grades.find(g => g.studentId === student.id);
+            if (studentGrade) {
+                const courseIndex = student.courses.findIndex(c => c.crn === crn);
+                if (courseIndex !== -1) {
+                    student.courses[courseIndex].grade = studentGrade.grade;
+                }
+            }
+        });
+
+        // Save updated students data
+        const saveResponse = await fetch('../data/students.json', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(students)
+        });
+
+        if (!saveResponse.ok) {
+            throw new Error('Failed to save grades');
+        }
+
+        // Update UI to show success
+        button.textContent = 'Grades Submitted';
+        button.disabled = true;
+        button.classList.add('btn-success');
+        
+        // Remove grade-modified class from all rows
+        courseCard.querySelectorAll('.grade-modified').forEach(row => {
+            row.classList.remove('grade-modified');
+        });
+
+        alert('Grades submitted successfully!');
+    } catch (error) {
+        console.error('Error submitting grades:', error);
+        alert('Failed to submit grades. Please try again.');
+    }
 }
