@@ -23,7 +23,7 @@ const progressContainer = document.querySelector(".progress-stats");
 const currentCoursesContainer = document.querySelector(".current-courses");
 const completedCoursesContainer = document.querySelector(".completed-courses");
 const pendingCoursesContainer = document.querySelector(".pending-courses");
-const studentName = document.querySelector(".header-right");
+const studentName = document.querySelector(".header-username");
 const logoutButton = document.querySelector(".btn-logout");
 
 logoutButton.addEventListener("click", logout);
@@ -45,7 +45,7 @@ async function start() {
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
   studentName.innerHTML = `<div class="user-info">
-                <span>Welcome, <strong>${currUserName.name}</strong></span>`;
+                <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
 
   const students = JSON.parse(localStorage.students);
   const student = students.find(

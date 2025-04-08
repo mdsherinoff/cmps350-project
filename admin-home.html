@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QU Student Management System - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <img src="images/QU Logo.png" alt="Qatar University Logo" class="small-logo">
+            <h1>CSE Department Administration</h1>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span>Welcome, <strong id="admin-name">Dr. Khalid</strong></span>
+                <span class="user-role">[Department Administrator]</span>
+            </div>
+            <button class="btn btn-logout">Logout</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="admin-home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section class="admin-header">
+                <div class="admin-title">
+                    <h2>Administrator Dashboard</h2>
+                    <p>Manage courses, validate registrations, and oversee the department's academic operations</p>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" id="createCourseBtn">
+                        <i class="fas fa-plus"></i> Create New Course
+                    </button>
+                    <button class="btn btn-secondary" id="createClassBtn">
+                        <i class="fas fa-plus"></i> Create New Class
+                    </button>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-courses">35</span>
+                        <span class="stat-label">Total Courses</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="active-classes">18</span>
+                        <span class="stat-label">Active Classes</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="registered-students">423</span>
+                        <span class="stat-label">Registered Students</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="pending-registrations">12</span>
+                        <span class="stat-label">Pending Validations</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="courses-section">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="in-progress">Courses In Progress</button>
+                    <button class="tab-btn" data-tab="open-registration">Open For Registration</button>
+                    <button class="tab-btn" data-tab="all-courses">All Courses</button>
+                </div>
+
+                <div class="tab-content active" id="in-progress-tab">
+                    <div class="tab-controls">
+                        <div class="search-filter">
+                            <input type="text" placeholder="Search courses..." class="search-input">
+                            <select class="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="programming">Programming</option>
+                                <option value="database">Databases</option>
+                                <option value="networks">Networks</option>
+                                <option value="ai">Artificial Intelligence</option>
+                            </select>
+                        </div>
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                                <!-- </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button> -->
+                        </div>
+                    </div>
+
+                    <div class="courses-grid" id="in-progress-courses">
+                        <!-- Courses in progress will be dynamically loaded here -->
+                        <div class="admin-course-card">
+                            <div class="course-header">
+                                <h3>CMPS 350</h3>
+                                <span class="course-category">Programming</span>
+                            </div>
+                            <div class="course-content">
+                                <h4>Web Development</h4>
+                                <p>Front-end and back-end development, responsive design, and web services.</p>
+
+                                <div class="class-info-container">
+                                    <div class="class-info-header">
+                                        <h5>Classes</h5>
+                                        <span class="classes-count">2 classes</span>
+                                    </div>
+                                    <div class="class-list">
+                                        <div class="class-item">
+                                            <div class="class-details">
+                                                <span class="instructor">Dr. Ameen Mansour</span>
+                                                <span class="schedule">Sun/Tue 8:00-9:30</span>
+                                            </div>
+                                            <div class="class-enrollment">
+                                                <span>28/30</span>
+                                                <!-- <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 93%"></div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="class-item">
+                                            <div class="class-details">
+                                                <span class="instructor">Dr. Sarah Ahmed</span>
+                                                <span class="schedule">Mon/Wed 11:00-12:30</span>
+                                            </div>
+                                            <div class="class-enrollment">
+                                                <span>25/30</span>
+                                                <!-- <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 83%"></div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-footer">
+                                <button class="btn btn-secondary btn-small">View Details</button>
+                                <button class="btn btn-primary btn-small">Manage Classes</button>
+                            </div>
+                        </div>
+
+                        <!-- <div class="admin-course-card">
+                            <div class="course-header">
+                                <h3>CMPS 351</h3>
+                                <span class="course-category">Database</span>
+                            </div>
+                            <div class="course-content">
+                                <h4>Fundamentals of Database</h4>
+                                <p>Database design, SQL, normalization, and transaction processing.</p>
+
+                                <div class="class-info-container">
+                                    <div class="class-info-header">
+                                        <h5>Classes</h5>
+                                        <span class="classes-count">1 class</span>
+                                    </div>
+                                    <div class="class-list">
+                                        <div class="class-item">
+                                            <div class="class-details">
+                                                <span class="instructor">Dr. Mishal Mohammed</span>
+                                                <span class="schedule">Mon/Wed 2:00-3:30</span>
+                                            </div>
+                                            <div class="class-enrollment">
+                                                <span>18/30</span>
+                                                <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 60%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-footer">
+                                <button class="btn btn-secondary btn-small">View Details</button>
+                                <button class="btn btn-primary btn-small">Manage Classes</button>
+                            </div>
+                        </div> -->
+
+                        <!-- Additional course cards would be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="tab-content" id="open-registration-tab">
+                    <div class="tab-controls">
+                        <div class="search-filter">
+                            <input type="text" placeholder="Search courses..." class="search-input">
+                            <select class="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="programming">Programming</option>
+                                <option value="database">Databases</option>
+                                <option value="networks">Networks</option>
+                                <option value="ai">Artificial Intelligence</option>
+                            </select>
+                        </div>
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pending-validations-section">
+                        <h3>Classes Pending Validation</h3>
+                        <p>The following classes have received enough registrations and are ready for validation</p>
+
+                        <div class="validation-table-container">
+                            <table class="validation-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Name</th>
+                                        <th>Instructor</th>
+                                        <th>Schedule</th>
+                                        <th>Enrollment</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CMPS 405</td>
+                                        <td>Operating Systems</td>
+                                        <td>Dr. Ahmed Hassan</td>
+                                        <td>Sun/Tue 10:00-11:30</td>
+                                        <td>
+                                            <div class="enrollment-info">
+                                                <span>24/30</span>
+                                                <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 80%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="actions-cell">
+                                            <button class="btn btn-success btn-small">Validate</button>
+                                            <button class="btn btn-danger btn-small">Cancel</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CMPE 355</td>
+                                        <td>Data Communication & Networks I</td>
+                                        <td>Dr. Mohammad Hasan</td>
+                                        <td>Mon/Wed 8:00-9:30</td>
+                                        <td>
+                                            <div class="enrollment-info">
+                                                <span>18/30</span>
+                                                <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 60%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="actions-cell">
+                                            <button class="btn btn-success btn-small">Validate</button>
+                                            <button class="btn btn-danger btn-small">Cancel</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CMPS 493</td>
+                                        <td>Senior Project I</td>
+                                        <td>Dr. Samira Al-Yasiri</td>
+                                        <td>Tue/Thu 1:00-2:30</td>
+                                        <td>
+                                            <div class="enrollment-info">
+                                                <span>15/20</span>
+                                                <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 75%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="actions-cell">
+                                            <button class="btn btn-success btn-small">Validate</button>
+                                            <button class="btn btn-danger btn-small">Cancel</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="courses-grid" id="open-registration-courses">
+                        <!-- Courses open for registration will be dynamically loaded here -->
+                        <div class="admin-course-card">
+                            <div class="course-status-badge open-registration">Open Registration</div>
+                            <div class="course-header">
+                                <h3>CMPS 380</h3>
+                                <span class="course-category">Security</span>
+                            </div>
+                            <div class="course-content">
+                                <h4>Cybersecurity Fundamentals</h4>
+                                <p>Network security, cryptography, and secure software development principles.</p>
+
+                                <div class="class-info-container">
+                                    <div class="class-info-header">
+                                        <h5>Classes</h5>
+                                        <span class="classes-count">1 class</span>
+                                    </div>
+                                    <div class="class-list">
+                                        <div class="class-item">
+                                            <div class="class-details">
+                                                <span class="instructor">Dr. Noor Khalid</span>
+                                                <span class="schedule">Tue/Thu 10:00-11:30</span>
+                                            </div>
+                                            <div class="class-enrollment">
+                                                <span>12/30</span>
+                                                <div class="enrollment-bar">
+                                                    <div class="enrollment-progress" style="width: 40%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-footer">
+                                <button class="btn btn-secondary btn-small">View Details</button>
+                                <button class="btn btn-danger btn-small">Close Registration</button>
+                            </div>
+                        </div>
+
+                        <!-- Additional course cards would be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="tab-content" id="all-courses-tab">
+                    <!-- All courses will be shown here -->
+                    <div class="tab-controls">
+                        <div class="search-filter">
+                            <input type="text" placeholder="Search courses..." class="search-input">
+                            <select class="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="programming">Programming</option>
+                                <option value="database">Databases</option>
+                                <option value="networks">Networks</option>
+                                <option value="ai">Artificial Intelligence</option>
+                            </select>
+                        </div>
+                        <div class="view-controls">
+                            <button class="view-btn" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn active" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="course-table-container">
+                        <table class="course-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Credit Hours</th>
+                                    <th>Status</th>
+                                    <th>Prerequisites</th>
+                                    <th>Classes</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-courses-table-body">
+                                <!-- Course rows will be dynamically loaded here -->
+                                <tr>
+                                    <td>CMPS 151</td>
+                                    <td>Programming Concepts</td>
+                                    <td>Programming</td>
+                                    <td>3</td>
+                                    <td><span class="status-tag in-progress">In Progress</span></td>
+                                    <td>None</td>
+                                    <td>2</td>
+                                    <td class="actions-cell">
+                                        <button class="btn btn-secondary btn-small">View</button>
+                                        <button class="btn btn-primary btn-small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CMPS 251</td>
+                                    <td>Object-Oriented Programming</td>
+                                    <td>Programming</td>
+                                    <td>4</td>
+                                    <td><span class="status-tag in-progress">In Progress</span></td>
+                                    <td>CMPS 151</td>
+                                    <td>2</td>
+                                    <td class="actions-cell">
+                                        <button class="btn btn-secondary btn-small">View</button>
+                                        <button class="btn btn-primary btn-small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CMPS 303</td>
+                                    <td>Data Structures</td>
+                                    <td>Programming</td>
+                                    <td>4</td>
+                                    <td><span class="status-tag open-registration">Open Registration</span></td>
+                                    <td>CMPS 251, CMPS 205</td>
+                                    <td>1</td>
+                                    <td class="actions-cell">
+                                        <button class="btn btn-secondary btn-small">View</button>
+                                        <button class="btn btn-primary btn-small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CMPS 323</td>
+                                    <td>Design & Analysis of Algorithms</td>
+                                    <td>Theory</td>
+                                    <td>3</td>
+                                    <td><span class="status-tag inactive">Inactive</span></td>
+                                    <td>CMPS 303</td>
+                                    <td>0</td>
+                                    <td class="actions-cell">
+                                        <button class="btn btn-secondary btn-small">View</button>
+                                        <button class="btn btn-primary btn-small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CMPS 351</td>
+                                    <td>Fundamentals of Database</td>
+                                    <td>Database</td>
+                                    <td>4</td>
+                                    <td><span class="status-tag in-progress">In Progress</span></td>
+                                    <td>CMPS 303</td>
+                                    <td>1</td>
+                                    <td class="actions-cell">
+                                        <button class="btn btn-secondary btn-small">View</button>
+                                        <button class="btn btn-primary btn-small">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="btn-page"><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn-page active">1</button>
+                        <button class="btn-page">2</button>
+                        <button class="btn-page">3</button>
+                        <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Qatar University - CSE Department. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for creating new course
+    <div class="modal" id="createCourseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Course</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createCourseForm">
+                    Form fields will be here
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
