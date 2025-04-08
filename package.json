@@ -2,7 +2,7 @@
   "name": "cmps350-project",
   "version": "1.0.0",
   "description": "Project for cmps 350 by us",
-  "main": "login.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

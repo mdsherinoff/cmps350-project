@@ -2,6 +2,7 @@ const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
 
 document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
+const studentName = document.querySelector(".header-right");
 
 const logoutButton = document.querySelector(".btn-logout");
 logoutButton.addEventListener("click", logout);
@@ -19,33 +20,48 @@ async function fetchData() {
 }
 
 async function start() {
-  JSON.parse(localStorage.courses).forEach(
-    (course) =>
-      (courseGrid.innerHTML += `
-                    <div class="course-card">
-                    <div class="course-header">
-                        <h3>${course.code}</h3>
-                        <span class="course-category">${course.category}</span>
-                    </div>
-                    <div class="course-content">
-                        <h4>${course.name}</h4>
-                        <p>${course.description}</p>
-                        <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
-                        </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                        </div>
-                        
-                    </div>
-                    <div class="course-footer">
-                        <button onclick='viewDetails(${JSON.stringify(course)})'
-                        class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
-                    </div>
-                </div>`)
-  );
+  const courses = JSON.parse(localStorage.courses);
+  courseGrid.innerHTML = "";
+
+  const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  studentName.innerHTML = `<div class="user-info">
+                <span>Welcome, <strong>${currUserName.name}</strong></span>`;
+
+  courses.forEach((course) => {
+    const courseCard = document.createElement("div");
+    courseCard.classList.add("course-card");
+
+    courseCard.innerHTML = `
+      <div class="course-header">
+        <h3>${course.code}</h3>
+        <span class="course-category">${course.category}</span>
+      </div>
+      <div class="course-content">
+        <h4>${course.name}</h4>
+        <p>${course.description}</p>
+        <div class="course-details">
+          <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum) => sum + 1, 0)}</span>
+          <span><i class="fas fa-users"></i> Total Enrolled : ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
+        </div>
+        <div class="course-details">
+          <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+        </div>
+      </div>
+      <div class="course-footer">
+        <button class="btn btn-secondary view-details">View Details</button>
+        <button class="btn btn-primary view-classes">View Classes</button>
+      </div>
+    `;
+
+    courseCard
+      .querySelector(".view-details")
+      .addEventListener("click", () => viewDetails(course));
+    courseCard
+      .querySelector(".view-classes")
+      .addEventListener("click", () => viewClasses(course));
+
+    courseGrid.appendChild(courseCard);
+  });
 }
 
 const courseDD = document.querySelector("#category-filter");
@@ -134,7 +150,10 @@ function searchCourses() {
 }
 
 function viewDetails(course) {
-  // Show details not fully working unIdentified ERROR
+  if (typeof course === "string") {
+    course = JSON.parse(course);
+  }
+
   const availableCourses = document.querySelector(".search-section");
   availableCourses.style.display = "none";
   courseGrid.style.display = "flex";
@@ -197,8 +216,6 @@ async function viewClasses(course) {
 }
 
 function registerSection(course, section) {
-  // Register not fully working unIdentified ERROR
-  console.log("Working");
   courseGrid.style.display = "flex";
   console.log(section);
 
@@ -275,6 +292,6 @@ function register(course, section) {
 }
 
 function logout() {
-  window.location.href = "login.html";
+  window.location.href = "index.html";
   localStorage.clear();
 }
