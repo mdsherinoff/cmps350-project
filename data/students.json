@@ -39,6 +39,13 @@
             "grade": null,
             "status": "current",
             "semester": "Spring 2024"
+          },
+          {
+            "courseId": "04302",
+            "code": "CS 302",
+            "grade": null,
+            "status": "pending",
+            "semester": "Spring 2024"
           }
         ]
       },

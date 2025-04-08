@@ -103,15 +103,24 @@
     border-radius: 10px;
     color: black;
 }
+.completed-course{
+    background-color: #affdc1
+}
 .completed-course:hover{
     background-color: #28a745
+}
 
+.progress-course{
+    background-color: #fdecb9
 }
 
 .progress-course:hover{
     background-color: #ffc107
 }
 
+.pending-course{
+    background-color: #abd1f3
+}
 .pending-course:hover{
     background-color: #355c7d
 }
@@ -162,11 +171,12 @@
     font-size: 1.1rem;
 }
 
-.current-courses {
+.current-courses, .completed-courses, .pending-courses{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
+
 
 .semester-course {
     display: flex;

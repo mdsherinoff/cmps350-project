@@ -20,6 +20,13 @@ document.addEventListener("DOMContentLoaded",fetchData)
 const learningPathGrid = document.querySelector(".course-path-grid")
 const progressContainer = document.querySelector(".progress-stats")
 const currentCoursesContainer = document.querySelector(".current-courses")
+const completedCoursesContainer = document.querySelector(".completed-courses")
+const pendingCoursesContainer = document.querySelector(".pending-courses")
+
+
+const logoutButton = document.querySelector(".btn-logout")
+
+logoutButton.addEventListener('click',logout)
 
 
 async function fetchData(){
@@ -88,10 +95,9 @@ async function loadProgramProgress(){
 
         const studentList = JSON.parse(localStorage.students)            
         const student = studentList.find(student => String(student.id) == currentStudentId)
-        console.log(student);
 
         const completedCourses = student.courses.filter(course => course.status == "completed")
-        const grades = completedCourses.map(course => course.grade)
+
         let gradePoints = 0;
 
         for (const course of completedCourses) {
@@ -99,7 +105,6 @@ async function loadProgramProgress(){
                 gradePoints += gradePointDictionary[course.grade];
             }
         }
-        console.log(gradePoints);
 
         progressContainer.innerHTML = `<div class="stat-item">
         <span class="stat-label">Completed Courses:</span>
@@ -113,27 +118,48 @@ async function loadProgramProgress(){
         <span class="stat-label">Current GPA:</span>
         <span class="stat-value" id="current-gpa">${gradePoints/completedCourses.length}</span>
         </div>`  
-        
-        const currentCourses = student.courses.filter(course => course.status == "current")
-        
-        console.log(currentCourses);
+                
         const courseList = JSON.parse(localStorage.courses)
-        console.log(courseList);
 
         for(course1 of courseList){
-            for(course2 of currentCourses)
-            {
+            let found = false;
+            for(course2 of student.courses){
                 if(course1.id == course2.courseId){
-                    currentCoursesContainer.innerHTML += `
+                    found = true;
+                    if(course2.status == "completed"){
+                        completedCoursesContainer.innerHTML += `
+                        <div class="semester-course">
+                        <span class="course-code">${course1.code}</span>
+                        <span class="course-name">${course1.name}</span>
+                        <span class="course-status completed">${course2.grade}</span>
+                        </div>`
+                    }
+                    else{
+                        if(course2.status == "current"){
+                            currentCoursesContainer.innerHTML += `
+                            <div class="semester-course">
+                            <span class="course-code">${course1.code}</span>
+                            <span class="course-name">${course1.name}</span>
+                            <span class="course-status in-progress">In Progress</span>
+                            </div>`}
+                        }
+                    }
+                }
+                if(found == false){
+                    pendingCoursesContainer.innerHTML += `
                     <div class="semester-course">
                     <span class="course-code">${course1.code}</span>
                     <span class="course-name">${course1.name}</span>
-                    <span class="course-status in-progress">In Progress</span>
+                    <span class="course-status pending">Pending</span>
                     </div>`
-                    }
                 }
-            }
+            }          
         }
+
+function logout(){
+    window.location.href = "login.html";
+    localStorage.clear()
+}
 
 
     

@@ -2,6 +2,9 @@ async function userInput() {
   const users = await fetch("../data/users.json");
   const userData = await users.json();
 
+  const students = await fetch("../data/students.json");
+  const studentsData = await students.json();
+
   const loginForm = document.querySelector("#loginForm");
   const username = document.querySelector("#username");
   const password = document.querySelector("#password");
@@ -34,6 +37,8 @@ async function userInput() {
     );
     console.log(user.id);
 
+    localStorage.setItem("userId", JSON.stringify(user.id));
+
     switch (enteredUserType) {
       case "student":
         window.location.href = "student-home.html";
@@ -44,11 +49,15 @@ async function userInput() {
       case "administrator":
         window.location.href = "admin-home.html";
         break;
-      default:
-        break;
     }
 
-    localStorage.setItem("user", JSON.stringify(user.id)); //rename this as userId since the whole user isnt pushed
+    if (enteredUserType === "student") {
+      const userId = JSON.parse(localStorage.getItem("userId"));
+      const currStudentInfo = studentsData.find(
+        (student) => student.id === userId
+      );
+      localStorage.setItem("currStudentInfo", JSON.stringify(currStudentInfo));
+    }
   });
 }
 
