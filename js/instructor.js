@@ -130,8 +130,44 @@ async function getEnrolledStudents(crn) {
 async function handleSubmit(event) {
     const button = event.target;
     const classCard = button.closest('.class-card');
+    const courseId = button.dataset.courseId;
+    const crn = button.dataset.crn;
 
-    //trying a new method for funtionality here
+    const gradeSelects = courseCard.querySelectorAll('.grade-select');
+    
+    const grades = [];
+    let hasEmptyGrades = false;
+
+    gradeSelects.forEach(select => {
+        const grade = select.value;
+        if (!grade) {
+            hasEmptyGrades = true;
+        }
+        grades.push({
+            studentId: select.closest('tr').dataset.studentId,
+            grade: grade
+        });
+    });
+
+    if (hasEmptyGrades) {
+        alert('Please assign grades to all students before submitting.');
+        return;
+    }
+
+    const response = await fetch('../data/students.json');
+    const students = await response.json();
+
+    students.forEach(student => {
+        const studentGrade = grades.find(g => g.studentId === student.id);
+        if (studentGrade) {
+            const courseIndex = student.courses.findIndex(c => c.crn === crn);
+            if (courseIndex !== -1) {
+                student.courses[courseIndex].grade = studentGrade.grade;
+            }
+        }
+    });
+
+    //Add it to the student json
 
     // Update UI to show success
     button.textContent = 'Grades Submitted';
