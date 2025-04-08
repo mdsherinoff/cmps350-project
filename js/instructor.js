@@ -130,7 +130,7 @@ async function getEnrolledStudents(crn) {
 
 function addEventListeners() {
     document.querySelectorAll('.submit-grades').forEach(button => {
-        button.addEventListener('click', handleSubmit);
+        button.addEventListener('click', handleSubmit());
     });
     document.querySelectorAll('.grade-select').forEach(select => {
         select.addEventListener('change', () => {
