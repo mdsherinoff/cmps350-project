@@ -157,7 +157,7 @@
     "category": "Programming",
     "prerequisites": ["01101", "02102"],
     "description": "Learn sorting algorithms you'll never implement manually again thanks to libraries. Advanced data structures, algorithm design and analysis.",
-    "registrationOpen": true,
+    "registrationOpen": false,
     "sections": [
       {
         "crn": "10011",

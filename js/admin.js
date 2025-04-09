@@ -60,20 +60,20 @@ async function start() {
       </div>
   </div>
 `
-const sectionContainer = document.querySelector(".class-list");
-for(section of course.sections){
-  console.log(section);
-  
-  sectionContainer.innerHTML +=   `<div class="class-item">
-                                      <div class="class-details">
-                                          <span class="instructor">Dr. Ameen Mansour</span>
-                                          <span class="schedule">Sun/Tue 8:00-9:30</span>
-                                      </div>
-                                      <div class="class-enrollment">
-                                          <span>28/30</span>
-                                      </div>
-                                  </div>`     
+const sectionContainer = adminCourseContainer.lastElementChild.querySelector(".class-list");
+for (const section of course.sections) {
+  sectionContainer.innerHTML += `
+    <div class="class-item">
+        <div class="class-details">
+            <span class="instructor">${section.instructor}</span>
+            <span class="schedule">${section.schedule}</span>
+        </div>
+        <div class="class-enrollment">
+            <span>${section.enrolled}/30</span>
+        </div>
+    </div>`;
 }
+
 }    
      
 }
