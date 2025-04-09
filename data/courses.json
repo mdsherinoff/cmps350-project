@@ -7,7 +7,7 @@
     "category": "Programming",
     "prerequisites": [],
     "description": "Learn to write code that works 60% of the time, every time! Covers basic programming concepts, data structures, and problem-solving with Python.",
-    "registrationOpen": false,
+    "registrationOpen": true,
     "sections": [
       {
         "crn": "10001",
@@ -46,7 +46,7 @@
     "category": "Mathematics",
     "prerequisites": [],
     "description": "Discover exciting theorems that will haunt your dreams for years. Covers logic, sets, relations, functions, combinatorics, and graph theory.",
-    "registrationOpen": false,
+    "registrationOpen": true,
     "sections": [
       {
         "crn": "10004",

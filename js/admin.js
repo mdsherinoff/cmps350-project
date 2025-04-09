@@ -20,10 +20,6 @@ async function start() {
   const instructorName = document.querySelector(".header-username");
   const totalCourses = document.querySelector("#total-courses");
   const totalStudents = document.querySelector("#total-students");
-  const adminCourseContainer = document.querySelector(".courses-grid");
-
-  console.log(adminCourseContainer);
-
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
   const courses = JSON.parse(localStorage.courses);
