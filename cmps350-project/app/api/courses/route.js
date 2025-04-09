@@ -1,7 +1,6 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-
+import coursesRepo from "@/app/repo/courses-repo.js";
 export async function GET(request) {//GET all the courses
-    const message = {message: `This is the API endpoint for GET @ http://localhost:3000/api/courses`}
-    return Response.json(message, {status:200})
+    // const message = {message: `This is the API endpoint for GET @ http://localhost:3000/api/courses`}
+    const response = await coursesRepo.getCourses();
+    return Response.json(response)
 }
