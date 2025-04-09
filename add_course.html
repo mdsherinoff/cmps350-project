@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QU Student Management - Create Course</title>
+    <link rel="stylesheet" href="./css/new-course-styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="./images/QU Logo.png" alt="QU Logo">
+                <h1>QU Student Management System</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-title">
+                <h2>Create New Course</h2>
+                <p>Add a new course to the system</p>
+            </div>
+
+            <form id="createCourseForm" class="course-form">
+                <div class="form-section">
+                    <h3>Course Information</h3>
+                    <div class="form-group">
+                        <label for="courseId">Course ID:</label>
+                        <input type="text" id="courseId" name="courseId" placeholder="e.g., 01101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseCode">Course Code:</label>
+                        <input type="text" id="courseCode" name="courseCode" placeholder="e.g., CS 101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseName">Course Name:</label>
+                        <input type="text" id="courseName" name="courseName"
+                            placeholder="e.g., Introduction to Programming" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseCredits">Credits:</label>
+                        <input type="number" id="courseCredits" name="courseCredits" value="3" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseCategory">Category:</label>
+                        <select id="courseCategory" name="courseCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Databases">Mathematics</option>
+                            <option value="Algorithms">Systems</option>
+                            <option value="Web Development">Web & Data</option>
+                            <option value="Networking">Software Engineering</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseDescription">Description:</label>
+                        <textarea id="courseDescription" name="courseDescription" rows="4"
+                            placeholder="Enter course description" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="registrationOpen" name="registrationOpen" checked>
+                            Open for Registration
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Prerequisites</h3>
+                    <div class="form-group prerequisite-container">
+                        <div id="prerequisites">
+                            <!-- Prerequisites will be added here dynamically -->
+                        </div>
+                        <button type="button" id="addPrerequisite" class="btn-secondary">Add Prerequisite</button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Course Sections</h3>
+                    <div id="sectionContainer">
+                        <div class="section-card" data-section-index="0">
+                            <div class="section-header">
+                                <h4>Section 1</h4>
+                                <button type="button" class="btn-icon remove-section" title="Remove Section"><i
+                                        class="fas fa-times"></i></button>
+                            </div>
+                            <div class="form-group">
+                                <label for="section0-crn">CRN:</label>
+                                <input type="text" id="section0-crn" name="sections[0].crn" placeholder="e.g., 10001"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="section0-instructor">Instructor:</label>
+                                <select id="section0-instructor" name="sections[0].instructor" required>
+                                    <option value="">Select an instructor</option>
+                                    <option value="Khalil">Dr. Khalil</option>
+                                    <option value="Mohammed">Dr. Mohammed</option>
+                                    <option value="Fatima">Dr. Fatima</option>
+                                    <option value="Ali">Dr. Ali</option>
+                                    <option value="Sara">Dr. Sara</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="section0-schedule">Schedule:</label>
+                                <input type="text" id="section0-schedule" name="sections[0].schedule"
+                                    placeholder="e.g., Mon/Wed 9:00-10:15 AM" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="section0-location">Location:</label>
+                                <input type="text" id="section0-location" name="sections[0].location"
+                                    placeholder="e.g., Building 5, Room 203" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="section0-capacity">Capacity:</label>
+                                <input type="number" id="section0-capacity" name="sections[0].capacity" min="1"
+                                    value="30" required>
+                            </div>
+                            <input type="hidden" name="sections[0].enrolled" value="0">
+                            <input type="hidden" name="sections[0].status" value="open">
+                        </div>
+                    </div>
+                    <button type="button" id="addSection" class="btn-secondary">Add Section</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Course</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Qatar University - Computer Science & Engineering Department</p>
+        </footer>
+    </div>
+
+    <script src="create-course.js"></script>
+</body>
+
+</html>

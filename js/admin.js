@@ -22,7 +22,6 @@ async function start() {
   const totalStudents = document.querySelector("#total-students");
   const adminCourseContainer = document.querySelector(".courses-grid");
 
-
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
   const courses = JSON.parse(localStorage.courses);
   const students = JSON.parse(localStorage.students);
@@ -32,8 +31,8 @@ async function start() {
   totalCourses.innerHTML = `${courses.length}`;
   totalStudents.innerHTML = `${students.length}`;
 
-  for(const course of courses){
-    if(course.registrationOpen === false){
+  for (const course of courses) {
+    if (course.registrationOpen === false) {
       adminCourseContainer.innerHTML += `<div class="admin-course-card">
       <div class="course-header">
           <h3>${course.code}</h3>
@@ -57,10 +56,11 @@ async function start() {
           <button class="btn btn-primary btn-small">Manage Classes</button>
       </div>
   </div>
-`
-const sectionContainer = adminCourseContainer.lastElementChild.querySelector(".class-list");
-for (const section of course.sections) {
-  sectionContainer.innerHTML += `
+`;
+      const sectionContainer =
+        adminCourseContainer.lastElementChild.querySelector(".class-list");
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += `
     <div class="class-item">
         <div class="class-details">
             <span class="instructor">${section.instructor}</span>
@@ -70,24 +70,9 @@ for (const section of course.sections) {
             <span>${section.enrolled}/30</span>
         </div>
     </div>`;
-}
-
-}    
-     
-}
-
-
-   
-  
-
-}
-
-
-const courseDD = document.querySelector(".category-filter");
-courseDD.addEventListener("change", courseFilter);
-
-function courseFilter() {
-  const category = courseDD.value;
+      }
+    }
+  }
 }
 
 function logout() {
