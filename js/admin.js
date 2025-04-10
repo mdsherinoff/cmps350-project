@@ -12,8 +12,8 @@ progressButton.addEventListener("click", start);
 openButton.addEventListener("click", OpenPage);
 allCourseButton.addEventListener("click", AllCourses);
 
-let courses = '';
-let students = '';
+let courses = "";
+let students = "";
 
 let currentButton = "";
 
@@ -36,24 +36,26 @@ async function fetchData() {
 }
 
 async function start() {
-  console.log("here");
-  
   if (currentButton != "") {
     currentButton.classList.remove("active");
   }
   progressButton.classList.add("active");
   currentButton = progressButton;
 
-  const instructorName = document.querySelector(".header-username");
+  const adminName = document.querySelector(".header-username");
   const totalCourses = document.querySelector("#total-courses");
   const totalStudents = document.querySelector("#total-students");
+  const totalSections = document.querySelector("#total-classes");
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
 
-  instructorName.innerHTML = `<div class="user-info">
+  adminName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
   totalCourses.innerHTML = `${courses.length}`;
   totalStudents.innerHTML = `${students.length}`;
+  totalSections.innerHTML = courses.reduce((total, course) => {
+    return total + course.sections.length;
+  }, 0);
 
   adminCourseContainer.innerHTML = ``;
 
@@ -147,6 +149,13 @@ function searchCourses() {
   });
 }
 
+const newCourse = document.querySelector("#createCourseBtn");
+newCourse.addEventListener("click", createCourse);
+
+function createCourse() {
+  window.location.href = "../html/new_course.html";
+}
+
 function generateCourseCard(course) {
   return `<div class="admin-course-card">
       <div class="course-header">
@@ -206,7 +215,7 @@ function generateSectionCard(section) {
     </div>`;
 }
 
-function manageClasses(){
+function manageClasses() {
   adminCourseContainer.innerHTML = ``;
   for (const course of courses) {
     adminCourseContainer.innerHTML += generateCourseCard(course);
