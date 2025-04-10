@@ -8,8 +8,43 @@ async function loadData() {
     const courses = await fetch("../data/courses.json");
     let courseList = await courses.json();
     localStorage.courses = JSON.stringify(courseList);
+    
+    const studentsResponse = await fetch("../data/students.json");
+    const students = await studentsResponse.json();
+    localStorage.students = JSON.stringify(students);
+
     const currUser = JSON.parse(localStorage.getItem("currUserInfo"));
-    console.log('Welcome', currUser.name);
+    const usernameDisplay = document.querySelector('#instructor-name');
+    usernameDisplay.innerHTML = currUser.name;
+
+    // Calculate dashboard statistics
+    const totalClassesElement = document.querySelector('#total-classes');
+    const totalStudentsElement = document.querySelector('#total-students');
+    const gradedStudentsElement = document.querySelector('#graded-students');
+    const pendingGradesElement = document.querySelector('#pending-grades');
+    const instructorSections = currUser.sections || [];
+    const totalClasses = instructorSections.length;
+    let totalStudents = 0;
+    let gradedStudents = 0;
+    let pendingGrades = 0;
+    for (const section of instructorSections) {
+        const enrolledStudents = students.filter(student => 
+            student.courses.some(course => course.crn === section.crn)
+        );
+        totalStudents += enrolledStudents.length;
+        enrolledStudents.forEach(student => {
+            const courseEnrollment = student.courses.find(course => course.crn === section.crn);
+            if (courseEnrollment && courseEnrollment.grade) {
+                gradedStudents++;
+            } else {
+                pendingGrades++;
+            }
+        });
+    }
+    totalClassesElement.textContent = totalClasses;
+    totalStudentsElement.textContent = totalStudents;
+    gradedStudentsElement.textContent = gradedStudents;
+    pendingGradesElement.textContent = pendingGrades;
 }
 
 function loadClasses() {
@@ -68,10 +103,18 @@ function loadClasses() {
 function setupEventListeners() {
     const logoutButton = document.querySelector(".btn-logout");
     logoutButton.addEventListener("click", logout);
+
+    const refreshButton = document.querySelector("#refreshClassesBtn");
+    refreshButton.addEventListener("click", async () => {
+        //loads the page again
+        await loadData();
+        await loadClasses();
+    });
+
     function logout() {
         window.location.href = "login.html";
         localStorage.clear();
-      }
+    }
 }
 
 // Helper functions
