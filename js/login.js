@@ -26,7 +26,7 @@ async function userInput() {
       alert("Incorrect Username or Password");
       return;
     }
-    if (user.role !== enteredUserType) {
+    if (user.role != enteredUserType) {
       alert("False User Type");
       return;
     } else {
@@ -39,13 +39,13 @@ async function userInput() {
 
     switch (enteredUserType) {
       case "student":
-        window.location.href = "student-home.html";
+        window.location.href = "../html/student-home.html";
         break;
       case "instructor":
-        window.location.href = "instructor-home.html";
+        window.location.href = "../html/instructor-home.html";
         break;
       case "administrator":
-        window.location.href = "admin-home.html";
+        window.location.href = "../html/admin-home.html";
         break;
     }
 

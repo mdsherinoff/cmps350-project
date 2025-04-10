@@ -20,8 +20,8 @@ let currentButton = "";
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  // const courses = await fetch("../data/courses.json");
-  const courses = await fetch("http://localhost:3000/api/courses");
+  const courses = await fetch("../data/courses.json");
+  // const courses = await fetch("http://localhost:3000/api/courses");
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
@@ -65,7 +65,7 @@ async function start() {
 }
 
 function logout() {
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
   localStorage.clear();
 }
 
