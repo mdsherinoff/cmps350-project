@@ -193,18 +193,19 @@ async function viewClasses(course) {
       (courseGrid.innerHTML += `
                     <div class="course-card">
                     <div class="course-header">
-                        <h3>${course.name} - L${section.crn}</h3>
+                        <h3>${course.code} - L${section.crn}</h3>
                         <span class="course-category">${course.category}</span>
                     </div>
                     <div class="course-content">
                         <h4>${course.name}</h4>
-                        <p>${course.description}</p>
                         <div class="course-details">
                             <span><i class="fas fa-user"></i> ${section.instructor}</span>
                             <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
                         </div>
                         <div class="course-details">
                             <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+                            <span><i class="fas fa-users"></i> ${section.schedule}</span>
+
                         </div>
                         
                     </div>
@@ -225,7 +226,7 @@ function registerSection(course, section) {
   courseGrid.innerHTML = `
 <div class="course-card">
                 <div class="course-header">
-                    <h3>${course.name} - L${section.crn}</h3>
+                    <h3>${course.code} - L${section.crn}</h3>
                     <span class="course-category">${course.category}</span>
                 </div>
                 <div class="course-content">
