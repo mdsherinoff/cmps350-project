@@ -10,6 +10,9 @@ class coursesRepo{
         const coursesData = await fs.readJSON(this.dataFilePath)
         return coursesData
     }
-
+    async setCourses(courses){
+        await fs.writeJson(this.filePath, courses)
+        return "courses changed successfully"
+    }
 }
 export default new coursesRepo();
