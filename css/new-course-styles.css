@@ -53,17 +53,19 @@ header {
 .logo {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   margin-bottom: 15px;
 }
 
 .logo img {
+  padding-left: 2rem;
   height: 50px;
-  margin-right: 15px;
 }
 
 .logo h1 {
   font-size: 1.5rem;
   color: var(--primary-color);
+  margin-right: 3rem;
 }
 
 .logout {
