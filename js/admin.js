@@ -282,3 +282,7 @@ function searchCourses() {
                 </div>`;
   });
 }
+
+function loadCourseValidation(){
+  adminCourseContainer.innerHTML = ``
+}
