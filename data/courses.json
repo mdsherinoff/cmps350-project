@@ -439,7 +439,7 @@
     "category": "Software Engineering",
     "prerequisites": ["06301", "04302"],
     "description": "Create something impressive enough for your portfolio but simple enough to finish. Year-long hands-on project integrating multiple technologies.",
-    "registrationOpen": true,
+    "registrationOpen": false,
     "sections": [
       {
         "crn": "10025",

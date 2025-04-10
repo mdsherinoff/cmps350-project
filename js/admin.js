@@ -121,16 +121,77 @@ function courseFilter() {
   const category = courseDD.value;
   const allCourses = JSON.parse(localStorage.courses);
   courseGrid.innerHTML = "";
-  const categorizedCourses = allCourses.filter(
-    (course) => category === course.category
-  );
 
-  const filteredCourses = category === "all" ? allCourses : categorizedCourses;
-  console.log(filteredCourses);
+  if (currentButton == openButton) {
+    const courseCategorizing = allCourses.filter(
+      (course) => course.registrationOpen === true
+    );
 
-  filteredCourses.forEach((course) => {
-    courseGrid.innerHTML += generateCourseCard(course);
-  });
+    const categorizedCourses = courseCategorizing.filter(
+      (course) => category === course.category
+    );
+
+    const filteredCourses =
+      category === "all" ? courseCategorizing : categorizedCourses;
+    console.log(filteredCourses);
+
+    courseGrid.innerHTML = "";
+    filteredCourses.forEach((course) => {
+      courseGrid.innerHTML += generateOpenCourseCard(course);
+
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
+
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
+    });
+  }
+  if (currentButton == allCourseButton) {
+    categorizedCourses = allCourses.filter(
+      (course) => category === course.category
+    );
+
+    const filteredCourses =
+      category === "all" ? allCourses : categorizedCourses;
+    console.log(filteredCourses);
+
+    courseGrid.innerHTML = "";
+    filteredCourses.forEach((course) => {
+      courseGrid.innerHTML += generateOpenCourseCard(course);
+
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
+
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
+    });
+  } else {
+    const courseCategorizing = allCourses.filter(
+      (course) => course.registrationOpen === false
+    );
+
+    const categorizedCourses = courseCategorizing.filter(
+      (course) => category === course.category
+    );
+
+    const filteredCourses =
+      category === "all" ? courseCategorizing : categorizedCourses;
+    console.log(filteredCourses);
+
+    courseGrid.innerHTML = "";
+    filteredCourses.forEach((course) => {
+      courseGrid.innerHTML += generateOpenCourseCard(course);
+
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
+
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
+    });
+  }
 }
 
 const searchBox = document.querySelector(".search-input");
