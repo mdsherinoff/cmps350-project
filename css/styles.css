@@ -212,6 +212,7 @@ body {
 
 .nav-item {
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
 
 .nav-item a {
