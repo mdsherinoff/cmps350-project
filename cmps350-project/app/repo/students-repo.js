@@ -11,7 +11,7 @@ class studentsRepo{
         return studentsData;
     }
     async setStudents(students){
-        const studentsData = await fs.readJSON(this.dataFilePath)
+        const studentsData = await fs.writeJSON(this.dataFilePath)
         return "returned successfully";
     }
 }

@@ -35,6 +35,15 @@
         "enrolled": 18,
         "capacity": 30,
         "status": "open"
+      },
+      {
+        "crn": "10004",
+        "instructor": "DrSmith",
+        "schedule": "Wed/Fri 2:00-3:15 PM",
+        "location": "Building 2, Room 310",
+        "enrolled": 18,
+        "capacity": 30,
+        "status": "open"
       }
     ]
   },

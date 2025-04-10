@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       credits: 3,
       category: courseCategory,
       description: courseDescription,
+      registrationOpen: true,
       prerequisites: prerequisites,
       sections: sections,
     };

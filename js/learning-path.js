@@ -113,7 +113,7 @@ async function loadProgramProgress() {
         </div>
         <div class="stat-item">
         <span class="stat-label">Current GPA:</span>
-        <span class="stat-value" id="current-gpa">${gradePoints / completedCourses.length}</span>
+        <span class="stat-value" id="current-gpa">${(gradePoints / completedCourses.length).toFixed(2)}</span>
         </div>`;
 
   const courseList = JSON.parse(localStorage.courses);
