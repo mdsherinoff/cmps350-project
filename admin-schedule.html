@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QU Student Management System - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <img src="images/QU Logo.png" alt="Qatar University Logo" class="small-logo">
+            <h1>CSE Department Administration</h1>
+        </div>
+        <div class="header-right">
+            <div class="header-username"><!-- Dynamically Load Username --></div>
+            <button class="btn btn-logout">Logout</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="admin-home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="admin-schedule.html"><i class="fas fa-calendar"></i> Schedule</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section class="admin-header">
+                <div class="admin-title">
+                    <h2>Administrator Dashboard</h2>
+                    <p>Manage courses, validate registrations, and oversee the department's academic operations</p>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" id="createCourseBtn">
+                        <i class="fas fa-plus"></i> Create New Course
+                    </button>
+                    <button class="btn btn-secondary" id="createClassBtn">
+                        <i class="fas fa-plus"></i> Create New Class
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Qatar University - CSE Department. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for creating new course
+    <div class="modal" id="createCourseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Course</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createCourseForm">
+                    Form fields will be here
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
