@@ -8,11 +8,11 @@ class studentsRepo{
     }
     async getStudents(){
         const studentsData = await fs.readJSON(this.dataFilePath)
-        return studentsData
+        return studentsData;
     }
     async setStudents(students){
         const studentsData = await fs.readJSON(this.dataFilePath)
-        return studentsData;
+        return "returned successfully";
     }
 }
 export default new studentsRepo();
