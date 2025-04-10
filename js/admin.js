@@ -16,9 +16,8 @@ let courses = "";
 let students = "";
 
 // For modifying JSON
-let courseList = '';
-let studentList = '';
-
+let courseList = "";
+let studentList = "";
 
 let currentButton = "";
 
@@ -142,16 +141,73 @@ function searchCourses() {
   const searchingCourse = searchBox.value.trim().toLowerCase();
   console.log(searchingCourse);
 
-  const filteredCourses = allCourses.filter(
-    (course) =>
-      course.name.toLowerCase().includes(searchingCourse) ||
-      course.code.toLowerCase().includes(searchingCourse)
-  );
-  console.log(filteredCourses);
-  courseGrid.innerHTML = "";
-  filteredCourses.forEach((course) => {
-    courseGrid.innerHTML += generateCourseCard(course);
-  });
+  if (currentButton == openButton) {
+    const filteredCourses = allCourses.filter(
+      (course) => course.registrationOpen === true
+    );
+
+    const filteredCourseList = filteredCourses.filter(
+      (course) =>
+        course.name.toLowerCase().includes(searchingCourse) ||
+        course.code.toLowerCase().includes(searchingCourse)
+    );
+
+    courseGrid.innerHTML = "";
+    filteredCourseList.forEach((course) => {
+      courseGrid.innerHTML += generateOpenCourseCard(course);
+
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
+
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
+    });
+  }
+  if (currentButton == allCourses) {
+    const filteredCourses = allCourses.filter(
+      (course) =>
+        course.name.toLowerCase().includes(searchingCourse) ||
+        course.code.toLowerCase().includes(searchingCourse)
+    );
+    console.log(filteredCourses);
+    courseGrid.innerHTML = "";
+    filteredCourses.forEach((course) => {
+      courseGrid.innerHTML = "";
+      filteredCourseList.forEach((course) => {
+        courseGrid.innerHTML += generateOpenCourseCard(course);
+
+        const sectionContainer =
+          courseGrid.lastElementChild.querySelector(".class-list");
+
+        for (const section of course.sections) {
+          sectionContainer.innerHTML += generateSectionCard(section);
+        }
+      });
+    });
+  } else {
+    const filteredCourses = allCourses.filter(
+      (course) => course.registrationOpen === false
+    );
+
+    const filteredCourseList = filteredCourses.filter(
+      (course) =>
+        course.name.toLowerCase().includes(searchingCourse) ||
+        course.code.toLowerCase().includes(searchingCourse)
+    );
+
+    courseGrid.innerHTML = "";
+    filteredCourseList.forEach((course) => {
+      courseGrid.innerHTML += generateOpenCourseCard(course);
+
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
+
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
+    });
+  }
 }
 
 const newCourse = document.querySelector("#createCourseBtn");
@@ -246,42 +302,41 @@ function generateSectionCard(section) {
     </div>`;
 }
 
-function manageClasses(course){
+function manageClasses(course) {
   adminCourseContainer.innerHTML = ``;
-    for(const section of course.sections){
-      if(section.status == 'open'){
-        console.log(section);
-        console.log(section.status);
-        adminCourseContainer.innerHTML += generateValidateCourseCard(course,section);
-      }
-
-      }
+  for (const section of course.sections) {
+    if (section.status == "open") {
+      console.log(section);
+      console.log(section.status);
+      adminCourseContainer.innerHTML += generateValidateCourseCard(
+        course,
+        section
+      );
+    }
   }
-  
+}
 
-function validateSection(validatedCourse, validatedSection, button){
-  alert("Class has been validated")
+function validateSection(validatedCourse, validatedSection, button) {
+  alert("Class has been validated");
   button.style.backgroundColor = "green";
   button.style.cursor = "not-allowed";
   button.disabled = true;
   button.innerText = "Class Validated";
   console.log(button);
 
-  validatedSection.status = 'close';
+  validatedSection.status = "close";
 
   console.log(courseList);
-  for(const course of courseList){
+  for (const course of courseList) {
     console.log(course);
-    if(course.id == validatedCourse.id){
-      for(const section of course.sections){
+    if (course.id == validatedCourse.id) {
+      for (const section of course.sections) {
         console.log(section);
-        if(section.crn == validatedSection.crn){
-          section.status = "close"
+        if (section.crn == validatedSection.crn) {
+          section.status = "close";
           return;
         }
       }
     }
   }
-  
-  
 }
