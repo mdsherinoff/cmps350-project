@@ -292,6 +292,6 @@ function register(course, section) {
 }
 
 function logout() {
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
   localStorage.clear();
 }

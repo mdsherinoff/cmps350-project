@@ -116,7 +116,7 @@ function setupEventListeners() {
   });
 
   function logout() {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
     localStorage.clear();
   }
 }
