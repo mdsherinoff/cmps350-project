@@ -37,9 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <label for="section${sectionCounter}-location">Location:</label>
                 <input type="text" id="section${sectionCounter}-location" name="sections[${sectionCounter}].location" placeholder="e.g., Building 5, Room 203" required>
             </div>
-            <input type="hidden" name="sections[${sectionCounter}].capacity" value="30">
-            <input type="hidden" name="sections[${sectionCounter}].enrolled" value="0">
-            <input type="hidden" name="sections[${sectionCounter}].status" value="open">
         `;
 
     sectionContainer.appendChild(newSection);
