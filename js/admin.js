@@ -12,27 +12,32 @@ progressButton.addEventListener("click", start);
 openButton.addEventListener("click", OpenPage);
 allCourseButton.addEventListener("click", AllCourses);
 
-const courses = JSON.parse(localStorage.courses);
-const students = JSON.parse(localStorage.students);
+let courses = '';
+let students = '';
 
 let currentButton = "";
 
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  const courses = await fetch("../data/courses.json");
+  const coursesJSON = await fetch("../data/courses.json");
   // const courses = await fetch("http://localhost:3000/api/courses");
-  let courseList = await courses.json();
+  let courseList = await coursesJSON.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const students = await fetch("../data/students.json");
-  let studentList = await students.json();
+  const studentsJSON = await fetch("../data/students.json");
+  let studentList = await studentsJSON.json();
   localStorage.students = JSON.stringify(studentList);
+
+  courses = JSON.parse(localStorage.courses);
+  students = JSON.parse(localStorage.students);
 
   start();
 }
 
 async function start() {
+  console.log("here");
+  
   if (currentButton != "") {
     currentButton.classList.remove("active");
   }
@@ -150,7 +155,6 @@ function generateCourseCard(course) {
       </div>
       <div class="course-content">
           <h4>${course.name}</h4>
-          <p>${course.description}</p>
 
           <div class="class-info-container">
               <div class="class-info-header">
@@ -172,7 +176,6 @@ function generateOpenCourseCard(course) {
       </div>
       <div class="course-content">
           <h4>${course.name}</h4>
-          <p>${course.description}</p>
 
           <div class="class-info-container">
               <div class="class-info-header">
@@ -184,7 +187,7 @@ function generateOpenCourseCard(course) {
           </div>
       </div>
       <div class="course-footer">
-          <button class="btn btn-primary btn-small">Manage Classes</button>
+          <button onclick="manageClasses()" class="btn btn-primary btn-small">Manage Classes</button>
       </div>
   </div>`;
 }
@@ -196,8 +199,21 @@ function generateSectionCard(section) {
             <span class="instructor">${section.instructor}</span>
             <span class="schedule">${section.schedule}</span>
         </div>
+
         <div class="class-enrollment">
             <span>${section.enrolled}/30</span>
         </div>
     </div>`;
+}
+
+function manageClasses(){
+  adminCourseContainer.innerHTML = ``;
+  for (const course of courses) {
+    adminCourseContainer.innerHTML += generateCourseCard(course);
+    const sectionContainer =
+      adminCourseContainer.lastElementChild.querySelector(".class-list");
+    for (const section of course.sections) {
+      sectionContainer.innerHTML += generateSectionCard(section);
+    }
+  }
 }
