@@ -4,3 +4,8 @@ export async function GET(request) {//GET all the courses
     const response = await coursesRepo.getCourses();
     return Response.json(response)
 }
+export async function POST(request) {//SET courses in case of add
+    const courses = await request.json()
+    const newCourses = await coursesRepo.setCourses(courses);
+    return Response.json(newCourses)
+}
