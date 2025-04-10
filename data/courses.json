@@ -41,7 +41,7 @@
   {
     "id": "02102",
     "code": "CS 102",
-    "name": "Discrete Mathematics or 'Why Didn't I Major in Business?'",
+    "name": "Discrete Mathematics or Why Did I not Major in Business?",
     "credits": 3,
     "category": "Mathematics",
     "prerequisites": [],
@@ -75,7 +75,7 @@
     "credits": 3,
     "category": "Systems",
     "prerequisites": [],
-    "description": "Learn why your fancy gaming PC still can't handle Chrome with 3 tabs open. Introduction to digital logic, assembly, and computer organization.",
+    "description": "Learn why your fancy gaming PC still cannot handle Chrome with 3 tabs open. Introduction to digital logic, assembly, and computer organization.",
     "registrationOpen": true,
     "sections": [
       {
@@ -101,7 +101,7 @@
   {
     "id": "04104",
     "code": "CS 104",
-    "name": "Web Development: Making Things Pretty When You're Not",
+    "name": "Web Development: Making Things Pretty When You are Not",
     "credits": 3,
     "category": "Web & Data",
     "prerequisites": [],
@@ -135,7 +135,7 @@
     "credits": 3,
     "category": "Web & Data",
     "prerequisites": [],
-    "description": "Learn to nod confidently when someone mentions 'correlation vs. causation'. Covers data analysis, visualization, and basic statistical concepts.",
+    "description": "Learn to nod confidently when someone mentions correlation vs. causation. Covers data analysis, visualization, and basic statistical concepts.",
     "registrationOpen": true,
     "sections": [
       {
@@ -156,7 +156,7 @@
     "credits": 3,
     "category": "Programming",
     "prerequisites": ["01101", "02102"],
-    "description": "Learn sorting algorithms you'll never implement manually again thanks to libraries. Advanced data structures, algorithm design and analysis.",
+    "description": "Learn sorting algorithms you will never implement manually again thanks to libraries. Advanced data structures, algorithm design and analysis.",
     "registrationOpen": false,
     "sections": [
       {
@@ -186,7 +186,7 @@
     "credits": 3,
     "category": "Web & Data",
     "prerequisites": ["01101"],
-    "description": "Learn the true meaning of 'foreign key constraint violation' at 3 AM. Relational database design, SQL, and database management.",
+    "description": "Learn the true meaning of foreign key constraint violation at 3 AM. Relational database design, SQL, and database management.",
     "registrationOpen": true,
     "sections": [
       {
@@ -207,7 +207,7 @@
     "credits": 3,
     "category": "Programming",
     "prerequisites": ["01101"],
-    "description": "Master inheritance hierarchies so deep they'll give you existential crises. OOP concepts, design patterns, and software architecture.",
+    "description": "Master inheritance hierarchies so deep they will give you existential crises. OOP concepts, design patterns, and software architecture.",
     "registrationOpen": true,
     "sections": [
       {
@@ -270,7 +270,7 @@
     "credits": 3,
     "category": "Software Engineering",
     "prerequisites": ["01201", "01203"],
-    "description": "Learn that 'agile' just means 'changing everything every two days'. Project management, requirements, testing, and development methodologies.",
+    "description": "Learn that agile just means changing everything every two days. Project management, requirements, testing, and development methodologies.",
     "registrationOpen": true,
     "sections": [
       {
@@ -312,7 +312,7 @@
     "credits": 3,
     "category": "Systems",
     "prerequisites": ["04202", "03205"],
-    "description": "Learn what 'the cloud' is beyond 'someone else's computer'. Virtualization, containerization, and microservices architecture.",
+    "description": "Learn what the cloud is beyond someone else's computer. Virtualization, containerization, and microservices architecture.",
     "registrationOpen": true,
     "sections": [
       {
@@ -375,7 +375,7 @@
     "credits": 3,
     "category": "Systems",
     "prerequisites": ["03205", "03305"],
-    "description": "Learn why you should never use public Wi-Fi or click on emails from 'princes'. Threat modeling, encryption, ethical hacking, and security protocols.",
+    "description": "Learn why you should never use public Wi-Fi or click on emails from princes. Threat modeling, encryption, ethical hacking, and security protocols.",
     "registrationOpen": true,
     "sections": [
       {
