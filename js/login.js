@@ -70,5 +70,4 @@ async function userInput() {
     }
   });
 }
-
 userInput();

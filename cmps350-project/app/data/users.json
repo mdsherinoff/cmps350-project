@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1001",
+    "username": "Alex",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "1002",
+    "username": "Sarah",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "2001",
+    "username": "DrSmith",
+    "password": "teach456",
+    "role": "instructor"
+  },
+  {
+    "id": "1003",
+    "username": "Jamal",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "1004",
+    "username": "Emily",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "2002",
+    "username": "ProfJohnson",
+    "password": "lecture789",
+    "role": "instructor"
+  },
+  {
+    "id": "1005",
+    "username": "Daniel",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "1006",
+    "username": "Maya",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "2003",
+    "username": "DrLee",
+    "password": "algorithmX",
+    "role": "instructor"
+  },
+  {
+    "id": "1007",
+    "username": "Ryan",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "1008",
+    "username": "Sophia",
+    "password": "password123",
+    "role": "student"
+  },
+  {
+    "id": "2004",
+    "username": "ProfWilson",
+    "password": "systems101",
+    "role": "instructor"
+  },
+  {
+    "id": "9999",
+    "username": "DocBrown",
+    "password": "password123",
+    "role": "administrator"
+  }
+]

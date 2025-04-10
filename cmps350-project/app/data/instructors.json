@@ -1,0 +1,55 @@
+[
+    {
+      "id": "2001",
+      "name": "DrSmith",
+      "department": "Computer Science",
+      "sections": [
+        {
+          "courseId": "c001",
+          "crn": "10001",
+          "semester": "Spring 2024"
+        },
+        {
+          "courseId": "c002",
+          "crn": "10005",
+          "semester": "Spring 2024"
+        }
+      ]
+    },
+    {
+      "id": "2002",
+      "name": "ProfJohnson",
+      "department": "Computer Science",
+      "sections": [
+        {
+          "courseId": "c003",
+          "crn": "10002",
+          "semester": "Spring 2024"
+        }
+      ]
+    },
+    {
+      "id": "2003",
+      "name": "DrLee",
+      "department": "Computer Science",
+      "sections": [
+        {
+          "courseId": "c004",
+          "crn": "10003",
+          "semester": "Spring 2024"
+        }
+      ]
+    },
+    {
+      "id": "2004",
+      "name": "ProfWilson",
+      "department": "Computer Science",
+      "sections": [
+        {
+          "courseId": "c005",
+          "crn": "10004",
+          "semester": "Spring 2024"
+        }
+      ]
+    }
+]
