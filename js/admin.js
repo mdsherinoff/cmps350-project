@@ -15,6 +15,11 @@ allCourseButton.addEventListener("click", AllCourses);
 let courses = '';
 let students = '';
 
+// For modifying JSON
+let courseList = '';
+let studentList = '';
+
+
 let currentButton = "";
 
 logoutButton.addEventListener("click", logout);
@@ -22,11 +27,11 @@ logoutButton.addEventListener("click", logout);
 async function fetchData() {
   const coursesJSON = await fetch("../data/courses.json");
   // const courses = await fetch("http://localhost:3000/api/courses");
-  let courseList = await coursesJSON.json();
+  courseList = await coursesJSON.json();
   localStorage.courses = JSON.stringify(courseList);
 
   const studentsJSON = await fetch("../data/students.json");
-  let studentList = await studentsJSON.json();
+  studentList = await studentsJSON.json();
   localStorage.students = JSON.stringify(studentList);
 
   courses = JSON.parse(localStorage.courses);
@@ -187,9 +192,35 @@ function generateOpenCourseCard(course) {
           </div>
       </div>
       <div class="course-footer">
-          <button onclick="manageClasses()" class="btn btn-primary btn-small">Manage Classes</button>
+          <button onclick='manageClasses(${JSON.stringify(course)})' class="btn btn-primary btn-small">Manage Classes</button>
       </div>
   </div>`;
+}
+
+function generateValidateCourseCard(course, section) {
+  return `
+                    <div class="course-card">
+                    <div class="course-header">
+                        <h3>${course.code} - L${section.crn}</h3>
+                        <span class="course-category">${course.category}</span>
+                    </div>
+                    <div class="course-content">
+                        <h4>${course.name}</h4>
+                        <div class="course-details">
+                            <span><i class="fas fa-user"></i> ${section.instructor}</span>
+                            <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
+                        </div>
+                        <div class="course-details">
+                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+                            <span><i class="fas fa-users"></i> ${section.schedule}</span>
+
+                        </div>
+                        
+                    </div>
+                    <div style="display: flex; justify-content: center;" class="course-footer">
+                        <button onclick='validateSection(${JSON.stringify(course)}, ${JSON.stringify(section)}, this)' class="btn btn-primary">Validate Section</button>
+                    </div>
+                </div>`;
 }
 
 function generateSectionCard(section) {
@@ -206,14 +237,42 @@ function generateSectionCard(section) {
     </div>`;
 }
 
-function manageClasses(){
+function manageClasses(course){
   adminCourseContainer.innerHTML = ``;
-  for (const course of courses) {
-    adminCourseContainer.innerHTML += generateCourseCard(course);
-    const sectionContainer =
-      adminCourseContainer.lastElementChild.querySelector(".class-list");
-    for (const section of course.sections) {
-      sectionContainer.innerHTML += generateSectionCard(section);
+    for(const section of course.sections){
+      if(section.status == 'open'){
+        console.log(section);
+        console.log(section.status);
+        adminCourseContainer.innerHTML += generateValidateCourseCard(course,section);
+      }
+
+      }
+  }
+  
+
+function validateSection(validatedCourse, validatedSection, button){
+  alert("Class has been validated")
+  button.style.backgroundColor = "green";
+  button.style.cursor = "not-allowed";
+  button.disabled = true;
+  button.innerText = "Class Validated";
+  console.log(button);
+
+  validatedSection.status = 'close';
+
+  console.log(courseList);
+  for(const course of courseList){
+    console.log(course);
+    if(course.id == validatedCourse.id){
+      for(const section of course.sections){
+        console.log(section);
+        if(section.crn == validatedSection.crn){
+          section.status = "close"
+          return;
+        }
+      }
     }
   }
+  
+  
 }

@@ -16,7 +16,7 @@
         "location": "Building 5, Room 203",
         "enrolled": 15,
         "capacity": 30,
-        "status": "open"
+        "status": "close"
       },
       {
         "crn": "10002",
@@ -34,7 +34,7 @@
         "location": "Building 2, Room 310",
         "enrolled": 18,
         "capacity": 30,
-        "status": "open"
+        "status": "close"
       }
     ]
   },

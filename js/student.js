@@ -255,9 +255,7 @@ function registerSection(course, section) {
                 <div class="register-button" style="display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;">
                     Register 
                 </div>
-            </button>
-
-            `;
+            </button>`;
 }
 
 function register(course, section) {
