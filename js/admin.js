@@ -54,43 +54,11 @@ async function start() {
 
   for (const course of courses) {
     if (course.registrationOpen === false) {
-      adminCourseContainer.innerHTML += `<div class="admin-course-card">
-      <div class="course-header">
-          <h3>${course.code}</h3>
-          <span class="course-category">${course.category}</span>
-      </div>
-      <div class="course-content">
-          <h4>${course.name}</h4>
-          <p>${course.description}</p>
-
-          <div class="class-info-container">
-              <div class="class-info-header">
-                  <h5>Sections</h5>
-                  <span class="classes-count">${course.sections.length} Section</span>
-              </div>
-              <div class="class-list">
-              </div>
-          </div>
-      </div>
-      <div class="course-footer">
-          <button class="btn btn-secondary btn-small">View Details</button>
-          <button class="btn btn-primary btn-small">Manage Classes</button>
-      </div>
-  </div>
-`;
+      adminCourseContainer.innerHTML += generateCourseCard(course);
       const sectionContainer =
         adminCourseContainer.lastElementChild.querySelector(".class-list");
       for (const section of course.sections) {
-        sectionContainer.innerHTML += `
-    <div class="class-item">
-        <div class="class-details">
-            <span class="instructor">${section.instructor}</span>
-            <span class="schedule">${section.schedule}</span>
-        </div>
-        <div class="class-enrollment">
-            <span>${section.enrolled}/30</span>
-        </div>
-    </div>`;
+        sectionContainer.innerHTML += generateSectionCard(section);
       }
     }
   }
@@ -109,43 +77,11 @@ function OpenPage() {
   adminCourseContainer.innerHTML = ``;
   for (const course of courses) {
     if (course.registrationOpen === true) {
-      adminCourseContainer.innerHTML += `<div class="admin-course-card">
-      <div class="course-header">
-          <h3>${course.code}</h3>
-          <span class="course-category">${course.category}</span>
-      </div>
-      <div class="course-content">
-          <h4>${course.name}</h4>
-          <p>${course.description}</p>
-
-          <div class="class-info-container">
-              <div class="class-info-header">
-                  <h5>Sections</h5>
-                  <span class="classes-count">${course.sections.length} Section</span>
-              </div>
-              <div class="class-list">
-              </div>
-          </div>
-      </div>
-      <div class="course-footer">
-          <button class="btn btn-secondary btn-small">View Details</button>
-          <button class="btn btn-primary btn-small">Manage Classes</button>
-      </div>
-  </div>
-`;
+      adminCourseContainer.innerHTML += generateOpenCourseCard(course);
       const sectionContainer =
         adminCourseContainer.lastElementChild.querySelector(".class-list");
       for (const section of course.sections) {
-        sectionContainer.innerHTML += `
-    <div class="class-item">
-        <div class="class-details">
-            <span class="instructor">${section.instructor}</span>
-            <span class="schedule">${section.schedule}</span>
-        </div>
-        <div class="class-enrollment">
-            <span>${section.enrolled}/30</span>
-        </div>
-    </div>`;
+        sectionContainer.innerHTML += generateSectionCard(section);
       }
     }
   }
@@ -158,43 +94,11 @@ function AllCourses() {
 
   adminCourseContainer.innerHTML = ``;
   for (const course of courses) {
-    adminCourseContainer.innerHTML += `<div class="admin-course-card">
-      <div class="course-header">
-          <h3>${course.code}</h3>
-          <span class="course-category">${course.category}</span>
-      </div>
-      <div class="course-content">
-          <h4>${course.name}</h4>
-          <p>${course.description}</p>
-
-          <div class="class-info-container">
-              <div class="class-info-header">
-                  <h5>Sections</h5>
-                  <span class="classes-count">${course.sections.length} Section</span>
-              </div>
-              <div class="class-list">
-              </div>
-          </div>
-      </div>
-      <div class="course-footer">
-          <button class="btn btn-secondary btn-small">View Details</button>
-          <button class="btn btn-primary btn-small">Manage Classes</button>
-      </div>
-  </div>
-`;
+    adminCourseContainer.innerHTML += generateCourseCard(course);
     const sectionContainer =
       adminCourseContainer.lastElementChild.querySelector(".class-list");
     for (const section of course.sections) {
-      sectionContainer.innerHTML += `
-    <div class="class-item">
-        <div class="class-details">
-            <span class="instructor">${section.instructor}</span>
-            <span class="schedule">${section.schedule}</span>
-        </div>
-        <div class="class-enrollment">
-            <span>${section.enrolled}/30</span>
-        </div>
-    </div>`;
+      sectionContainer.innerHTML += generateSectionCard(section);
     }
   }
 }
@@ -206,7 +110,7 @@ function courseFilter() {
   const category = courseDD.value;
   const allCourses = JSON.parse(localStorage.courses);
   courseGrid.innerHTML = "";
-  categorizedCourses = allCourses.filter(
+  const categorizedCourses = allCourses.filter(
     (course) => category === course.category
   );
 
@@ -214,30 +118,7 @@ function courseFilter() {
   console.log(filteredCourses);
 
   filteredCourses.forEach((course) => {
-    courseGrid.innerHTML += `
-                    <div class="course-card">
-                    <div class="course-header">
-                        <h3>${course.code}</h3>
-                        <span class="course-category">${course.category}</span>
-                    </div>
-                    <div class="course-content">
-                        <h4>${course.name}</h4>
-                        <p>${course.description}</p>
-                        <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
-                        </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                        </div>
-                        
-                    </div>
-                    <div class="course-footer">
-                        <button onclick='viewDetails(${JSON.stringify(course)})'
-                        class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
-                    </div>
-                </div>`;
+    courseGrid.innerHTML += generateCourseCard(course);
   });
 }
 
@@ -257,29 +138,66 @@ function searchCourses() {
   console.log(filteredCourses);
   courseGrid.innerHTML = "";
   filteredCourses.forEach((course) => {
-    courseGrid.innerHTML += `
-                    <div class="course-card">
-                    <div class="course-header">
-                        <h3>${course.code}</h3>
-                        <span class="course-category">${course.category}</span>
-                    </div>
-                    <div class="course-content">
-                        <h4>${course.name}</h4>
-                        <p>${course.description}</p>
-                        <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
-                        </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                        </div>
-                        
-                    </div>
-                    <div class="course-footer">
-                        <button onclick='viewDetails(${JSON.stringify(course)})'
-                        class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
-                    </div>
-                </div>`;
+    courseGrid.innerHTML += generateCourseCard(course);
   });
+}
+
+function generateCourseCard(course) {
+  return `<div class="admin-course-card">
+      <div class="course-header">
+          <h3>${course.code}</h3>
+          <span class="course-category">${course.category}</span>
+      </div>
+      <div class="course-content">
+          <h4>${course.name}</h4>
+          <p>${course.description}</p>
+
+          <div class="class-info-container">
+              <div class="class-info-header">
+                  <h5>Sections</h5>
+                  <span class="classes-count">${course.sections.length} Section</span>
+              </div>
+              <div class="class-list">
+              </div>
+          </div>
+      </div>
+  </div>`;
+}
+
+function generateOpenCourseCard(course) {
+  return `<div class="admin-course-card">
+      <div class="course-header">
+          <h3>${course.code}</h3>
+          <span class="course-category">${course.category}</span>
+      </div>
+      <div class="course-content">
+          <h4>${course.name}</h4>
+          <p>${course.description}</p>
+
+          <div class="class-info-container">
+              <div class="class-info-header">
+                  <h5>Sections</h5>
+                  <span class="classes-count">${course.sections.length} Section</span>
+              </div>
+              <div class="class-list">
+              </div>
+          </div>
+      </div>
+      <div class="course-footer">
+          <button class="btn btn-primary btn-small">Manage Classes</button>
+      </div>
+  </div>`;
+}
+
+function generateSectionCard(section) {
+  return `
+    <div class="class-item">
+        <div class="class-details">
+            <span class="instructor">${section.instructor}</span>
+            <span class="schedule">${section.schedule}</span>
+        </div>
+        <div class="class-enrollment">
+            <span>${section.enrolled}/30</span>
+        </div>
+    </div>`;
 }
