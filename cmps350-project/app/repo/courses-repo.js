@@ -11,7 +11,7 @@ class coursesRepo{
         return coursesData
     }
     async setCourses(courses){
-        await fs.writeJson(this.filePath, courses)
+        await fs.writeJson(this.dataFilePath, courses)
         return "courses changed successfully"
     }
 }
