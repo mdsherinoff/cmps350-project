@@ -210,7 +210,13 @@ async function handleSubmit(event) {
         }
     });
 
-    //update in the api
+    fetch('http://localhost:3000/api/students', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(students)
+      })
 
     // Update UI to show success
     button.textContent = 'Grades Submitted';
