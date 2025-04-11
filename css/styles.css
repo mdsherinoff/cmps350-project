@@ -162,13 +162,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem 0 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-left {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .small-logo {
