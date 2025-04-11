@@ -152,16 +152,16 @@
     display: grid;
     border-bottom: 1px solid #e9ecef;
     margin-bottom: 1.5rem;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr auto auto;
 }
 
 
 .days-filter {
-    padding: 0.75rem 0.75rem 0.75rem 2rem;
+    padding: 0.75rem 2rem 0.75rem 2rem;
+    margin-right: 0.5rem;
     border: 1px solid #ced4da;
     border-radius: var(--border-radius);
     min-width: 160px;
-    align-self: end;
 }
 
 .view-controls {

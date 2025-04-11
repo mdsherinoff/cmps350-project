@@ -7,7 +7,18 @@ const allButton = document.querySelector("all-days-button");
 const specificButton = document.querySelector("specific-days-button");
 
 allButton.addEventListener("click",start);
-specificButton("click",specifics);
+specificButton.addEventListener("click",specifics);
+
+let courses = "";
+let students = "";
+
+let courseList = "";
+let studentList = "";
+
+let daylist = "";
+
+let currentButton = "";
+
 
 async function fetchData() {
     const coursesJSON = await fetch("../data/courses.json");
@@ -23,7 +34,6 @@ async function fetchData() {
     students = JSON.parse(localStorage.students);
   
     start();
-
   }
 
 
@@ -32,4 +42,19 @@ async function fetchData() {
   function logout() {
     window.location.href = "../index.html";
     localStorage.clear();
+  }
+
+  async function start() {
+    if (currentButton != "") {
+        currentButton.classList.remove("active");
+      }
+      allButton.classList.add("active");
+      currentButton = allButton;
+  }
+
+  function generateScheduleCard(course) {
+    return `<div class="schedule-course-card">
+        <div class="schedule-course-name">
+            <h3>${course.code}</h3>
+            `
   }
