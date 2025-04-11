@@ -1,334 +1,321 @@
 .admin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .admin-title p {
-    color: var(--grey-color);
-    margin-top: 0.3rem;
+  color: var(--grey-color);
+  margin-top: 0.3rem;
 }
 
 .admin-actions {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
-
 
 /* Stats Section */
 .stats-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .stat-card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .stat-card:hover {
-    transform: translateY(-10px);
-    background-color: #cf9c9c;
+  transform: translateY(-10px);
+  color: var(--primary-color);
+  .stat-label {
     color: var(--primary-color);
-    .stat-label {
-        color: var(--primary-color);
-    };
-    .stat-icon {
-        color: #cf9c9c;
-        background-color: var(--primary-color);
-    }
+  }
 }
 
 .course-footer {
-    display: flex;
-    padding: 1rem;
-    border-top: 1px solid #e9ecef;
-    display: flex;
-    justify-content: center;;
-
-  }
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: center;
+}
 
 .stat-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    background-color: rgba(112, 25, 61, 0.1);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  background-color: rgba(112, 25, 61, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stat-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .stat-value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    line-height: 1.2;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .stat-label {
-    color: var(--grey-color);
-    font-size: 0.9rem;
+  color: var(--grey-color);
+  font-size: 0.9rem;
 }
 
 /* Tab Navigation */
 .tab-header {
-    display: flex;
-    border-bottom: 1px solid #e9ecef;
-    margin-bottom: 1.5rem;
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1.5rem;
 }
 
 .tab-btn {
-    padding: 0.75rem 1.5rem;
-    background: none;
-    border: none;
-    font-weight: 500;
-    color: var(--grey-color);
-    cursor: pointer;
-    position: relative;
-    transition: color 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  font-weight: 500;
+  color: var(--grey-color);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 .tab-btn:hover {
-    color: var(--primary-color);
-    background-image: linear-gradient(#f3f2f2, rgb(239, 239, 239));
+  color: var(--primary-color);
+  background-image: linear-gradient(#f3f2f2, rgb(239, 239, 239));
 
-    /* background-color:rgb(238, 236, 236); */
+  /* background-color:rgb(238, 236, 236); */
 }
 
 .tab-btn.active {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-color);
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
 }
 
 .tab-content {
-    display: none;
+  display: none;
 }
 
 .tab-content.active {
-    display: block;
+  display: block;
 }
 
 /* Tab Controls */
 .tab-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .search-filter {
-    display: flex;
-    gap: 0.75rem;
-    flex: 1;
-    min-width: 300px;
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 300px;
 }
 
 .search-input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #ced4da;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
 }
 
 .category-filter {
-    padding: 0.75rem;
-    border: 1px solid #ced4da;
-    border-radius: var(--border-radius);
-    min-width: 160px;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  min-width: 160px;
 }
 
 .schedule-header {
-    display: grid;
-    border-bottom: 1px solid #e9ecef;
-    margin-bottom: 1.5rem;
-    grid-template-columns: 1fr 1fr auto auto;
+  display: grid;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr 1fr auto auto;
 }
 
-
 .days-filter {
-    padding: 0.75rem 2rem 0.75rem 2rem;
-    margin-right: 0.5rem;
-    border: 1px solid #ced4da;
-    border-radius: var(--border-radius);
-    min-width: 160px;
+  padding: 0.75rem 2rem 0.75rem 2rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  min-width: 160px;
 }
 
 .view-controls {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .view-btn {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: var(--border-radius);
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  cursor: pointer;
 }
 
 .view-btn.active {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
 }
 
 /* Admin Course Card */
 .admin-course-card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    position: relative;
-    transition: transform 0.3s ease;
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
 .admin-course-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .course-status-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 0.3rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 1;
 }
 
 .course-status-badge.in-progress {
-    background-color: var(--warning-color);
-    color: var(--dark-color);
+  background-color: var(--warning-color);
+  color: var(--dark-color);
 }
 
 .course-status-badge.open-registration {
-    background-color: var(--accent-color);
-    color: white;
+  background-color: var(--accent-color);
+  color: white;
 }
 
 .course-status-badge.inactive {
-    background-color: var(--grey-color);
-    color: white;
+  background-color: var(--grey-color);
+  color: white;
 }
 
 .class-info-container {
-    margin-top: 1rem;
-    background-color: #f8f9fa;
-    border-radius: var(--border-radius);
-    padding: 0.75rem;
+  margin-top: 1rem;
+  background-color: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
 }
 
 .class-info-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.5rem;
 }
 
 .class-info-header h5 {
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--dark-color);
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--dark-color);
 }
 
 .classes-count {
-    font-size: 0.85rem;
-    color: var(--grey-color);
+  font-size: 0.85rem;
+  color: var(--grey-color);
 }
 
 .class-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .class-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
 }
 
 .class-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .instructor {
-    font-weight: 500;
-    font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .schedule {
-    font-size: 0.8rem;
-    color: var(--grey-color);
+  font-size: 0.8rem;
+  color: var(--grey-color);
 }
 
 .class-enrollment {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.3rem;
-    font-size: 0.85rem;
-    min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  min-width: 80px;
 }
 
 .enrollment-bar {
-    width: 80px;
-    height: 6px;
-    background-color: #e9ecef;
-    border-radius: 3px;
-    overflow: hidden;
+  width: 80px;
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .enrollment-progress {
-    height: 100%;
-    background-color: var(--primary-color);
+  height: 100%;
+  background-color: var(--primary-color);
 }
 
 /* Small buttons */
 .btn-small {
-    padding: 0.3rem 0.75rem;
-    font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
 }
-
-.validate-button{
-    
-}
-
