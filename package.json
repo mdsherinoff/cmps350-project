@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mdsherinoff/cmps350-project/issues"
   },
-  "homepage": "https://github.com/mdsherinoff/cmps350-project#readme"
+  "homepage": "https://github.com/mdsherinoff/cmps350-project#readme",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

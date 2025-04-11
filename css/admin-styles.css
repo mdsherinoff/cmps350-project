@@ -172,28 +172,6 @@
   min-width: 160px;
 }
 
-.view-controls {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.view-btn {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: 1px solid #ced4da;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-}
-
-.view-btn.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
 
 /* Admin Course Card */
 .admin-course-card {
