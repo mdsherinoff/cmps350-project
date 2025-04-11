@@ -36,6 +36,19 @@
     align-items: center;
 }
 
+.stat-card:hover {
+    transform: translateY(-10px);
+    background-color: #cf9c9c;
+    color: var(--primary-color);
+    .stat-label {
+        color: var(--primary-color);
+    };
+    .stat-icon {
+        color: #cf9c9c;
+        background-color: var(--primary-color);
+    }
+}
+
 .course-footer {
     display: flex;
     padding: 1rem;
