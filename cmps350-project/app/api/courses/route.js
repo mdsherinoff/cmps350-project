@@ -1,11 +1,12 @@
-import coursesRepo from "@/app/repo/courses-repo.js";
-export async function GET(request) {//GET all the courses
-    // const message = {message: `This is the API endpoint for GET @ http://localhost:3000/api/courses`}
-    const response = await coursesRepo.getCourses();
-    return Response.json(response)
+import coursesRepo from "../../repo/courses-repo"; // Relative path to the repo file
+
+export async function GET(request) {
+  const response = await coursesRepo.getCourses();
+  return new Response(JSON.stringify(response), { status: 200 });
 }
-export async function POST(request) {//SET courses in case of add
-    const courses = await request.json()
-    const newCourses = await coursesRepo.setCourses(courses);
-    return Response.json(newCourses)
+
+export async function POST(request) {
+  const courses = await request.json();
+  const newCourses = await coursesRepo.setCourses(courses);
+  return new Response(JSON.stringify(newCourses), { status: 201 });
 }
