@@ -1,4 +1,4 @@
-import studentsRepo from '@/app/repo/students-repo';
+import studentsRepo from "../../repo/students-repo";
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {//GET all the students

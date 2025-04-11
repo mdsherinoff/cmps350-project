@@ -1,4 +1,4 @@
-import instructorsRepo from '@/app/repo/instructors-repo';
+import instructorsRepo from "../../repo/instructors-repo";
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {//GET all the instructors
