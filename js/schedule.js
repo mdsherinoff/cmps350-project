@@ -20,12 +20,14 @@ allButton.addEventListener("click", start);
 specificButton.addEventListener("click", specifics);
 
 async function fetchData() {
-  const coursesJSON = await fetch("../data/courses.json");
-  // const courses = await fetch("http://localhost:3000/api/courses");
+  // const coursesJSON = await fetch("../data/courses.json");
+  const courses = await fetch("http://localhost:3000/api/courses");
+
   courseList = await coursesJSON.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const studentsJSON = await fetch("../data/students.json");
+  const studentsJSON = await fetch("http://localhost:3000/api/students");
+  // const studentsJSON = await fetch("../data/students.json");
   studentList = await studentsJSON.json();
   localStorage.students = JSON.stringify(studentList);
 

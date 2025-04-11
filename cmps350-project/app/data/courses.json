@@ -7,7 +7,7 @@
     "category": "Programming",
     "prerequisites": [],
     "description": "Learn to write code that works 60% of the time, every time! Covers basic programming concepts, data structures, and problem-solving with Python.",
-    "registrationOpen": true,
+    "registrationOpen": false,
     "sections": [
       {
         "crn": "10001",

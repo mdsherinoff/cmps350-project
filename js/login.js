@@ -1,11 +1,11 @@
 async function userInput() {
-  const users = await fetch("../data/users.json");
+  const users = await fetch("http://localhost:3000/api/users");
   const userData = await users.json();
 
-  const students = await fetch("../data/students.json");
+  const students = await fetch("http://localhost:3000/api/students");
   const studentsData = await students.json();
 
-  const instructors = await fetch("../data/instructors.json");
+  const instructors = await fetch("http://localhost:3000/api/instructors");
   const instructorsData = await instructors.json();
 
   const loginForm = document.querySelector("#loginForm");

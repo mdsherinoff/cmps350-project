@@ -24,12 +24,12 @@ let currentButton = "";
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  const coursesJSON = await fetch("../data/courses.json");
-  // const courses = await fetch("http://localhost:3000/api/courses");
+  // const coursesJSON = await fetch("../data/courses.json");
+  const coursesJSON = await fetch("http://localhost:3000/api/courses");
   courseList = await coursesJSON.json();
-  localStorage.courses = JSON.stringify(courseList);
+  localStorage.courses = JSON.stringify(courseList);  
 
-  const studentsJSON = await fetch("../data/students.json");
+  const studentsJSON = await fetch("http://localhost:3000/api/students");
   studentList = await studentsJSON.json();
   localStorage.students = JSON.stringify(studentList);
 
@@ -43,6 +43,8 @@ async function start() {
   if (currentButton != "") {
     currentButton.classList.remove("active");
   }
+  console.log("Here1");
+  
   progressButton.classList.add("active");
   currentButton = progressButton;
 
@@ -52,6 +54,7 @@ async function start() {
   const totalSections = document.querySelector("#total-classes");
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  console.log("Here2");
 
   adminName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
@@ -62,7 +65,8 @@ async function start() {
   }, 0);
 
   adminCourseContainer.innerHTML = ``;
-
+  console.log(courses);
+  
   for (const course of courses) {
     if (course.registrationOpen === false) {
       adminCourseContainer.innerHTML += generateCourseCard(course);
@@ -73,6 +77,8 @@ async function start() {
       }
     }
   }
+  console.log("Here3");
+
 }
 
 function logout() {

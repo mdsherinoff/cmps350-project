@@ -11,7 +11,7 @@ async function loadData() {
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const studentsResponse = await fetch("../data/students.json");
+  const studentsResponse = await fetch("http://localhost:3000/api/instructors");
   const students = await studentsResponse.json();
   localStorage.students = JSON.stringify(students);
 
