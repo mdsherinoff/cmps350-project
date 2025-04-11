@@ -148,6 +148,22 @@
     min-width: 160px;
 }
 
+.schedule-header {
+    display: grid;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 1.5rem;
+    grid-template-columns: 1fr 1fr auto;
+}
+
+
+.days-filter {
+    padding: 0.75rem 0.75rem 0.75rem 2rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    min-width: 160px;
+    align-self: end;
+}
+
 .view-controls {
     display: flex;
     gap: 0.5rem;

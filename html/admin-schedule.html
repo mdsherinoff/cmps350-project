@@ -41,14 +41,28 @@
                     <h2>Courses Schedule</h2>
                     <p>View and supervise course listings aligned to match the schedule of the admin.</p>
                 </div>
-                <div class="admin-actions">
-                    <button class="btn btn-primary" id="createCourseBtn">
-                        <i class="fas fa-plus"></i> Create New Course
-                    </button>
-                    <button class="btn btn-secondary" id="createClassBtn">
-                        <i class="fas fa-plus"></i> Create New Class
-                    </button>
+            </section>
+        
+            <section class="schedules-section">
+                <div class="schedule-header">
+                    <button class="tab-btn active" data-tab="sunday" id="sunday">All days</button>
+                    <button class="tab-btn" data-tab="days" id="days">Specific Days</button>
+                    
+                    
+                    <select class="days-filter">
+                        <option value="all">All Days</option>
+                        <option value="sunday">Sunday</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                    </select>
                 </div>
+
+                <div class=""></div>    
+
             </section>
 
         </main>
