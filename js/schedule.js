@@ -1,3 +1,14 @@
+let courses = "";
+let students = "";
+
+let courseList = "";
+let studentList = "";
+
+let daylist = "";
+
+let currentButton = "";
+
+
 document.addEventListener("DOMContentLoaded", fetchData);
 
 const scheduleGrid = document.querySelector("schedule-grid");
@@ -9,15 +20,6 @@ const specificButton = document.querySelector("specific-days-button");
 allButton.addEventListener("click",start);
 specificButton.addEventListener("click",specifics);
 
-let courses = "";
-let students = "";
-
-let courseList = "";
-let studentList = "";
-
-let daylist = "";
-
-let currentButton = "";
 
 
 async function fetchData() {
@@ -37,19 +39,31 @@ async function fetchData() {
   }
 
 
-  logoutButton.addEventListener("click", logout);
+logoutButton.addEventListener("click", logout);
 
-  function logout() {
+function logout() {
     window.location.href = "../index.html";
     localStorage.clear();
   }
 
-  async function start() {
+async function start() {
     if (currentButton != "") {
         currentButton.classList.remove("active");
-      }
-      allButton.classList.add("active");
-      currentButton = allButton;
+    }
+    allButton.classList.add("active");
+    currentButton = allButton;
+
+    const adminName = document.querySelector(".header-username");
+
+    const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+    console.log(`${currUserName.username}`)
+    adminName.innerHTML = `<div class="user-info">
+                <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
+
+    for (const course of courses) {
+        
+    }
+
   }
 
   function generateScheduleCard(course) {
