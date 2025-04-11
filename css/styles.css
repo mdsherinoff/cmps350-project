@@ -374,30 +374,6 @@ body {
   justify-content: space-between;
 }
 
-.btn-page {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ced4da;
-  background-color: white;
-  border-radius: var(--border-radius);
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-page:hover {
-  background-color: #f8f9fa;
-}
-
-.btn-page.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
 /* Footer */
 .main-footer {
   background-color: var(--dark-color);
