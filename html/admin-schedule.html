@@ -43,10 +43,10 @@
                 </div>
             </section>
         
-            <section class="schedules-section">
+            <section class="schedule-section">
                 <div class="schedule-header">
-                    <button class="tab-btn active" data-tab="sunday" id="sunday">All days</button>
-                    <button class="tab-btn" data-tab="days" id="days">Specific Days</button>
+                    <button class="tab-btn active" data-tab="all-days" id="all-days-button">All days</button>
+                    <button class="tab-btn" data-tab="specific-days" id="specific-days-button">Specific Days</button>
                     
                     
                     <select class="days-filter">
@@ -61,7 +61,9 @@
                     </select>
                 </div>
 
-                <div class=""></div>    
+                <div class="schedule-grid" id="schedule-grid">
+                    <!-- Schedule for the day(s) will be dynamically loaded here -->
+                </div>    
 
             </section>
 
