@@ -93,6 +93,9 @@
 
 .tab-btn:hover {
     color: var(--primary-color);
+    background-image: linear-gradient(#f3f2f2, rgb(239, 239, 239));
+
+    /* background-color:rgb(238, 236, 236); */
 }
 
 .tab-btn.active {
