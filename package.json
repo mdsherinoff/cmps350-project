@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mdsherinoff/cmps350-project#readme",
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "next": "^15.3.0"
   }
 }
