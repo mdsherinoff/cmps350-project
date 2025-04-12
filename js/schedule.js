@@ -74,7 +74,7 @@ async function start() {
                 <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
 
 
-  // scheduleGrid.innerHTML += `<h4 style="color: red">Please note there's no class on Saturday and Sunday !!!</h5>`;
+  scheduleGrid.innerHTML += `<h4 style="color: red">Please note there's no class on Saturday and Sunday !!!</h5>`;
   scheduleGrid.innerHTML += `<h3>Monday</h3>`;
   
   for (const course of courses) {
@@ -134,7 +134,7 @@ function specifics() {
   currentButton = specificButton;
 
   scheduleGrid.innerHTML = ``;
-  daysDD.selectedIndex = 2;
+  daysDD.selectedIndex = 1;
   
   for (const course of courses) {
     for (const section of course.sections) {
@@ -152,8 +152,8 @@ courseDD.addEventListener("change", dayscourseFilter);
 function dayscourseFilter() {
 
   scheduleGrid.innerHTML = ``;
-  
-  if (daysDD.selectedIndex == 0 && courseDD.selectedIndex == 0) {
+
+  if (daysDD.selectedIndex == 0) {
     currentButton.classList.remove("active");
     allButton.classList.add("active");
     currentButton = allButton;

@@ -165,8 +165,9 @@
 }
 
 .days-filter {
-  padding: 0.75rem 2rem 0.75rem 2rem;
+  padding: 0.75rem 0rem 0.75rem 2rem;
   margin-right: 0.5rem;
+  margin-left: 1rem;
   border: 1px solid #ced4da;
   border-radius: var(--border-radius);
   min-width: 160px;
