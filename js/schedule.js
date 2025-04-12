@@ -8,6 +8,10 @@ const logoutButton = document.querySelector(".btn-logout");
 const allButton = document.querySelector("#all-days-button");
 const specificButton = document.querySelector("#specific-days-button");
 
+
+const daysDD = document.querySelector(".days-filter");
+
+
 allButton.addEventListener("click", start);
 specificButton.addEventListener("click", specifics);
 
@@ -52,6 +56,8 @@ async function start() {
   }
   allButton.classList.add("active");
   currentButton = allButton;
+
+  daysDD.selectedIndex = 0;
 
   const adminName = document.querySelector(".header-username");
 
@@ -113,15 +119,39 @@ async function start() {
     } 
  
   
-  }
+}
+
+function specifics() {
+  currentButton.classList.remove("active");
+  specificButton.classList.add("active");
+  currentButton = specificButton;
+
+  scheduleGrid.innerHTML = ``;
+  daysDD.selectedIndex = 2;
+  
+  for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("mon")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    } 
+    }
+
+}
+
+const courseDD = document.querySelector(".category-filter");
+courseDD.addEventListener("change", dayscourseFilter);
+
+function dayscourseFilter() {
+  const category = courseDD.value;
+  const allCourses = JSON.parse(localStorage.courses);
+  
+}
+
 
 function generateScheduleCard(course) {
   return `<div class="schedule-course-card">
         <div class="schedule-course-name">
             <h3>${course.code}</h3>
             `;
-}
-
-function specifics() {
-
 }
