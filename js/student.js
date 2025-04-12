@@ -268,12 +268,16 @@ function registerSection(course, section) {
 function register(course, section) {
   const studentInfo = JSON.parse(localStorage.currUserInfo);
   const studentCourses = studentInfo.courses;
+  const courses = JSON.parse(localStorage.getItem("courses"));
+
 
   const completedCourse = studentCourses
     .filter((course) => course.status === "completed")
     .map((course) => course.courseId);
 
   const studentAttemptCourses = studentCourses.map((course) => course.courseId);
+  console.log(studentAttemptCourses);
+  
 
   if (studentAttemptCourses.includes(course.id)) {
     alert("This course is already present in your courses");
@@ -300,15 +304,24 @@ function register(course, section) {
     
 for (const student of students) {
   if (student.id === currentId) {
+    console.log(student.courses);
+
     student.courses.push({
-      courseId: course.id,
+      courseId: `${course.id}`,
       code: course.code,
       grade: null,
       status: "current",
       semester: "Fall 2024"
-    });
+    })
+    
+    localStorage.setItem('currUserInfo',JSON.stringify(student))
+    console.log(JSON.parse(localStorage.currUserInfo));
+    
   }
 }
+console.log(courses);
+
+
 
 console.log(students);
 
@@ -322,7 +335,6 @@ console.log(students);
     });
     alert("Course has been registered");
   }
-  //Have to push into courses.json (Increase of student) and students.json (Increase of course)
 }
 
 function logout() {
