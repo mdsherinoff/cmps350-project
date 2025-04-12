@@ -14,7 +14,6 @@ class coursesRepo {
     const coursesData = await fs.writeJson(this.dataFilePath, courses);
     return "courses changed successfully";
   }
-
   async addCourse(course) {
     const courses = await this.getCourses();
     courses.push(course);
