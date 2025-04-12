@@ -1,12 +1,4 @@
-let courses = "";
-let students = "";
 
-let courseList = "";
-let studentList = "";
-
-let daylist = "";
-
-let currentButton = "";
 
 document.addEventListener("DOMContentLoaded", fetchData);
 
@@ -19,9 +11,19 @@ const specificButton = document.querySelector("#specific-days-button");
 allButton.addEventListener("click", start);
 specificButton.addEventListener("click", specifics);
 
+let courses = "";
+let students = "";
+
+let courseList = "";
+let studentList = "";
+
+let daylist = "";
+
+let currentButton = "";
+
 async function fetchData() {
   // const coursesJSON = await fetch("../data/courses.json");
-  const courses = await fetch("http://localhost:3000/api/courses");
+  const coursesJSON = await fetch("http://localhost:3000/api/courses");
 
   courseList = await coursesJSON.json();
   localStorage.courses = JSON.stringify(courseList);
@@ -58,13 +60,68 @@ async function start() {
   adminName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
 
+
+  // scheduleGrid.innerHTML += `<h4 style="color: red">Please note there's no class on Saturday and Sunday !!!</h5>`;
+  scheduleGrid.innerHTML += `<h3>Monday</h3>`;
+  
   for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("mon")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    }
+    }
+
+  scheduleGrid.innerHTML += `<h3>Tuesday</h3>`;
+  
+  for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("tue")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    }
+    }
+  
+  scheduleGrid.innerHTML += `<h3>Wednesday</h3>`;
+  
+  for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("wed")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    }
+    }
+  
+  scheduleGrid.innerHTML += `<h3>Thursday</h3>`;
+  
+  for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("thu")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    }
+    }
+    
+  scheduleGrid.innerHTML += `<h3>Friday</h3>`;
+  
+  for (const course of courses) {
+    for (const section of course.sections) {
+      if (section.schedule.toLowerCase().includes("fri")){
+        scheduleGrid.innerHTML += generateScheduleCard(course);
+      }
+    }
+    } 
+ 
+  
   }
-}
 
 function generateScheduleCard(course) {
   return `<div class="schedule-course-card">
         <div class="schedule-course-name">
             <h3>${course.code}</h3>
             `;
+}
+
+function specifics() {
+
 }
