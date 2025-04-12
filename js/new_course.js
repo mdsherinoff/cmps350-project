@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const addPrerequisiteBtn = document.querySelector("#addPrerequisite");
   const prerequisitesContainer = document.querySelector("#prerequisites");
   const cancelBtn = document.querySelector(".btn-cancel");
-  const instructorDD = document.querySelector("sections0.instructor");
-
-  instructorDD.addEventListener("click", async function () {
-    // const instructors = await fetch("http://localhost:3000/api/instructors");
-    // const instructorsData = await instructors.json();
-    console.log("bye bye");
-  });
 
   let sectionCounter = 1;
 
@@ -129,6 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(courseData);
 
     alert("Course created successfully!\n");
+    fetch(`http://localhost:3000/api/courses`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(courseData),
+    });
     // location.reload();
   });
 

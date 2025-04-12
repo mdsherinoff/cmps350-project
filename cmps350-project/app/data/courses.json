@@ -312,7 +312,7 @@
     "credits": 3,
     "category": "Systems",
     "prerequisites": ["04202", "03205"],
-    "description": "Learn what the cloud is beyond someone else's computer. Virtualization, containerization, and microservices architecture.",
+    "description": "Learn what the cloud is beyond someone elses computer. Virtualization, containerization, and microservices architecture.",
     "registrationOpen": true,
     "sections": [
       {
@@ -434,7 +434,7 @@
   {
     "id": "06404",
     "code": "CS 404",
-    "name": "Capstone Project: 'Error: Project Not Found'",
+    "name": "Capstone Project: Error: Project Not Found",
     "credits": 3,
     "category": "Software Engineering",
     "prerequisites": ["06301", "04302"],
