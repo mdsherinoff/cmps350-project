@@ -23,10 +23,11 @@ export async function GET(request) {
 
 export async function POST(request) {
   const courses = await request.json();
-  const newCourses = await coursesRepo.setCourses(courses);
-  return new Response(newCourses, {
+  const newCourses = await coursesRepo.addCourse(courses);
+  return new Response(JSON.stringify(newCourses), {
     status: 200,
     headers: {
+      "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     },
   });

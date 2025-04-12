@@ -128,8 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(courseData),
-    }).then((res) => res.json());
-    // .then(result => console.log(result.data))
+    })
     // location.reload();
   });
 
