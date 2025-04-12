@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     alert("Course created successfully!\n");
     fetch("http://localhost:3000/api/courses", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
