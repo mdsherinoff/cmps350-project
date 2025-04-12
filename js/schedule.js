@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", fetchData);
 const scheduleGrid = document.querySelector("schedule-grid");
 const logoutButton = document.querySelector(".btn-logout");
 
-const allButton = document.querySelector("all-days-button");
-const specificButton = document.querySelector("specific-days-button");
+const allButton = document.querySelector("#all-days-button");
+const specificButton = document.querySelector("#specific-days-button");
 
 allButton.addEventListener("click", start);
 specificButton.addEventListener("click", specifics);
