@@ -203,19 +203,18 @@ function searchCourses() {
   const searchingCourse = searchBox.value.trim().toLowerCase();
   console.log(searchingCourse);
 
-  if (currentButton == openButton) {
-    const filteredCourses = allCourses.filter(
-      (course) => course.registrationOpen === true
-    );
+  let filteredCourses = [];
 
-    const filteredCourseList = filteredCourses.filter(
+  if (currentButton == openButton) {
+    filteredCourses = allCourses.filter(
       (course) =>
-        course.name.toLowerCase().includes(searchingCourse) ||
-        course.code.toLowerCase().includes(searchingCourse)
+        course.registrationOpen === true &&
+        (course.name.toLowerCase().includes(searchingCourse) ||
+          course.code.toLowerCase().includes(searchingCourse))
     );
 
     courseGrid.innerHTML = "";
-    filteredCourseList.forEach((course) => {
+    filteredCourses.forEach((course) => {
       courseGrid.innerHTML += generateOpenCourseCard(course);
 
       const sectionContainer =
@@ -225,41 +224,33 @@ function searchCourses() {
         sectionContainer.innerHTML += generateSectionCard(section);
       }
     });
-  }
-  if (currentButton == allCourses) {
-    const filteredCourses = allCourses.filter(
+  } else if (currentButton == allCourseButton) {
+    filteredCourses = allCourses.filter(
       (course) =>
         course.name.toLowerCase().includes(searchingCourse) ||
         course.code.toLowerCase().includes(searchingCourse)
     );
-    console.log(filteredCourses);
+
     courseGrid.innerHTML = "";
     filteredCourses.forEach((course) => {
-      courseGrid.innerHTML = "";
-      filteredCourseList.forEach((course) => {
-        courseGrid.innerHTML += generateOpenCourseCard(course);
+      courseGrid.innerHTML += generateCourseCard(course);
 
-        const sectionContainer =
-          courseGrid.lastElementChild.querySelector(".class-list");
+      const sectionContainer =
+        courseGrid.lastElementChild.querySelector(".class-list");
 
-        for (const section of course.sections) {
-          sectionContainer.innerHTML += generateSectionCard(section);
-        }
-      });
+      for (const section of course.sections) {
+        sectionContainer.innerHTML += generateSectionCard(section);
+      }
     });
   } else {
-    const filteredCourses = allCourses.filter(
-      (course) => course.registrationOpen === false
-    );
-
-    const filteredCourseList = filteredCourses.filter(
+    filteredCourses = allCourses.filter(
       (course) =>
-        course.name.toLowerCase().includes(searchingCourse) ||
-        course.code.toLowerCase().includes(searchingCourse)
+        course.registrationOpen === false &&
+        (course.name.toLowerCase().includes(searchingCourse) ||
+          course.code.toLowerCase().includes(searchingCourse))
     );
-
     courseGrid.innerHTML = "";
-    filteredCourseList.forEach((course) => {
+    filteredCourses.forEach((course) => {
       courseGrid.innerHTML += generateOpenCourseCard(course);
 
       const sectionContainer =
