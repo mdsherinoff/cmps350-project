@@ -1,221 +1,53 @@
 [
   {
     "id": "2001",
-    "name": "Khalil",
+    "name": "DrSmith",
     "department": "Computer Science",
     "sections": [
       {
-        "courseId": "01101",
+        "courseId": "c001",
         "crn": "10001",
         "semester": "Spring 2024"
       },
       {
-        "courseId": "01201",
-        "crn": "10011",
+        "courseId": "c002",
+        "crn": "10005",
         "semester": "Spring 2024"
       }
     ]
   },
   {
     "id": "2002",
-    "name": "Mohammed",
+    "name": "ProfJohnson",
     "department": "Computer Science",
     "sections": [
       {
-        "courseId": "01101",
+        "courseId": "c003",
         "crn": "10002",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "01203",
-        "crn": "10014",
         "semester": "Spring 2024"
       }
     ]
   },
   {
     "id": "2003",
-    "name": "Fatima",
+    "name": "DrLee",
     "department": "Computer Science",
     "sections": [
       {
-        "courseId": "01101",
+        "courseId": "c004",
         "crn": "10003",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "04105",
-        "crn": "10010",
         "semester": "Spring 2024"
       }
     ]
   },
   {
     "id": "2004",
-    "name": "Ahmed",
+    "name": "ProfWilson",
     "department": "Computer Science",
     "sections": [
       {
-        "courseId": "02102",
+        "courseId": "c005",
         "crn": "10004",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "05204",
-        "crn": "10015",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2005",
-    "name": "Noor",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "02102",
-        "crn": "10005",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "05304",
-        "crn": "10020",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2006",
-    "name": "Yousef",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "03103",
-        "crn": "10006",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "03205",
-        "crn": "10016",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2007",
-    "name": "Mariam",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "03103",
-        "crn": "10007",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "03305",
-        "crn": "10021",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "03401",
-        "crn": "10022",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2008",
-    "name": "Ali",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "04104",
-        "crn": "10008",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "04302",
-        "crn": "10018",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2009",
-    "name": "Layla",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "04104",
-        "crn": "10009",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "04202",
-        "crn": "10013",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2010",
-    "name": "Aisha",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "01201",
-        "crn": "10012",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "05403",
-        "crn": "10024",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2011",
-    "name": "Rashid",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "06301",
-        "crn": "10017",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "06402",
-        "crn": "10023",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2012",
-    "name": "Tariq",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "03303",
-        "crn": "10019",
-        "semester": "Spring 2024"
-      },
-      {
-        "courseId": "06404",
-        "crn": "10025",
-        "semester": "Spring 2024"
-      }
-    ]
-  },
-  {
-    "id": "2013",
-    "name": "Leila",
-    "department": "Computer Science",
-    "sections": [
-      {
-        "courseId": "05405",
-        "crn": "10026",
         "semester": "Spring 2024"
       }
     ]
