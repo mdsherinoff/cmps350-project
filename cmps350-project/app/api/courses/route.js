@@ -21,13 +21,24 @@ export async function GET(request) {
   });
 }
 
-export async function POST(request) {
+export async function PUT(request) {
   const courses = await request.json();
   const newCourses = await coursesRepo.addCourse(courses);
   return new Response(JSON.stringify(newCourses), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
+}
+
+export async function ASSIGN(request) {
+  const students = await request.json();
+  const newCourses = await coursesRepo.setCourses(courses);
+  return new Response(newCourses, {
+    status: 200,
+    headers: {
       "Access-Control-Allow-Origin": "*",
     },
   });
