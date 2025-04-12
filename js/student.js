@@ -313,14 +313,14 @@ for (const student of students) {
       status: "current",
       semester: "Fall 2024"
     })
-    
+
 for(const courseinFile of courses){
   if (courseinFile.id == course.id){
     for(const sectionInFile of courseinFile.sections){
       if (sectionInFile.crn == section.crn){
           sectionInFile.enrolled +=1;
           fetch("http://localhost:3000/api/courses", {
-            method: "POST",
+            method: "ASSIGN",
             headers: {
               "Content-Type": "application/json",
             },

@@ -21,7 +21,7 @@ export async function GET(request) {
   });
 }
 
-export async function PUT(request) {
+export async function POST(request) {
   const courses = await request.json();
   const newCourses = await coursesRepo.addCourse(courses);
   return new Response(JSON.stringify(newCourses), {
@@ -37,9 +37,10 @@ export async function ASSIGN(request) {
   const students = await request.json();
   const newCourses = await coursesRepo.setCourses(courses);
   return new Response(newCourses, {
-    status: 200,
+    status: 205,
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
   });
 }
+
