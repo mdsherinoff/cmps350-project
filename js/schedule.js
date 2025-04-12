@@ -10,7 +10,7 @@ let currentButton = "";
 
 document.addEventListener("DOMContentLoaded", fetchData);
 
-const scheduleGrid = document.querySelector("schedule-grid");
+const scheduleGrid = document.querySelector(".schedule-grid");
 const logoutButton = document.querySelector(".btn-logout");
 
 const allButton = document.querySelector("#all-days-button");
