@@ -10,9 +10,10 @@ logoutButton.addEventListener("click", logout);
 async function fetchData() {
   // const courses = await fetch("../data/courses.json");
   const courses = await fetch("http://localhost:3000/api/courses");
+
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
-
+  
   // const students = await fetch("../data/students.json");
   const students = await fetch("http://localhost:3000/api/students");
   let studentList = await students.json();
@@ -123,7 +124,6 @@ function searchCourses() {
   );
   console.log(filteredCourses);
   courseGrid.innerHTML = "";
-
   filteredCourses.forEach((course) => {
     courseGrid.innerHTML += `
                     <div class="course-card">
@@ -223,8 +223,9 @@ function registerSection(course, section) {
   courseGrid.style.display = "flex";
   console.log(section);
 
-  const students = JSON.parse(localStorage.getItem("students"));
+  const students = JSON.parse(localStorage.getItem('students'))
   console.log(students);
+  
 
   courseGrid.style.flexDirection = "column";
 
@@ -269,12 +270,14 @@ function register(course, section) {
   const studentCourses = studentInfo.courses;
   const courses = JSON.parse(localStorage.getItem("courses"));
 
+
   const completedCourse = studentCourses
     .filter((course) => course.status === "completed")
     .map((course) => course.courseId);
 
   const studentAttemptCourses = studentCourses.map((course) => course.courseId);
   console.log(studentAttemptCourses);
+  
 
   if (studentAttemptCourses.includes(course.id)) {
     alert("This course is already present in your courses");
@@ -290,32 +293,58 @@ function register(course, section) {
     return;
   }
   if (section.enrolled == section.capacity) {
+
     alert("Unable to register, section is full");
     return;
   } else {
-    const students = JSON.parse(localStorage.getItem("students"));
-    const currentId = JSON.parse(localStorage.getItem("userId"));
+
+    const students = JSON.parse(localStorage.getItem('students'));
+    const currentId = JSON.parse(localStorage.getItem('userId'))
     console.log(currentId);
+    
+for (const student of students) {
+  if (student.id === currentId) {
+    console.log(student.courses);
 
-    for (const student of students) {
-      if (student.id === currentId) {
-        console.log(student.courses);
+    student.courses.push({
+      courseId: `${course.id}`,
+      code: course.code,
+      grade: null,
+      status: "current",
+      semester: "Fall 2024"
+    })
 
-        student.courses.push({
-          courseId: `${course.id}`,
-          code: course.code,
-          grade: null,
-          status: "current",
-          semester: "Fall 2024",
-        });
-
-        localStorage.setItem("currUserInfo", JSON.stringify(student));
-        console.log(JSON.parse(localStorage.currUserInfo));
-      }
+for(const courseinFile of courses){
+  if (courseinFile.id == course.id){
+    for(const sectionInFile of courseinFile.sections){
+      if (sectionInFile.crn == section.crn){
+          sectionInFile.enrolled +=1;
+          fetch("http://localhost:3000/api/courses", {
+            method: "ASSIGN",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(courses),
+          }
+        );
+        break;
+     }
     }
-    console.log(courses);
+  }
+}
 
-    console.log(students);
+
+    localStorage.setItem('currUserInfo',JSON.stringify(student))
+    console.log(JSON.parse(localStorage.currUserInfo));
+    
+  }
+}
+console.log(courses);
+
+
+
+console.log(students);
+
 
     fetch("http://localhost:3000/api/students", {
       method: "POST",

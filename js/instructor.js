@@ -11,7 +11,7 @@ async function loadData() {
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const studentsResponse = await fetch("http://localhost:3000/api/instructors");
+  const studentsResponse = await fetch("http://localhost:3000/api/students");
   const students = await studentsResponse.json();
   localStorage.students = JSON.stringify(students);
 
@@ -210,7 +210,7 @@ async function handleSubmit(event) {
   const response = await fetch("../data/students.json");
   const students = await response.json();
 
-  students.forEach((student) => {
+  const newStudentsList = students.forEach((student) => {
     const studentGrade = grades.find((g) => g.studentId === student.id);
     if (studentGrade) {
       const courseIndex = student.courses.findIndex((c) => c.crn === crn);
@@ -225,7 +225,7 @@ async function handleSubmit(event) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(students),
+    body: JSON.stringify(newStudentsList),
   });
 
   // Update UI to show success
