@@ -10,6 +10,7 @@ const specificButton = document.querySelector("#specific-days-button");
 
 
 const daysDD = document.querySelector(".days-filter");
+daysDD.addEventListener("click",dayscourseFilter);
 
 
 allButton.addEventListener("click", start);
@@ -30,6 +31,10 @@ async function fetchData() {
   const coursesJSON = await fetch("http://localhost:3000/api/courses");
 
   courseList = await coursesJSON.json();
+  courseList = courseList.filter(
+    (course) => course.registrationOpen === false
+  );
+
   localStorage.courses = JSON.stringify(courseList);
 
   const studentsJSON = await fetch("http://localhost:3000/api/students");
@@ -56,6 +61,8 @@ async function start() {
   }
   allButton.classList.add("active");
   currentButton = allButton;
+
+  scheduleGrid.innerHTML = ``;
 
   daysDD.selectedIndex = 0;
 
@@ -143,11 +150,48 @@ const courseDD = document.querySelector(".category-filter");
 courseDD.addEventListener("change", dayscourseFilter);
 
 function dayscourseFilter() {
+
+  scheduleGrid.innerHTML = ``;
+  
+  if (daysDD.selectedIndex == 0 && courseDD.selectedIndex == 0) {
+    currentButton.classList.remove("active");
+    allButton.classList.add("active");
+    currentButton = allButton;
+  }
+  else {
+    currentButton.classList.remove("active");
+    specificButton.classList.add("active");
+    currentButton = specificButton;
+  };
+
   const category = courseDD.value;
+  const day = daysDD.value;
+
   const allCourses = JSON.parse(localStorage.courses);
   
-}
+  const progressCourse = allCourses.filter( (course) => course.registrationOpen === false);
 
+  const categorizedCourses = progressCourse.filter( (course) => category === course.category);
+
+  const filteredCourses = category === 'all' ? progressCourse : categorizedCourses;
+
+  scheduleGrid.innerHTML = ``;
+  for (course of filteredCourses) {
+
+    if (day == "all" && category == 'all') {
+      start();
+    }
+    else {
+      for (const section of course.sections) {
+        if (section.schedule.toLowerCase().includes(day)){
+          scheduleGrid.innerHTML += generateScheduleCard(course);
+        }
+      } 
+
+    }
+    
+  }
+}
 
 function generateScheduleCard(course) {
   return `<div class="schedule-course-card">
