@@ -122,13 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(courseData);
 
     alert("Course created successfully!\n");
-    fetch(`http://localhost:3000/api/courses`, {
+    fetch("http://localhost:3000/api/courses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(courseData),
-    });
+    }).then((res) => res.json());
+    // .then(result => console.log(result.data))
     // location.reload();
   });
 
