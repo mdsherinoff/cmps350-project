@@ -223,6 +223,10 @@ function registerSection(course, section) {
   courseGrid.style.display = "flex";
   console.log(section);
 
+  const students = JSON.parse(localStorage.getItem('students'))
+  console.log(students);
+  
+
   courseGrid.style.flexDirection = "column";
 
   courseGrid.style.gap = "0.5rem";
@@ -285,9 +289,37 @@ function register(course, section) {
     return;
   }
   if (section.enrolled == section.capacity) {
+
     alert("Unable to register, section is full");
     return;
   } else {
+
+    const students = JSON.parse(localStorage.getItem('students'));
+    const currentId = JSON.parse(localStorage.getItem('userId'))
+    console.log(currentId);
+    
+for (const student of students) {
+  if (student.id === currentId) {
+    student.courses.push({
+      courseId: course.id,
+      code: course.code,
+      grade: null,
+      status: "current",
+      semester: "Fall 2024"
+    });
+  }
+}
+
+console.log(students);
+
+
+    fetch("http://localhost:3000/api/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(students),
+    });
     alert("Course has been registered");
   }
   //Have to push into courses.json (Increase of student) and students.json (Increase of course)

@@ -9,6 +9,10 @@ class usersRepo{
         const usersData = await fs.readJSON(this.dataFilePath)
         return usersData;
     }
+    async setUsers(users){
+        await fs.writeJson(this.dataFilePath, users)
+        return "instructors changed successfully"
+    }
 
 }
 export default new usersRepo();

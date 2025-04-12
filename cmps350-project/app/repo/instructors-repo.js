@@ -10,6 +10,10 @@ class instructorsRepo{
         const instructorsData = await fs.readJSON(this.dataFilePath)
         return instructorsData;
     }
+    async setInstructors(instructors){
+        await fs.writeJson(this.dataFilePath, instructors)
+        return "instructors changed successfully"
+    }
 
 }
 export default new instructorsRepo();
