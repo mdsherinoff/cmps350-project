@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model student{
+  id Int @id
+}
+
+model course{
+  id Int @id @default(autoincrement())
+  code String
+  name String
+  
+}
+// COURSE
+  // {
+  //   "id": "01101",
+  //   "code": "CS 101",
+  //   "name": "Panic-Driven Development with Python",
+  //   "credits": 3,
+  //   "category": "Programming",
+  //   "prerequisites": [],
+  //   "description": "Learn to write code that works 60% of the time, every time! Covers basic programming concepts, data structures, and problem-solving with Python.",
+  //   "registrationOpen": false,
+  //   "sections": [
+  //     {
+  //       "crn": "10001",
+  //       "instructor": "Khalil",
+  //       "schedule": "Mon/Wed 9:00-10:15 AM",
+  //       "location": "Building 5, Room 203",
+  //       "enrolled": 15,
+  //       "capacity": 30,
+  //       "status": "close"
+  //     },
