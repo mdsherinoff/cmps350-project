@@ -1,46 +1,169 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-model student{
-  id Int @id
+enum UserRole {
+  STUDENT
+  INSTRUCTOR
+  ADMIN 
 }
 
-model course{
-  id Int @id @default(autoincrement())
-  code String
-  name String
+enum SectionStatus {
+  OPEN     
+  CLOSED   
+}
+
+enum EnrollmentStatus {
+  COMPLETED
+  CURRENT  
+  PENDING  
+
+}
+
+model User {
+  id                String    @id @default(uuid())
+  username          String    @unique 
+  passwordHash      String   
+  role              UserRole  
+
+
+  // Relations
+  studentProfile    Student?   
+  instructorProfile Instructor? 
+
+  @@map("users")
+}
+
+model Student{
+  id            String    @id @default(uuid()) 
+  studentUId    String    @unique 
+  name          String    
+  major         String    
+  year          String   
+
+  // Relation to User (one-to-one)
+  userId        String    @unique 
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade) 
+
+  // Relation to Enrollments (one-to-many)
+  enrollments   Enrollment[]
+
+  @@map("student_profiles")
+}
+
+model Instructor {
+  id              String    @id @default(uuid())
+  instructorUId   String    @unique 
+  name            String    
+  department      String    
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relation to User (one-to-one)
+  userId          String    @unique 
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade) 
+
+  // Relation to Sections (one-to-many)
+  sectionsTaught  Section[]
+
+  @@map("instructor_profiles")
+}
+
+model Course {
+  id                  String    @id @default(uuid()) 
+  courseUId           String    @unique 
+  code                String    @unique 
+  name                String   
+  credits             Int      
+  category            String  
+
+  description         String?  
+  registrationOpen    Boolean   @default(false)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  // Relation to Sections (one-to-many)
+  sections            Section[]
+
+  prerequisites       CoursePrerequisite[] @relation("CourseOffering")
+  // Lists courses for which *this course is a prerequisite*
+  isPrerequisiteFor   CoursePrerequisite[] @relation("PrerequisiteCourse")
+
+  @@map("courses")
+}
+
+// Join table for Course prerequisites (many-to-many self-relationship on Course)
+model CoursePrerequisite {
+  // Foreign Keys forming a composite Primary Key
+  courseId            String   
+  prerequisiteCourseId String  
+
+  assignedAt          DateTime @default(now()) // When the prerequisite was defined
+
+  // Relations
+  course              Course   @relation("CourseOffering", fields: [courseId], references: [id], onDelete: Cascade)
+  prerequisite        Course   @relation("PrerequisiteCourse", fields: [prerequisiteCourseId], references: [id], onDelete: Cascade)
+
+  @@id([courseId, prerequisiteCourseId]) 
+  @@map("course_prerequisites")
+}
+
+model Section {
+  id                  String        @id @default(uuid())
+  crn                 String        @unique 
+  semester            String       
+  schedule            String       
+  location            String       
+  enrolledCount       Int           @default(0) 
+  capacity            Int           
+  status              SectionStatus @default(CLOSED) 
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  // Relation to Course (many-to-one)
+  courseId            String
+  course              Course        @relation(fields: [courseId], references: [id], onDelete: Cascade) // If Course is deleted, delete its Sections
+
+  // Relation to Instructor (many-to-one)
+  // Making instructorProfileId optional allows a section to exist temporarily without an assigned instructor
+  instructorProfileId String?
+  instructor          Instructor? @relation(fields: [instructorProfileId], references: [id], onDelete: SetNull)
+
+  // Relation to Enrollments (one-to-many)
+  enrollments         Enrollment[]
+
+  @@index([courseId]) 
+  @@index([instructorProfileId]) 
+  @@map("sections")
+}
+
+model Enrollment {
+  id                String            @id @default(uuid())
+  grade             String?           
+  status            EnrollmentStatus  
+  semester          String            
   
+  // Relation to Student(many-to-one)
+  studentProfileId  String
+  student           Student   @relation(fields: [studentProfileId], references: [id], onDelete: Cascade)
+
+  // Relation to Section (many-to-one)
+  sectionId         String
+  section           Section           @relation(fields: [sectionId], references: [id], onDelete: Cascade) 
+
+  @@unique([studentProfileId, sectionId]) 
+  @@index([studentProfileId])
+  @@index([sectionId])
+  @@map("enrollments")
+
+
 }
-// COURSE
-  // {
-  //   "id": "01101",
-  //   "code": "CS 101",
-  //   "name": "Panic-Driven Development with Python",
-  //   "credits": 3,
-  //   "category": "Programming",
-  //   "prerequisites": [],
-  //   "description": "Learn to write code that works 60% of the time, every time! Covers basic programming concepts, data structures, and problem-solving with Python.",
-  //   "registrationOpen": false,
-  //   "sections": [
-  //     {
-  //       "crn": "10001",
-  //       "instructor": "Khalil",
-  //       "schedule": "Mon/Wed 9:00-10:15 AM",
-  //       "location": "Building 5, Room 203",
-  //       "enrolled": 15,
-  //       "capacity": 30,
-  //       "status": "close"
-  //     },
