@@ -52,7 +52,8 @@ async function userInput() {
     if (enteredUserType === "student") {
       const userId = JSON.parse(localStorage.getItem("userId"));
       const currUserInfo = studentsData.find(
-        (student) => student.id === userId
+        (student) => student.id === userId,
+        console.log(currUserInfo)  
       );
       localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
     }
@@ -77,6 +78,8 @@ function handleCredentialResponse(response){
     alert("Login successful! Token received.");
   console.log("Token:", response.credential);
   window.location.href = "/html/student-home.html";
+  localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+
 }
 
 
