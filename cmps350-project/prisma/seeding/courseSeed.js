@@ -1,4 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import fs from "fs-extra";
 import path from "path";
@@ -62,54 +62,59 @@ async function seed() {
         console.error(`Error creating course ${cData.name}:`, courseError);
       }
     }
-  }
-  // 3. Seed Course Prerequisites (if any)
-  // Example:
-  if (
-    (cData.prerequisites = [
-      { courseId: "some_course_uid", prerequisiteCourseId: "other_course_uid" },
-    ])
-  ) {
-    console.log("\nSeeding Course Prerequisites...");
-    if (courseRecord && cData.prerequisites && cData.prerequisites.length > 0) {
-      for (const prereqUId of cData.prerequisites) {
-        const mainCourseId = createdCoursesMap.get(cData.id); // ID of the current course
-        const prerequisiteCourseActualId = createdCoursesMap.get(prereqUId); // ID of the prerequisite course
+    if (
+      (cData.prerequisites = [
+        {
+          courseId: "some_course_uid",
+          prerequisiteCourseId: "other_course_uid",
+        },
+      ])
+    ) {
+      console.log("\nSeeding Course Prerequisites...");
+      if (
+        courseRecord &&
+        cData.prerequisites &&
+        cData.prerequisites.length > 0
+      ) {
+        for (const prereqUId of cData.prerequisites) {
+          const mainCourseId = createdCoursesMap.get(cData.id); // ID of the current course
+          const prerequisiteCourseActualId = createdCoursesMap.get(prereqUId); // ID of the prerequisite course
 
-        if (mainCourseId && prerequisiteCourseActualId) {
-          try {
-            await prisma.coursePrerequisite.create({
-              data: {
-                courseId: mainCourseId,
-                prerequisiteCourseId: prerequisiteCourseActualId,
-              },
-            });
-            console.log(
-              `  Created prerequisite: ${prereqUId} for course ${cData.code}`
-            );
-          } catch (prereqError) {
-            // Composite key violation
-            if (prereqError.code === "P2002") {
-              console.warn(
-                `  Prerequisite link between ${cData.code} and ${prereqUId} likely already exists.`
+          if (mainCourseId && prerequisiteCourseActualId) {
+            try {
+              await prisma.coursePrerequisite.create({
+                data: {
+                  courseId: mainCourseId,
+                  prerequisiteCourseId: prerequisiteCourseActualId,
+                },
+              });
+              console.log(
+                `  Created prerequisite: ${prereqUId} for course ${cData.code}`
               );
-            } else {
-              console.error(
-                `  Error creating prerequisite for ${cData.code}:`,
-                prereqError
-              );
+            } catch (prereqError) {
+              // Composite key violation
+              if (prereqError.code === "P2002") {
+                console.warn(
+                  `  Prerequisite link between ${cData.code} and ${prereqUId} likely already exists.`
+                );
+              } else {
+                console.error(
+                  `  Error creating prerequisite for ${cData.code}:`,
+                  prereqError
+                );
+              }
             }
+          } else {
+            console.warn(
+              `  Could not find DB IDs for prerequisite linking: ${cData.id} -> ${prereqUId}. Skipping.`
+            );
           }
-        } else {
-          console.warn(
-            `  Could not find DB IDs for prerequisite linking: ${cData.id} -> ${prereqUId}. Skipping.`
-          );
         }
+      } else {
+        console.log(
+          "  No prerequisites to seed for the current course data or course not created."
+        );
       }
-    } else {
-      console.log(
-        "  No prerequisites to seed for the current course data or course not created."
-      );
     }
 
     console.log("\nSeeding courses finished.");
