@@ -60,8 +60,6 @@ model Instructor {
   instructorUId String   @unique
   name          String
   department    String
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
 
   // Relation to User (one-to-one)
   userId String @unique
