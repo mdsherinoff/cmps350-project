@@ -10,7 +10,7 @@
       "enrollments": [
         {
           "id": "e1001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10001"
@@ -116,7 +116,7 @@
       "enrollments": [
         {
           "id": "e6001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10001"
@@ -167,7 +167,7 @@
       "enrollments": [
         {
           "id": "e9001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10018"
@@ -218,7 +218,7 @@
       "enrollments": [
         {
           "id": "e12001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10017"
@@ -269,7 +269,7 @@
       "enrollments": [
         {
           "id": "e15001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Spring 2024",
           "sectionId": "10015"
@@ -320,7 +320,7 @@
       "enrollments": [
         {
           "id": "e18001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10010"
@@ -371,7 +371,7 @@
       "enrollments": [
         {
           "id": "e21001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Spring 2024",
           "sectionId": "10024"
@@ -422,7 +422,7 @@
       "enrollments": [
         {
           "id": "e24001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2023",
           "sectionId": "10017"
@@ -473,7 +473,7 @@
       "enrollments": [
         {
           "id": "e27001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10015"
@@ -524,7 +524,7 @@
       "enrollments": [
         {
           "id": "e30001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10018"
@@ -575,7 +575,7 @@
       "enrollments": [
         {
           "id": "e33001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10017"
@@ -626,7 +626,7 @@
       "enrollments": [
         {
           "id": "e36001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10015"
@@ -677,7 +677,7 @@
       "enrollments": [
         {
           "id": "e39001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10018"
@@ -728,7 +728,7 @@
       "enrollments": [
         {
           "id": "e42001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10010"
@@ -779,7 +779,7 @@
       "enrollments": [
         {
           "id": "e45001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10017"
@@ -830,7 +830,7 @@
       "enrollments": [
         {
           "id": "e48001",
-          "grade": "A-",
+          "grade": "A",
           "status": "COMPLETED",
           "semester": "Fall 2024",
           "sectionId": "10018"
