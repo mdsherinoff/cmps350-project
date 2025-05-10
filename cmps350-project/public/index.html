@@ -40,7 +40,14 @@
                             <option value="administrator">Department Administrator</option>
                         </select>
                     </div>
+                    
+                    <div id="g_id_onload" 
+                    data-client_id="534020392954-i545saoniv7fk3sccglk8h4s7upup33d.apps.googleusercontent.com"
+                    data-login_uri="http://localhost:3000/api/auth/callback"
+                    data-auto_prompt="false">
+                </div>
 
+                <div id="g_id_signin" class="g_id_signin" data-type="standard"></div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
 
@@ -51,6 +58,8 @@
         </div>
     </div>
     <script src="js/login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </body>
 
 </html>
