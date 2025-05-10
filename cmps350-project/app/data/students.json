@@ -5120,6 +5120,3406 @@
           "sectionId": "10015"
         }
       ]
+    },
+    {
+      "id": "s1250301",
+      "studentUId": "1250301",
+      "name": "Ghost of Tsushima",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250301",
+      "enrollments": [
+        {
+          "id": "e301001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250302",
+      "studentUId": "1250302",
+      "name": "Ahaana Krishna",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250302",
+      "enrollments": [
+        {
+          "id": "e302001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250303",
+      "studentUId": "1250303",
+      "name": "Stonks Man Trading",
+      "major": "Economics",
+      "year": "Junior",
+      "userId": "u1250303",
+      "enrollments": [
+        {
+          "id": "e303001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250304",
+      "studentUId": "1250304",
+      "name": "Ahmed Al-Sharif",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250304",
+      "enrollments": [
+        {
+          "id": "e304001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250305",
+      "studentUId": "1250305",
+      "name": "Bongo Cat Meme",
+      "major": "Music",
+      "year": "Junior",
+      "userId": "u1250305",
+      "enrollments": [
+        {
+          "id": "e305001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250306",
+      "studentUId": "1250306",
+      "name": "Ellie Last of Us",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250306",
+      "enrollments": [
+        {
+          "id": "e306001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250307",
+      "studentUId": "1250307",
+      "name": "Srinda Arhaan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250307",
+      "enrollments": [
+        {
+          "id": "e307001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250308",
+      "studentUId": "1250308",
+      "name": "Change My Mind Meme",
+      "major": "Philosophy",
+      "year": "Sophomore",
+      "userId": "u1250308",
+      "enrollments": [
+        {
+          "id": "e308001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250309",
+      "studentUId": "1250309",
+      "name": "Layla Al-Suweidi",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250309",
+      "enrollments": [
+        {
+          "id": "e309001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250310",
+      "studentUId": "1250310",
+      "name": "Kombucha Girl Reaction Meme",
+      "major": "Culinary Arts",
+      "year": "Senior",
+      "userId": "u1250310",
+      "enrollments": [
+        {
+          "id": "e310001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250311",
+      "studentUId": "1250311",
+      "name": "Kassandra Odyssey",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250311",
+      "enrollments": [
+        {
+          "id": "e311001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250312",
+      "studentUId": "1250312",
+      "name": "Kalyani Priyadarshan",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250312",
+      "enrollments": [
+        {
+          "id": "e312001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250313",
+      "studentUId": "1250313",
+      "name": "Galaxy Brain Meme",
+      "major": "Astrophysics",
+      "year": "Junior",
+      "userId": "u1250313",
+      "enrollments": [
+        {
+          "id": "e313001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250314",
+      "studentUId": "1250314",
+      "name": "Ibrahim Al-Zahrani",
+      "major": "Cybersecurity",
+      "year": "Senior",
+      "userId": "u1250314",
+      "enrollments": [
+        {
+          "id": "e314001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250315",
+      "studentUId": "1250315",
+      "name": "Distracted Boyfriend Meme",
+      "major": "Psychology",
+      "year": "Junior",
+      "userId": "u1250315",
+      "enrollments": [
+        {
+          "id": "e315001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250316",
+      "studentUId": "1250316",
+      "name": "Kratos God of War",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250316",
+      "enrollments": [
+        {
+          "id": "e316001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250317",
+      "studentUId": "1250317",
+      "name": "Unnimaya Prasad",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250317",
+      "enrollments": [
+        {
+          "id": "e317001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250318",
+      "studentUId": "1250318",
+      "name": "Coffin Dance Meme",
+      "major": "Music",
+      "year": "Senior",
+      "userId": "u1250318",
+      "enrollments": [
+        {
+          "id": "e318001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250319",
+      "studentUId": "1250319",
+      "name": "Nasser Al-Rashidi",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250319",
+      "enrollments": [
+        {
+          "id": "e319001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250320",
+      "studentUId": "1250320",
+      "name": "Anakin Padme Meme",
+      "major": "Political Science",
+      "year": "Sophomore",
+      "userId": "u1250320",
+      "enrollments": [
+        {
+          "id": "e320001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250321",
+      "studentUId": "1250321",
+      "name": "Aloy Horizon Zero Dawn",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250321",
+      "enrollments": [
+        {
+          "id": "e321001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250322",
+      "studentUId": "1250322",
+      "name": "Samyuktha Menon",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250322",
+      "enrollments": [
+        {
+          "id": "e322001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250323",
+      "studentUId": "1250323",
+      "name": "Confused Math Lady Meme",
+      "major": "Mathematics",
+      "year": "Junior",
+      "userId": "u1250323",
+      "enrollments": [
+        {
+          "id": "e323001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10004"
+        }
+      ]
+    },
+    {
+      "id": "s1250324",
+      "studentUId": "1250324",
+      "name": "Aisha Al-Mansoori",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250324",
+      "enrollments": [
+        {
+          "id": "e324001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250325",
+      "studentUId": "1250325",
+      "name": "Disaster Girl Fire Meme",
+      "major": "Photography",
+      "year": "Junior",
+      "userId": "u1250325",
+      "enrollments": [
+        {
+          "id": "e325001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250326",
+      "studentUId": "1250326",
+      "name": "Nathan Drake Uncharted",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250326",
+      "enrollments": [
+        {
+          "id": "e326001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250327",
+      "studentUId": "1250327",
+      "name": "Rajisha Vijayan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250327",
+      "enrollments": [
+        {
+          "id": "e327001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250328",
+      "studentUId": "1250328",
+      "name": "Surprised Pikachu Meme",
+      "major": "Biology",
+      "year": "Sophomore",
+      "userId": "u1250328",
+      "enrollments": [
+        {
+          "id": "e328001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250329",
+      "studentUId": "1250329",
+      "name": "Tariq Al-Kharousi",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250329",
+      "enrollments": [
+        {
+          "id": "e329001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250330",
+      "studentUId": "1250330",
+      "name": "Buff Doge vs Cheems Meme",
+      "major": "Physical Education",
+      "year": "Senior",
+      "userId": "u1250330",
+      "enrollments": [
+        {
+          "id": "e330001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250331",
+      "studentUId": "1250331",
+      "name": "Solid Snake Metal Gear",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250331",
+      "enrollments": [
+        {
+          "id": "e331001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250332",
+      "studentUId": "1250332",
+      "name": "Anupama Parameswaran",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250332",
+      "enrollments": [
+        {
+          "id": "e332001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250333",
+      "studentUId": "1250333",
+      "name": "This Is Fine Dog Meme",
+      "major": "Crisis Management",
+      "year": "Junior",
+      "userId": "u1250333",
+      "enrollments": [
+        {
+          "id": "e333001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250334",
+      "studentUId": "1250334",
+      "name": "Fatima Al-Hashimi",
+      "major": "Cybersecurity",
+      "year": "Senior",
+      "userId": "u1250334",
+      "enrollments": [
+        {
+          "id": "e334001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250335",
+      "studentUId": "1250335",
+      "name": "Woman Yelling At Cat Meme",
+      "major": "Communications",
+      "year": "Junior",
+      "userId": "u1250335",
+      "enrollments": [
+        {
+          "id": "e335001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250336",
+      "studentUId": "1250336",
+      "name": "Link Legend of Zelda",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250336",
+      "enrollments": [
+        {
+          "id": "e336001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250337",
+      "studentUId": "1250337",
+      "name": "Rima Kallingal",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250337",
+      "enrollments": [
+        {
+          "id": "e337001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250338",
+      "studentUId": "1250338",
+      "name": "Evil Kermit Meme",
+      "major": "Psychology",
+      "year": "Senior",
+      "userId": "u1250338",
+      "enrollments": [
+        {
+          "id": "e338001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250339",
+      "studentUId": "1250339",
+      "name": "Khalid Al-Suhail",
+      "major": "Artificial Intelligence",
+      "year": "Junior",
+      "userId": "u1250339",
+      "enrollments": [
+        {
+          "id": "e339001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250340",
+      "studentUId": "1250340",
+      "name": "Blinking White Guy Meme",
+      "major": "Communications",
+      "year": "Sophomore",
+      "userId": "u1250340",
+      "enrollments": [
+        {
+          "id": "e340001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250341",
+      "studentUId": "1250341",
+      "name": "Ezio Auditore",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250341",
+      "enrollments": [
+        {
+          "id": "e341001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250342",
+      "studentUId": "1250342",
+      "name": "Manju Warrier",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250342",
+      "enrollments": [
+        {
+          "id": "e342001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250343",
+      "studentUId": "1250343",
+      "name": "Stonks Trader Meme",
+      "major": "Economics",
+      "year": "Junior",
+      "userId": "u1250343",
+      "enrollments": [
+        {
+          "id": "e343001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250344",
+      "studentUId": "1250344",
+      "name": "Samira Al-Balushi",
+      "major": "Computer Science",
+      "year": "Sophomore",
+      "userId": "u1250344",
+      "enrollments": [
+        {
+          "id": "e344001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250345",
+      "studentUId": "1250345",
+      "name": "Kermit Tea Sipping Meme",
+      "major": "Business Ethics",
+      "year": "Junior",
+      "userId": "u1250345",
+      "enrollments": [
+        {
+          "id": "e345001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250346",
+      "studentUId": "1250346",
+      "name": "Arthur Morgan",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250346",
+      "enrollments": [
+        {
+          "id": "e346001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250347",
+      "studentUId": "1250347",
+      "name": "Kani Kusruti",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250347",
+      "enrollments": [
+        {
+          "id": "e347001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250348",
+      "studentUId": "1250348",
+      "name": "Doge To The Moon Meme",
+      "major": "Finance",
+      "year": "Sophomore",
+      "userId": "u1250348",
+      "enrollments": [
+        {
+          "id": "e348001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250349",
+      "studentUId": "1250349",
+      "name": "Noor Al-Mazrouei",
+      "major": "Artificial Intelligence",
+      "year": "Junior",
+      "userId": "u1250349",
+      "enrollments": [
+        {
+          "id": "e349001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250350",
+      "studentUId": "1250350",
+      "name": "Salt Bae Meme",
+      "major": "Culinary Arts",
+      "year": "Senior",
+      "userId": "u1250350",
+      "enrollments": [
+        {
+          "id": "e350001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250351",
+      "studentUId": "1250351",
+      "name": "Marcus Fenix Gears",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250351",
+      "enrollments": [
+        {
+          "id": "e351001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250352",
+      "studentUId": "1250352",
+      "name": "Aishwarya Lekshmi",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250352",
+      "enrollments": [
+        {
+          "id": "e352001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250353",
+      "studentUId": "1250353",
+      "name": "Drakeposting Meme",
+      "major": "Music",
+      "year": "Junior",
+      "userId": "u1250353",
+      "enrollments": [
+        {
+          "id": "e353001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250354",
+      "studentUId": "1250354",
+      "name": "Jamal Al-Harbi",
+      "major": "Computer Science",
+      "year": "Senior",
+      "userId": "u1250354",
+      "enrollments": [
+        {
+          "id": "e354001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250355",
+      "studentUId": "1250355",
+      "name": "Trade Offer Meme",
+      "major": "Business",
+      "year": "Junior",
+      "userId": "u1250355",
+      "enrollments": [
+        {
+          "id": "e355001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250356",
+      "studentUId": "1250356",
+      "name": "Deacon St John",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250356",
+      "enrollments": [
+        {
+          "id": "e356001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250357",
+      "studentUId": "1250357",
+      "name": "Namitha Pramod",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250357",
+      "enrollments": [
+        {
+          "id": "e357001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250358",
+      "studentUId": "1250358",
+      "name": "Giga Chad Meme",
+      "major": "Physical Education",
+      "year": "Senior",
+      "userId": "u1250358",
+      "enrollments": [
+        {
+          "id": "e358001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250359",
+      "studentUId": "1250359",
+      "name": "Mariam Al-Sulaiti",
+      "major": "Artificial Intelligence",
+      "year": "Junior",
+      "userId": "u1250359",
+      "enrollments": [
+        {
+          "id": "e359001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250360",
+      "studentUId": "1250360",
+      "name": "Monkey Puppet Meme",
+      "major": "Theater Arts",
+      "year": "Sophomore",
+      "userId": "u1250360",
+      "enrollments": [
+        {
+          "id": "e360001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250361",
+      "studentUId": "1250361",
+      "name": "Joel Last Of Us",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250361",
+      "enrollments": [
+        {
+          "id": "e361001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250362",
+      "studentUId": "1250362",
+      "name": "Parvathy Nair",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250362",
+      "enrollments": [
+        {
+          "id": "e362001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250363",
+      "studentUId": "1250363",
+      "name": "Hide Pain Harold Meme",
+      "major": "Psychology",
+      "year": "Junior",
+      "userId": "u1250363",
+      "enrollments": [
+        {
+          "id": "e363001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250364",
+      "studentUId": "1250364",
+      "name": "Hassan Al-Farsi",
+      "major": "Computer Science",
+      "year": "Sophomore",
+      "userId": "u1250364",
+      "enrollments": [
+        {
+          "id": "e364001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250365",
+      "studentUId": "1250365",
+      "name": "Expanding Brain Meme",
+      "major": "Neuroscience",
+      "year": "Junior",
+      "userId": "u1250365",
+      "enrollments": [
+        {
+          "id": "e365001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250366",
+      "studentUId": "1250366",
+      "name": "Kratos God of War",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250366",
+      "enrollments": [
+        {
+          "id": "e366001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250367",
+      "studentUId": "1250367",
+      "name": "Saniya Iyappan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250367",
+      "enrollments": [
+        {
+          "id": "e367001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250368",
+      "studentUId": "1250368",
+      "name": "Confused Jackie Chan Meme",
+      "major": "Film Studies",
+      "year": "Sophomore",
+      "userId": "u1250368",
+      "enrollments": [
+        {
+          "id": "e368001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250369",
+      "studentUId": "1250369",
+      "name": "Latifa Al-Nuaimi",
+      "major": "Cybersecurity",
+      "year": "Junior",
+      "userId": "u1250369",
+      "enrollments": [
+        {
+          "id": "e369001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250370",
+      "studentUId": "1250370",
+      "name": "Kombucha Girl Meme",
+      "major": "Culinary Arts",
+      "year": "Senior",
+      "userId": "u1250370",
+      "enrollments": [
+        {
+          "id": "e370001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250371",
+      "studentUId": "1250371",
+      "name": "Master Chief Halo",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250371",
+      "enrollments": [
+        {
+          "id": "e371001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250372",
+      "studentUId": "1250372",
+      "name": "Sai Pallavi",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250372",
+      "enrollments": [
+        {
+          "id": "e372001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250373",
+      "studentUId": "1250373",
+      "name": "Distracted Boyfriend Meme",
+      "major": "Psychology",
+      "year": "Junior",
+      "userId": "u1250373",
+      "enrollments": [
+        {
+          "id": "e373001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250374",
+      "studentUId": "1250374",
+      "name": "Yousef Al-Qahtani",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250374",
+      "enrollments": [
+        {
+          "id": "e374001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250375",
+      "studentUId": "1250375",
+      "name": "Surprised Pikachu Meme",
+      "major": "Biology",
+      "year": "Junior",
+      "userId": "u1250375",
+      "enrollments": [
+        {
+          "id": "e375001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250376",
+      "studentUId": "1250376",
+      "name": "Cloud Strife Final Fantasy",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250376",
+      "enrollments": [
+        {
+          "id": "e376001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250377",
+      "studentUId": "1250377",
+      "name": "Grace Antony",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250377",
+      "enrollments": [
+        {
+          "id": "e377001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250378",
+      "studentUId": "1250378",
+      "name": "This Is Fine Dog Meme",
+      "major": "Crisis Management",
+      "year": "Senior",
+      "userId": "u1250378",
+      "enrollments": [
+        {
+          "id": "e378001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250379",
+      "studentUId": "1250379",
+      "name": "Aisha Al-Zaidi",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250379",
+      "enrollments": [
+        {
+          "id": "e379001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250380",
+      "studentUId": "1250380",
+      "name": "Bernie Sanders Mittens Meme",
+      "major": "Political Science",
+      "year": "Sophomore",
+      "userId": "u1250380",
+      "enrollments": [
+        {
+          "id": "e380001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250381",
+      "studentUId": "1250381",
+      "name": "Link Legend Of Zelda",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250381",
+      "enrollments": [
+        {
+          "id": "e381001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250382",
+      "studentUId": "1250382",
+      "name": "Remya Nambeesan",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250382",
+      "enrollments": [
+        {
+          "id": "e382001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250383",
+      "studentUId": "1250383",
+      "name": "Galaxy Brain Meme",
+      "major": "Astrophysics",
+      "year": "Junior",
+      "userId": "u1250383",
+      "enrollments": [
+        {
+          "id": "e383001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250384",
+      "studentUId": "1250384",
+      "name": "Tariq Al-Mansouri",
+      "major": "Cybersecurity",
+      "year": "Sophomore",
+      "userId": "u1250384",
+      "enrollments": [
+        {
+          "id": "e384001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250385",
+      "studentUId": "1250385",
+      "name": "Stonks Guy Meme",
+      "major": "Economics",
+      "year": "Junior",
+      "userId": "u1250385",
+      "enrollments": [
+        {
+          "id": "e385001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250386",
+      "studentUId": "1250386",
+      "name": "Nathan Drake Uncharted",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250386",
+      "enrollments": [
+        {
+          "id": "e386001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250387",
+      "studentUId": "1250387",
+      "name": "Srinda Arhaan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250387",
+      "enrollments": [
+        {
+          "id": "e387001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250388",
+      "studentUId": "1250388",
+      "name": "Kermit Tea Meme",
+      "major": "Business Ethics",
+      "year": "Sophomore",
+      "userId": "u1250388",
+      "enrollments": [
+        {
+          "id": "e388001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250389",
+      "studentUId": "1250389",
+      "name": "Nadia Al-Hammadi",
+      "major": "Artificial Intelligence",
+      "year": "Junior",
+      "userId": "u1250389",
+      "enrollments": [
+        {
+          "id": "e389001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250390",
+      "studentUId": "1250390",
+      "name": "Change My Mind Meme",
+      "major": "Philosophy",
+      "year": "Senior",
+      "userId": "u1250390",
+      "enrollments": [
+        {
+          "id": "e390001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250391",
+      "studentUId": "1250391",
+      "name": "Geralt Of Rivia",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250391",
+      "enrollments": [
+        {
+          "id": "e391001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250392",
+      "studentUId": "1250392",
+      "name": "Anaswara Rajan",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250392",
+      "enrollments": [
+        {
+          "id": "e392001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250393",
+      "studentUId": "1250393",
+      "name": "Tide Pod Challenge Meme",
+      "major": "Chemistry",
+      "year": "Junior",
+      "userId": "u1250393",
+      "enrollments": [
+        {
+          "id": "e393001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250394",
+      "studentUId": "1250394",
+      "name": "Omar Al-Nasser",
+      "major": "Computer Science",
+      "year": "Senior",
+      "userId": "u1250394",
+      "enrollments": [
+        {
+          "id": "e394001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250395",
+      "studentUId": "1250395",
+      "name": "Disaster Girl Meme",
+      "major": "Photography",
+      "year": "Junior",
+      "userId": "u1250395",
+      "enrollments": [
+        {
+          "id": "e395001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250396",
+      "studentUId": "1250396",
+      "name": "Joel Miller Last Of Us",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250396",
+      "enrollments": [
+        {
+          "id": "e396001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250397",
+      "studentUId": "1250397",
+      "name": "Darshana Rajendran",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250397",
+      "enrollments": [
+        {
+          "id": "e397001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250398",
+      "studentUId": "1250398",
+      "name": "Woman Yelling At Cat Meme",
+      "major": "Communications",
+      "year": "Senior",
+      "userId": "u1250398",
+      "enrollments": [
+        {
+          "id": "e398001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250399",
+      "studentUId": "1250399",
+      "name": "Fatima Al-Farsi",
+      "major": "Cybersecurity",
+      "year": "Junior",
+      "userId": "u1250399",
+      "enrollments": [
+        {
+          "id": "e399001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250400",
+      "studentUId": "1250400",
+      "name": "Confused Math Lady Meme",
+      "major": "Mathematics",
+      "year": "Sophomore",
+      "userId": "u1250400",
+      "enrollments": [
+        {
+          "id": "e400001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10004"
+        }
+      ]
+    },
+    {
+      "id": "s1250401",
+      "studentUId": "1250401",
+      "name": "Aloy Horizon",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250401",
+      "enrollments": [
+        {
+          "id": "e401001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250402",
+      "studentUId": "1250402",
+      "name": "Aishwarya Rajesh",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250402",
+      "enrollments": [
+        {
+          "id": "e402001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250403",
+      "studentUId": "1250403",
+      "name": "Salt Bae Meme",
+      "major": "Culinary Arts",
+      "year": "Junior",
+      "userId": "u1250403",
+      "enrollments": [
+        {
+          "id": "e403001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250404",
+      "studentUId": "1250404",
+      "name": "Malik Al-Sulaimi",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250404",
+      "enrollments": [
+        {
+          "id": "e404001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250405",
+      "studentUId": "1250405",
+      "name": "Blinking Guy Meme",
+      "major": "Communications",
+      "year": "Junior",
+      "userId": "u1250405",
+      "enrollments": [
+        {
+          "id": "e405001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250406",
+      "studentUId": "1250406",
+      "name": "Booker DeWitt Bioshock",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250406",
+      "enrollments": [
+        {
+          "id": "e406001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250407",
+      "studentUId": "1250407",
+      "name": "Kalyani Priyadarshan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250407",
+      "enrollments": [
+        {
+          "id": "e407001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250408",
+      "studentUId": "1250408",
+      "name": "Coffin Dance Meme",
+      "major": "Music",
+      "year": "Sophomore",
+      "userId": "u1250408",
+      "enrollments": [
+        {
+          "id": "e408001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250409",
+      "studentUId": "1250409",
+      "name": "Zainab Al-Farhan",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250409",
+      "enrollments": [
+        {
+          "id": "e409001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250410",
+      "studentUId": "1250410",
+      "name": "Buff Doge vs Cheems Meme",
+      "major": "Physical Education",
+      "year": "Senior",
+      "userId": "u1250410",
+      "enrollments": [
+        {
+          "id": "e410001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250411",
+      "studentUId": "1250411",
+      "name": "Ezio Auditore Assassin",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250411",
+      "enrollments": [
+        {
+          "id": "e411001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250412",
+      "studentUId": "1250412",
+      "name": "Namitha Pramod",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250412",
+      "enrollments": [
+        {
+          "id": "e412001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250413",
+      "studentUId": "1250413",
+      "name": "Anakin Padme Meme",
+      "major": "Political Science",
+      "year": "Junior",
+      "userId": "u1250413",
+      "enrollments": [
+        {
+          "id": "e413001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250414",
+      "studentUId": "1250414",
+      "name": "Hassan Al-Qurashi",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250414",
+      "enrollments": [
+        {
+          "id": "e414001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250415",
+      "studentUId": "1250415",
+      "name": "Polite Cat Meme",
+      "major": "Veterinary Science",
+      "year": "Junior",
+      "userId": "u1250415",
+      "enrollments": [
+        {
+          "id": "e415001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250416",
+      "studentUId": "1250416",
+      "name": "Arthur Morgan RDR2",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250416",
+      "enrollments": [
+        {
+          "id": "e416001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250417",
+      "studentUId": "1250417",
+      "name": "Anupama Parameswaran",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250417",
+      "enrollments": [
+        {
+          "id": "e417001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250418",
+      "studentUId": "1250418",
+      "name": "Doge To The Moon Meme",
+      "major": "Finance",
+      "year": "Senior",
+      "userId": "u1250418",
+      "enrollments": [
+        {
+          "id": "e418001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250419",
+      "studentUId": "1250419",
+      "name": "Noor Al-Thani",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250419",
+      "enrollments": [
+        {
+          "id": "e419001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250420",
+      "studentUId": "1250420",
+      "name": "Evil Kermit Meme",
+      "major": "Psychology",
+      "year": "Sophomore",
+      "userId": "u1250420",
+      "enrollments": [
+        {
+          "id": "e420001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250421",
+      "studentUId": "1250421",
+      "name": "Ellie Last Of Us",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250421",
+      "enrollments": [
+        {
+          "id": "e421001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250422",
+      "studentUId": "1250422",
+      "name": "Sai Pallavi Premam",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250422",
+      "enrollments": [
+        {
+          "id": "e422001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250423",
+      "studentUId": "1250423",
+      "name": "Stonks Man Trading Meme",
+      "major": "Economics",
+      "year": "Junior",
+      "userId": "u1250423",
+      "enrollments": [
+        {
+          "id": "e423001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250424",
+      "studentUId": "1250424",
+      "name": "Layla Al-Jawahiri",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250424",
+      "enrollments": [
+        {
+          "id": "e424001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250425",
+      "studentUId": "1250425",
+      "name": "Mocking Spongebob Meme",
+      "major": "Marine Biology",
+      "year": "Junior",
+      "userId": "u1250425",
+      "enrollments": [
+        {
+          "id": "e425001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250426",
+      "studentUId": "1250426",
+      "name": "Cloud Strife FF7",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250426",
+      "enrollments": [
+        {
+          "id": "e426001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250427",
+      "studentUId": "1250427",
+      "name": "Nimisha Sajayan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250427",
+      "enrollments": [
+        {
+          "id": "e427001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250428",
+      "studentUId": "1250428",
+      "name": "Trade Offer Meme",
+      "major": "Business",
+      "year": "Sophomore",
+      "userId": "u1250428",
+      "enrollments": [
+        {
+          "id": "e428001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250429",
+      "studentUId": "1250429",
+      "name": "Ahmed Al-Shammari",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250429",
+      "enrollments": [
+        {
+          "id": "e429001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250430",
+      "studentUId": "1250430",
+      "name": "Surprised Pikachu Meme",
+      "major": "Biology",
+      "year": "Senior",
+      "userId": "u1250430",
+      "enrollments": [
+        {
+          "id": "e430001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250431",
+      "studentUId": "1250431",
+      "name": "Kassandra Assassin",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250431",
+      "enrollments": [
+        {
+          "id": "e431001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250432",
+      "studentUId": "1250432",
+      "name": "Aparna Gopinath",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250432",
+      "enrollments": [
+        {
+          "id": "e432001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250433",
+      "studentUId": "1250433",
+      "name": "Bernie Sanders Mittens Meme",
+      "major": "Political Science",
+      "year": "Junior",
+      "userId": "u1250433",
+      "enrollments": [
+        {
+          "id": "e433001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250434",
+      "studentUId": "1250434",
+      "name": "Amira Al-Kubaisi",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250434",
+      "enrollments": [
+        {
+          "id": "e434001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250435",
+      "studentUId": "1250435",
+      "name": "Expanding Brain Meme",
+      "major": "Neuroscience",
+      "year": "Junior",
+      "userId": "u1250435",
+      "enrollments": [
+        {
+          "id": "e435001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250436",
+      "studentUId": "1250436",
+      "name": "Kratos God Of War",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250436",
+      "enrollments": [
+        {
+          "id": "e436001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250437",
+      "studentUId": "1250437",
+      "name": "Rajisha Vijayan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250437",
+      "enrollments": [
+        {
+          "id": "e437001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250438",
+      "studentUId": "1250438",
+      "name": "Hide Pain Harold Meme",
+      "major": "Psychology",
+      "year": "Senior",
+      "userId": "u1250438",
+      "enrollments": [
+        {
+          "id": "e438001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250439",
+      "studentUId": "1250439",
+      "name": "Tariq Al-Otaibi",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250439",
+      "enrollments": [
+        {
+          "id": "e439001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250440",
+      "studentUId": "1250440",
+      "name": "Distracted Boyfriend Meme",
+      "major": "Photography",
+      "year": "Sophomore",
+      "userId": "u1250440",
+      "enrollments": [
+        {
+          "id": "e440001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250441",
+      "studentUId": "1250441",
+      "name": "Nathan Drake Treasure",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250441",
+      "enrollments": [
+        {
+          "id": "e441001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250442",
+      "studentUId": "1250442",
+      "name": "Keerthy Suresh",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250442",
+      "enrollments": [
+        {
+          "id": "e442001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250443",
+      "studentUId": "1250443",
+      "name": "Coffin Dance Meme",
+      "major": "Music",
+      "year": "Junior",
+      "userId": "u1250443",
+      "enrollments": [
+        {
+          "id": "e443001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250444",
+      "studentUId": "1250444",
+      "name": "Fatima Al-Qatifi",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250444",
+      "enrollments": [
+        {
+          "id": "e444001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250445",
+      "studentUId": "1250445",
+      "name": "This Is Fine Dog Meme",
+      "major": "Crisis Management",
+      "year": "Junior",
+      "userId": "u1250445",
+      "enrollments": [
+        {
+          "id": "e445001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250446",
+      "studentUId": "1250446",
+      "name": "Master Chief Halo",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250446",
+      "enrollments": [
+        {
+          "id": "e446001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250447",
+      "studentUId": "1250447",
+      "name": "Parvathy Thiruvothu",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250447",
+      "enrollments": [
+        {
+          "id": "e447001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250448",
+      "studentUId": "1250448",
+      "name": "Galaxy Brain Meme",
+      "major": "Astrophysics",
+      "year": "Sophomore",
+      "userId": "u1250448",
+      "enrollments": [
+        {
+          "id": "e448001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250449",
+      "studentUId": "1250449",
+      "name": "Hamza Al-Darwish",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250449",
+      "enrollments": [
+        {
+          "id": "e449001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250450",
+      "studentUId": "1250450",
+      "name": "Anakin Padme Meme",
+      "major": "Political Science",
+      "year": "Senior",
+      "userId": "u1250450",
+      "enrollments": [
+        {
+          "id": "e450001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250451",
+      "studentUId": "1250451",
+      "name": "Link Legend Zelda",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250451",
+      "enrollments": [
+        {
+          "id": "e451001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250452",
+      "studentUId": "1250452",
+      "name": "Anna Ben Kumbalangi",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250452",
+      "enrollments": [
+        {
+          "id": "e452001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250453",
+      "studentUId": "1250453",
+      "name": "Stonks Guy Meme",
+      "major": "Economics",
+      "year": "Junior",
+      "userId": "u1250453",
+      "enrollments": [
+        {
+          "id": "e453001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250454",
+      "studentUId": "1250454",
+      "name": "Noora Al-Suwaidi",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250454",
+      "enrollments": [
+        {
+          "id": "e454001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250455",
+      "studentUId": "1250455",
+      "name": "Woman Yelling Cat Meme",
+      "major": "Communications",
+      "year": "Junior",
+      "userId": "u1250455",
+      "enrollments": [
+        {
+          "id": "e455001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250456",
+      "studentUId": "1250456",
+      "name": "Geralt Witcher",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250456",
+      "enrollments": [
+        {
+          "id": "e456001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250457",
+      "studentUId": "1250457",
+      "name": "Kani Kusruti",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250457",
+      "enrollments": [
+        {
+          "id": "e457001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250458",
+      "studentUId": "1250458",
+      "name": "Evil Kermit Meme",
+      "major": "Psychology",
+      "year": "Senior",
+      "userId": "u1250458",
+      "enrollments": [
+        {
+          "id": "e458001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250459",
+      "studentUId": "1250459",
+      "name": "Malik Al-Majid",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250459",
+      "enrollments": [
+        {
+          "id": "e459001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250460",
+      "studentUId": "1250460",
+      "name": "Roll Safe Think About It Meme",
+      "major": "Business Ethics",
+      "year": "Sophomore",
+      "userId": "u1250460",
+      "enrollments": [
+        {
+          "id": "e460001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250461",
+      "studentUId": "1250461",
+      "name": "Aloy Horizon Zero Dawn",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250461",
+      "enrollments": [
+        {
+          "id": "e461001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250462",
+      "studentUId": "1250462",
+      "name": "Darshana Rajendran",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250462",
+      "enrollments": [
+        {
+          "id": "e462001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250463",
+      "studentUId": "1250463",
+      "name": "Bernie Sanders Mittens Meme",
+      "major": "Political Science",
+      "year": "Junior",
+      "userId": "u1250463",
+      "enrollments": [
+        {
+          "id": "e463001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250464",
+      "studentUId": "1250464",
+      "name": "Aisha Al-Abdulla",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250464",
+      "enrollments": [
+        {
+          "id": "e464001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250465",
+      "studentUId": "1250465",
+      "name": "Confused Math Lady Meme",
+      "major": "Mathematics",
+      "year": "Junior",
+      "userId": "u1250465",
+      "enrollments": [
+        {
+          "id": "e465001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10004"
+        }
+      ]
+    },
+    {
+      "id": "s1250466",
+      "studentUId": "1250466",
+      "name": "Cloud Strife FF7",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250466",
+      "enrollments": [
+        {
+          "id": "e466001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250467",
+      "studentUId": "1250467",
+      "name": "Saniya Iyappan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250467",
+      "enrollments": [
+        {
+          "id": "e467001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250468",
+      "studentUId": "1250468",
+      "name": "Change My Mind Meme",
+      "major": "Philosophy",
+      "year": "Sophomore",
+      "userId": "u1250468",
+      "enrollments": [
+        {
+          "id": "e468001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250469",
+      "studentUId": "1250469",
+      "name": "Zainab Al-Khouri",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250469",
+      "enrollments": [
+        {
+          "id": "e469001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250470",
+      "studentUId": "1250470",
+      "name": "Tide Pod Challenge Meme",
+      "major": "Chemistry",
+      "year": "Senior",
+      "userId": "u1250470",
+      "enrollments": [
+        {
+          "id": "e470001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250471",
+      "studentUId": "1250471",
+      "name": "Joel Last Of Us",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250471",
+      "enrollments": [
+        {
+          "id": "e471001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250472",
+      "studentUId": "1250472",
+      "name": "Aishwarya Lekshmi",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250472",
+      "enrollments": [
+        {
+          "id": "e472001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250473",
+      "studentUId": "1250473",
+      "name": "Distracted Boyfriend Meme",
+      "major": "Psychology",
+      "year": "Junior",
+      "userId": "u1250473",
+      "enrollments": [
+        {
+          "id": "e473001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250474",
+      "studentUId": "1250474",
+      "name": "Mustafa Al-Sayed",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250474",
+      "enrollments": [
+        {
+          "id": "e474001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250475",
+      "studentUId": "1250475",
+      "name": "Bongo Cat Meme",
+      "major": "Music",
+      "year": "Junior",
+      "userId": "u1250475",
+      "enrollments": [
+        {
+          "id": "e475001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250476",
+      "studentUId": "1250476",
+      "name": "Ghost Tsushima",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250476",
+      "enrollments": [
+        {
+          "id": "e476001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250477",
+      "studentUId": "1250477",
+      "name": "Anaswara Rajan",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250477",
+      "enrollments": [
+        {
+          "id": "e477001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250478",
+      "studentUId": "1250478",
+      "name": "Buff Doge vs Cheems Meme",
+      "major": "Physical Education",
+      "year": "Senior",
+      "userId": "u1250478",
+      "enrollments": [
+        {
+          "id": "e478001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250479",
+      "studentUId": "1250479",
+      "name": "Kareem Al-Hariri",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250479",
+      "enrollments": [
+        {
+          "id": "e479001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250480",
+      "studentUId": "1250480",
+      "name": "Trade Offer Meme",
+      "major": "Business",
+      "year": "Sophomore",
+      "userId": "u1250480",
+      "enrollments": [
+        {
+          "id": "e480001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250481",
+      "studentUId": "1250481",
+      "name": "Deacon St John",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250481",
+      "enrollments": [
+        {
+          "id": "e481001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250482",
+      "studentUId": "1250482",
+      "name": "Rajisha Vijayan",
+      "major": "Data Science",
+      "year": "Senior",
+      "userId": "u1250482",
+      "enrollments": [
+        {
+          "id": "e482001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250483",
+      "studentUId": "1250483",
+      "name": "Giga Chad Meme",
+      "major": "Physical Education",
+      "year": "Junior",
+      "userId": "u1250483",
+      "enrollments": [
+        {
+          "id": "e483001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250484",
+      "studentUId": "1250484",
+      "name": "Latifa Al-Hammadi",
+      "major": "Artificial Intelligence",
+      "year": "Sophomore",
+      "userId": "u1250484",
+      "enrollments": [
+        {
+          "id": "e484001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250485",
+      "studentUId": "1250485",
+      "name": "Monkey Puppet Meme",
+      "major": "Theater Arts",
+      "year": "Junior",
+      "userId": "u1250485",
+      "enrollments": [
+        {
+          "id": "e485001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250486",
+      "studentUId": "1250486",
+      "name": "Arthur Morgan RDR2",
+      "major": "Game Development",
+      "year": "Senior",
+      "userId": "u1250486",
+      "enrollments": [
+        {
+          "id": "e486001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250487",
+      "studentUId": "1250487",
+      "name": "Manju Warrier",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250487",
+      "enrollments": [
+        {
+          "id": "e487001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250488",
+      "studentUId": "1250488",
+      "name": "Hide Pain Harold Meme",
+      "major": "Psychology",
+      "year": "Sophomore",
+      "userId": "u1250488",
+      "enrollments": [
+        {
+          "id": "e488001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
+    },
+    {
+      "id": "s1250489",
+      "studentUId": "1250489",
+      "name": "Khalid Al-Jabri",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250489",
+      "enrollments": [
+        {
+          "id": "e489001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250490",
+      "studentUId": "1250490",
+      "name": "Expanding Brain Meme",
+      "major": "Neuroscience",
+      "year": "Senior",
+      "userId": "u1250490",
+      "enrollments": [
+        {
+          "id": "e490001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10011"
+        }
+      ]
+    },
+    {
+      "id": "s1250491",
+      "studentUId": "1250491",
+      "name": "Kratos God of War",
+      "major": "Game Development",
+      "year": "Junior",
+      "userId": "u1250491",
+      "enrollments": [
+        {
+          "id": "e491001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250492",
+      "studentUId": "1250492",
+      "name": "Nimisha Sajayan",
+      "major": "Data Science",
+      "year": "Sophomore",
+      "userId": "u1250492",
+      "enrollments": [
+        {
+          "id": "e492001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10010"
+        }
+      ]
+    },
+    {
+      "id": "s1250493",
+      "studentUId": "1250493",
+      "name": "Disaster Girl Meme",
+      "major": "Photography",
+      "year": "Junior",
+      "userId": "u1250493",
+      "enrollments": [
+        {
+          "id": "e493001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10016"
+        }
+      ]
+    },
+    {
+      "id": "s1250494",
+      "studentUId": "1250494",
+      "name": "Noor Al-Thani",
+      "major": "Artificial Intelligence",
+      "year": "Senior",
+      "userId": "u1250494",
+      "enrollments": [
+        {
+          "id": "e494001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10024"
+        }
+      ]
+    },
+    {
+      "id": "s1250495",
+      "studentUId": "1250495",
+      "name": "Woman Yelling Cat Meme",
+      "major": "Communications",
+      "year": "Junior",
+      "userId": "u1250495",
+      "enrollments": [
+        {
+          "id": "e495001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10018"
+        }
+      ]
+    },
+    {
+      "id": "s1250496",
+      "studentUId": "1250496",
+      "name": "Master Chief Halo",
+      "major": "Game Development",
+      "year": "Sophomore",
+      "userId": "u1250496",
+      "enrollments": [
+        {
+          "id": "e496001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10003"
+        }
+      ]
+    },
+    {
+      "id": "s1250497",
+      "studentUId": "1250497",
+      "name": "Sai Pallavi",
+      "major": "Software Engineering",
+      "year": "Junior",
+      "userId": "u1250497",
+      "enrollments": [
+        {
+          "id": "e497001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10017"
+        }
+      ]
+    },
+    {
+      "id": "s1250498",
+      "studentUId": "1250498",
+      "name": "Surprised Pikachu Meme",
+      "major": "Biology",
+      "year": "Senior",
+      "userId": "u1250498",
+      "enrollments": [
+        {
+          "id": "e498001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10022"
+        }
+      ]
+    },
+    {
+      "id": "s1250499",
+      "studentUId": "1250499",
+      "name": "Jasim Al-Fahad",
+      "major": "Computer Science",
+      "year": "Junior",
+      "userId": "u1250499",
+      "enrollments": [
+        {
+          "id": "e499001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10001"
+        }
+      ]
+    },
+    {
+      "id": "s1250500",
+      "studentUId": "1250500",
+      "name": "Bernie Sanders Mittens Meme",
+      "major": "Political Science",
+      "year": "Sophomore",
+      "userId": "u1250500",
+      "enrollments": [
+        {
+          "id": "e500001",
+          "grade": null,
+          "status": "PENDING",
+          "semester": "Fall 2025",
+          "sectionId": "10015"
+        }
+      ]
     }
   ]
 }
