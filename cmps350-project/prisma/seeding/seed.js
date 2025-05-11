@@ -240,13 +240,13 @@ async function seed() {
   console.log("\nSeeding Enrollments...");
   console.log("-----------------------------------------------------------");
   for (const student of studentData) {
-    console.log(student);
+
     const sProfileId = createdStudentProfilesMap.get(student.studentUId);
-    console.log(sProfileId);
+
 
     if (sProfileId) {
       for (const enrollmentData of student.enrollments) {
-        const sectionId = createdSectionsMap.get(enrollmentData.crn);
+        const sectionId = createdSectionsMap.get(enrollmentData.sectionId);
 
         if (sectionId) {
           try {
