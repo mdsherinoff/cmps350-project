@@ -241,7 +241,7 @@ async function seed() {
   console.log("-----------------------------------------------------------");
   for (const student of studentData) {
     console.log(student);
-    const sProfileId = createdStudentProfilesMap.get(student.id);
+    const sProfileId = createdStudentProfilesMap.get(student.studentUId);
     console.log(sProfileId);
 
     if (sProfileId) {
