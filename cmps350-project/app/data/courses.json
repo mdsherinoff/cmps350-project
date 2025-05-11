@@ -16,7 +16,7 @@
         "location": "Building 5, Room 203",
         "enrolled": 15,
         "capacity": 30,
-        "status": "closed"
+        "status": "open"
       },
       {
         "crn": "10002",
