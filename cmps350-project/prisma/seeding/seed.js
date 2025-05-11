@@ -126,6 +126,7 @@ async function seed() {
 
       // Seed sections for this course
       for (const sData of cData.sections) {
+        console.log(sData);
         const instructorProfileId = createdInstructorProfilesMap.get(
           sData.instructor
         );
