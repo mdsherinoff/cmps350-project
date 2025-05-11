@@ -48,3 +48,16 @@ export async function updateStudentGradeAction(courseData) {
 export async function registerStudentInCourseAction(courseData) {
   return await MasterRepo.registerStudentInCourse(courseData);
 }
+
+
+export async function getInstructorAnalyticsAction() {
+  return await MasterRepo.getInstructorAnalytics();
+}
+
+export async function getCourseAnalyticsAction() {
+  return await MasterRepo.getCourseAnalytics();
+}
+
+export async function getStudentAnalyticsAction(courseData) {
+  return await MasterRepo.getStudentAnalytics(courseData);
+}

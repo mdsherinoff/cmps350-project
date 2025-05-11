@@ -39,7 +39,6 @@ const sampleData = {
 };
 
 export default function StudentReport() {
-
   const yearChartData = {
     labels: sampleData.studentsPerYear.labels,
     datasets: [
@@ -50,7 +49,6 @@ export default function StudentReport() {
       },
     ],
   };
-
 
   const yearChartOptions = {
     responsive: true,

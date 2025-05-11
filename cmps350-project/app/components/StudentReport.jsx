@@ -1,5 +1,10 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
+import { faSquareReddit } from "@fortawesome/free-brands-svg-icons";
+
+
 
 import {
   Chart as ChartJS,
@@ -38,14 +43,16 @@ const sampleData = {
   },
 };
 
-export default function StudentReport() {
+export default function StudentReport({ students }) {
+  //   const studentCount = students.totalStudents;
+
   const yearChartData = {
     labels: sampleData.studentsPerYear.labels,
     datasets: [
       {
         label: "Number of Students",
         data: sampleData.studentsPerYear.data,
-        backgroundColor: "rgba(72, 75, 245, 0.8)",
+        backgroundColor: "rgba(112, 25, 61, 0.8)",
       },
     ],
   };
@@ -78,6 +85,7 @@ export default function StudentReport() {
       },
     },
   };
+  //   console.log(studentCount);
 
   return (
     <div>
@@ -85,12 +93,33 @@ export default function StudentReport() {
       <div className="graphContainer">
         <div className="content">
           <section className="stats-section">
-            <div className="stats-grid">
+            <div className="analytics-grid">
               <div className="stats-card">
                 <h3>Total Instructors per Year</h3>
                 <div style={{ height: "300px" }}>
                   <Bar data={yearChartData} options={yearChartOptions} />
                 </div>
+              </div>
+
+              <div className="stats-card">
+                <h3>Total Students</h3>
+                {/* <div className="count-center">{studentCount}</div> */}
+              </div>
+
+              <div className="stat-container">
+                <div className="stat-card">
+                  <div className="stat-icon">
+                <FontAwesomeIcon icon={faSquarePollVertical}size="2x"/>
+                  </div>
+                  <div className="stat-info">
+                    <span className="stat-value" id="total-classes">
+                    {students.totalStudents}
+                    </span>
+                    <span className="stat-label">Active Classes</span>
+                  </div>
+                </div>
+                <div className="stat-card"></div>
+                <div className="stat-card"></div>
               </div>
             </div>
           </section>

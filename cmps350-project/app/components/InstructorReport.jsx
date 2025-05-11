@@ -45,7 +45,7 @@ export default function StudentReport() {
       {
         label: "Number of Students",
         data: sampleData.studentsPerYear.data,
-        backgroundColor: "rgba(99, 233, 166, 0.8)",
+        backgroundColor: "rgba(112, 25, 61, 0.8)",
       },
     ],
   };

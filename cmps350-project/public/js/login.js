@@ -31,58 +31,49 @@ async function userInput() {
       return;
     } else {
       alert(
-        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`
+        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${
+          user.username
+        }`
       );
     }
 
     localStorage.setItem("userId", JSON.stringify(user.id));
+    let userId = null;
+    let currUserInfo = null;
 
     switch (enteredUserType) {
-      case "student":
+      case "student": 
+        userId = JSON.parse(localStorage.getItem("userId"));
+        currUserInfo = studentsData.find((student) => student.studentUId === userId);
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
+
         break;
       case "instructor":
+        userId = JSON.parse(localStorage.getItem("userId"));
+        currUserInfo = instructorsData.find(
+          (instructor) => instructor.id === userId
+        );
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/instructor-home.html";
+
         break;
       case "administrator":
+        userId = JSON.parse(localStorage.getItem("userId"));
+        currUserInfo = userData.find((user) => user.id === userId);
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/admin-home.html";
+
         break;
     }
-
-    if (enteredUserType === "student") {
-      const userId = JSON.parse(localStorage.getItem("userId"));
-      const currUserInfo = studentsData.find(
-        (student) => student.id === userId,
-        console.log(currUserInfo)  
-      );
-      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-    }
-    if (enteredUserType === "instructor") {
-      const userId = JSON.parse(localStorage.getItem("userId"));
-      const currUserInfo = instructorsData.find(
-        (instructor) => instructor.id === userId
-      );
-      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-    }
-    if (enteredUserType === "administrator") {
-      const userId = JSON.parse(localStorage.getItem("userId"));
-      const currUserInfo = userData.find((user) => user.id === userId);
-      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-    }
   });
-
 }
 
-
-function handleCredentialResponse(response){
+function handleCredentialResponse(response) {
   alert("Login successful! Token received.");
   console.log("Token:", response.credential);
   window.location.href = "/html/student-home.html";
   localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-  
 }
-
-
-
 
 userInput();

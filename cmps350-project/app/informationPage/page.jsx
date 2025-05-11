@@ -8,7 +8,7 @@ import { faCalendar, faSquarePollVertical, faTachometer, faTachometerAlt } from 
 import StudentReport from "../components/StudentReport";
 import InstructorReport from "../components/InstructorReport";
 import CourseReport from "../components/CourseReport";
-import { getAllStudentsAction } from "../actions/server-actions";
+import {getStudentAnalyticsAction } from "../actions/server-actions";
 
 
 
@@ -16,17 +16,18 @@ export default function informationPage() {
 
 const [selectedTab, setSelectedTab] = useState("Student");
 
-const [students, setStudents] = useState([]);
+const [students, setStudents] = useState(null);
 
   async function loadStudents() {
-    const studentData = await getAllStudentsAction();
+    const studentData = await getStudentAnalyticsAction();
     setStudents(studentData);
   }
+  console.log(students);
+  
 
   useEffect(() => {
     loadStudents();
   }, []);
-  console.log(students);
   
 
   return (
@@ -89,7 +90,7 @@ const [students, setStudents] = useState([]);
           </div>
 
             <section className="Graphsgrid" />
-            {selectedTab === "Student" && <StudentReport/>}
+            {selectedTab === "Student" && <StudentReport students={students}/>}
             {selectedTab === "Instructor" && <InstructorReport/>}
             {selectedTab === "Courses" && <CourseReport/>}
             <section/>
