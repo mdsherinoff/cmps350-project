@@ -55,7 +55,10 @@ async function seed() {
               userId: user.id,
             },
           });
-          createdInstructorProfilesMap.set(iData.name, instructorProfile.id);
+          createdInstructorProfilesMap.set(
+            iData.instructorUId,
+            instructorProfile.id
+          );
           console.log(
             `Created instructor profile for: ${instructorProfile.name}`
           );
@@ -126,10 +129,12 @@ async function seed() {
 
       // Seed sections for this course
       for (const sData of cData.sections) {
-        console.log(sData);
+        // console.log(sData);
+        console.log("here");
         const instructorProfileId = createdInstructorProfilesMap.get(
           sData.instructor
         );
+        console.log(instructorProfileId);
         if (!instructorProfileId) {
           console.warn(
             `  Could not find instructor profile for "${sData.instructor}" to link section ${sData.crn}. Skipping section.`
@@ -145,7 +150,7 @@ async function seed() {
               location: sData.location,
               enrolledCount: sData.enrolled,
               capacity: sData.capacity,
-              status: sData.status,
+              status: sData.status.toUpperCase(),
               courseId: courseRecord.id,
               instructorProfileId: instructorProfileId,
             },
