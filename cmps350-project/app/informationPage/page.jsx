@@ -72,8 +72,8 @@ const [selectedTab, setSelectedTab] = useState("Student");
                             <option value="Instructor">Instructor</option>
                             <option value="Courses">Courses</option>
                         </select>
-                    </div>
-                </div>
+              </div>
+          </div>
 
             <section className="Graphsgrid" />
             {selectedTab === "Student" && <StudentReport/>}

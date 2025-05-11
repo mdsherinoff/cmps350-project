@@ -79,7 +79,7 @@ function handleCredentialResponse(response){
   console.log("Token:", response.credential);
   window.location.href = "/html/student-home.html";
   localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-
+  
 }
 
 
