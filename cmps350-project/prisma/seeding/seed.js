@@ -255,29 +255,29 @@ async function seed() {
                 studentProfileId: sProfileId,
                 sectionId: sectionId,
                 grade: enrollmentData.grade,
-                status: enrollmentData.status.toUpperCase,
+                status: enrollmentData.status.toUpperCase(),
                 semester: enrollmentData.semester,
               },
             });
             console.log(
-              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
+              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.sectionId}`
             );
           } catch (enrollError) {
             if (enrollError.code === "P2002") {
               // Unique constraint (studentProfileId, sectionId)
               console.warn(
-                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
+                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.sectionId}.`
               );
             } else {
               console.error(
-                `  Error enrolling student in CRN ${enrollmentData.crn}:`,
+                `  Error enrolling student in CRN ${enrollmentData.sectionId}:`,
                 enrollError
               );
             }
           }
         } else {
           console.warn(
-            `  Could not find section with CRN ${enrollmentData.crn} for enrollment. Skipping.`
+            `  Could not find section with CRN ${enrollmentData.sectionId} for enrollment. Skipping.`
           );
         }
       }
