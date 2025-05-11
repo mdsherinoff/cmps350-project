@@ -22,9 +22,9 @@ async function seed() {
   console.log("Start seeding ...");
 
   // 1. Seed Users and their Profiles (Students/Instructors)
-  const createdUsersMap = new Map(); 
-  const createdInstructorProfilesMap = new Map(); 
-  const createdStudentProfilesMap = new Map(); 
+  const createdUsersMap = new Map();
+  const createdInstructorProfilesMap = new Map();
+  const createdStudentProfilesMap = new Map();
 
   console.log("-----------------------------------------------------------");
   console.log("\nSeeding Users, InstructorProfiles, and StudentProfiles...");
@@ -43,7 +43,6 @@ async function seed() {
       console.log(`Created user: ${user.username} (ID: ${user.id})`);
 
       if (user.role == "INSTRUCTOR") {
-
         const iData = instructorData.find((instr) => {
           return instr.instructorUId === u.id;
         });
@@ -56,31 +55,31 @@ async function seed() {
               userId: user.id,
             },
           });
-          createdInstructorProfilesMap.set(iData.name, instructorProfile.id); 
-          console.log(`Created instructor profile for: ${instructorProfile.name}`);
+          createdInstructorProfilesMap.set(iData.name, instructorProfile.id);
+          console.log(
+            `Created instructor profile for: ${instructorProfile.name}`
+          );
         }
       }
 
-        if (user.role == "STUDENT") {
-          
+      if (user.role == "STUDENT") {
         const iData = studentData.find((stud) => {
           return stud.studentUId === u.id;
         });
+
         if (iData) {
           const studentProfile = await prisma.student.create({
             data: {
-              studentUId: iData.id,
+              studentUId: iData.studentUId,
               name: iData.name,
               year: iData.year,
               userId: user.id,
             },
           });
-          createdStudentProfilesMap.set(iData.name, studentProfile.id); 
-          console.log(`Created Student profile for: ${studentProfile.name}`
-          );
+          createdStudentProfilesMap.set(iData.name, studentProfile.id);
+          console.log(`Created Student profile for: ${studentProfile.name}`);
         }
       }
-
     } catch (error) {
       if (error.code === "P2002") {
         // Unique constraint violation
@@ -99,7 +98,7 @@ async function seed() {
   }
 
   // 2. Seed Courses and their Sections
-  const createdCoursesMap = new Map(); 
+  const createdCoursesMap = new Map();
   const createdSectionsMap = new Map();
 
   console.log("-----------------------------------------------------------");
@@ -140,7 +139,7 @@ async function seed() {
           const sectionRecord = await prisma.section.create({
             data: {
               crn: sData.crn,
-              semester: "Spring 2024", 
+              semester: "Spring 2024",
               schedule: sData.schedule,
               location: sData.location,
               enrolledCount: sData.enrolled,
@@ -175,8 +174,8 @@ async function seed() {
         cData.prerequisites.length > 0
       ) {
         for (const prereqUId of cData.prerequisites) {
-          const mainCourseId = createdCoursesMap.get(cData.id); 
-          const prerequisiteCourseActualId = createdCoursesMap.get(prereqUId); 
+          const mainCourseId = createdCoursesMap.get(cData.id);
+          const prerequisiteCourseActualId = createdCoursesMap.get(prereqUId);
 
           if (mainCourseId && prerequisiteCourseActualId) {
             try {
@@ -226,49 +225,49 @@ async function seed() {
 
   // 4. Seed Enrollments
   console.log("\nSeeding Enrollments...");
-  for(const student of studentData){
-  const sProfileId = createdStudentProfilesMap.get(student.id);
-  if (sProfileId) {
-    for (const enrollmentData of studentData.courses) {
-      const sectionId = createdSectionsMap.get(enrollmentData.crn);
+  for (const student of studentData) {
+    const sProfileId = createdStudentProfilesMap.get(student.id);
+    if (sProfileId) {
+      for (const enrollmentData of studentData.courses) {
+        const sectionId = createdSectionsMap.get(enrollmentData.crn);
 
-      if (sectionId) {
-        try {
-          await prisma.enrollment.create({
-            data: {
-              studentProfileId: sProfileId,
-              sectionId: sectionId,
-              grade: enrollmentData.grade,
-              status: enrollmentData.status, 
-              semester: enrollmentData.semester,
-            },
-          });
-          console.log(
-            `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
-          );
-        } catch (enrollError) {
-          if (enrollError.code === "P2002") {
-            // Unique constraint (studentProfileId, sectionId)
-            console.warn(
-              `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
+        if (sectionId) {
+          try {
+            await prisma.enrollment.create({
+              data: {
+                studentProfileId: sProfileId,
+                sectionId: sectionId,
+                grade: enrollmentData.grade,
+                status: enrollmentData.status,
+                semester: enrollmentData.semester,
+              },
+            });
+            console.log(
+              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
             );
-          } else {
-            console.error(
-              `  Error enrolling student in CRN ${enrollmentData.crn}:`,
-              enrollError
-            );
+          } catch (enrollError) {
+            if (enrollError.code === "P2002") {
+              // Unique constraint (studentProfileId, sectionId)
+              console.warn(
+                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
+              );
+            } else {
+              console.error(
+                `  Error enrolling student in CRN ${enrollmentData.crn}:`,
+                enrollError
+              );
+            }
           }
+        } else {
+          console.warn(
+            `  Could not find section with CRN ${enrollmentData.crn} for enrollment. Skipping.`
+          );
         }
-      } else {
-        console.warn(
-          `  Could not find section with CRN ${enrollmentData.crn} for enrollment. Skipping.`
-        );
       }
+    } else {
+      console.warn("  Student profile not found for seeding enrollments.");
     }
-  } else {
-    console.warn("  Student profile not found for seeding enrollments.");
   }
-}
 
   console.log("\nSeeding finished.");
 }
