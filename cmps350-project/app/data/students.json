@@ -1409,66 +1409,6 @@
     ]
   },
   {
-    "id": "s1240032",
-    "studentUId": "1240032",
-    "name": "Ellie Last",
-    "year": "Junior",
-    "enrollments": [
-      {
-        "id": "e32001",
-        "grade": "A",
-        "status": "COMPLETED",
-        "semester": "Fall 2024",
-        "sectionId": "10021"
-      }
-    ]
-  },
-  {
-    "id": "s1250141",
-    "studentUId": "1250141",
-    "name": "Ellie Last Of Us",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e141001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250276",
-    "studentUId": "1250276",
-    "name": "Ellie Last Of Us 2",
-    "year": "Sophomore",
-    "enrollments": [
-      {
-        "id": "e276001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250306",
-    "studentUId": "1250306",
-    "name": "Ellie Last of Us",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e306001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
     "id": "s1230011",
     "studentUId": "1230011",
     "name": "Ellie Williams",
@@ -2676,111 +2616,6 @@
     ]
   },
   {
-    "id": "s1250370",
-    "studentUId": "1250370",
-    "name": "Kombucha Girl Meme",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e370001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10016"
-      }
-    ]
-  },
-  {
-    "id": "s1250250",
-    "studentUId": "1250250",
-    "name": "Kombucha Girl Reaction",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e250001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10015"
-      }
-    ]
-  },
-  {
-    "id": "s1250310",
-    "studentUId": "1250310",
-    "name": "Kombucha Girl Reaction Meme",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e310001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10015"
-      }
-    ]
-  },
-  {
-    "id": "s1240035",
-    "studentUId": "1240035",
-    "name": "Kratos God",
-    "year": "Sophomore",
-    "enrollments": [
-      {
-        "id": "e35001",
-        "grade": "A",
-        "status": "COMPLETED",
-        "semester": "Fall 2024",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250281",
-    "studentUId": "1250281",
-    "name": "Kratos God Of War",
-    "year": "Junior",
-    "enrollments": [
-      {
-        "id": "e281001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250156",
-    "studentUId": "1250156",
-    "name": "Kratos God War",
-    "year": "Senior",
-    "enrollments": [
-      {
-        "id": "e156001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250316",
-    "studentUId": "1250316",
-    "name": "Kratos God of War",
-    "year": "Sophomore",
-    "enrollments": [
-      {
-        "id": "e316001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
     "id": "s1230008",
     "studentUId": "1230008",
     "name": "Kratos Olympian",
@@ -3051,21 +2886,6 @@
     ]
   },
   {
-    "id": "s1250381",
-    "studentUId": "1250381",
-    "name": "Link Legend Of Zelda",
-    "year": "Junior",
-    "enrollments": [
-      {
-        "id": "e381001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
     "id": "s1250251",
     "studentUId": "1250251",
     "name": "Link Legend Zelda",
@@ -3073,21 +2893,6 @@
     "enrollments": [
       {
         "id": "e251001",
-        "grade": null,
-        "status": "PENDING",
-        "semester": "Fall 2025",
-        "sectionId": "10003"
-      }
-    ]
-  },
-  {
-    "id": "s1250336",
-    "studentUId": "1250336",
-    "name": "Link Legend of Zelda",
-    "year": "Sophomore",
-    "enrollments": [
-      {
-        "id": "e336001",
         "grade": null,
         "status": "PENDING",
         "semester": "Fall 2025",
