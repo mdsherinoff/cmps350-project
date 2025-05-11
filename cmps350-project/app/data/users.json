@@ -23,21 +23,9 @@
     "password": "password123",
     "role": "instructor"
   },
-{
-    "id": "1250304",
-    "username": "AhmedAlSharif",
-    "password": "password123",
-    "role": "student"
-  },
   {
-    "id": "1250464",
-    "username": "AishaAlAbdulla",
-    "password": "password123",
-    "role": "student"
-  },
-  {
-    "id": "1250324",
-    "username": "AishaAlMansoori",
+    "id": "1250097",
+    "username": "AishaAlYammahi",
     "password": "password123",
     "role": "student"
   }

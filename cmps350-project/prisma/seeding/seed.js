@@ -79,7 +79,7 @@ async function seed() {
               userId: user.id,
             },
           });
-          createdStudentProfilesMap.set(iData.name, studentProfile.id);
+          createdStudentProfilesMap.set(iData.studentUId, studentProfile.id);
           console.log(`Created Student profile for: ${studentProfile.name}`);
         }
       }
@@ -236,15 +236,17 @@ async function seed() {
   }
 
   // 4. Seed Enrollments
+  console.log("-----------------------------------------------------------");
   console.log("\nSeeding Enrollments...");
+  console.log("-----------------------------------------------------------");
   for (const student of studentData) {
-    console.log(student);
-    const sProfileId = createdStudentProfilesMap.get(student.id);
-    console.log(sProfileId);
+
+    const sProfileId = createdStudentProfilesMap.get(student.studentUId);
+
 
     if (sProfileId) {
       for (const enrollmentData of student.enrollments) {
-        const sectionId = createdSectionsMap.get(enrollmentData.crn);
+        const sectionId = createdSectionsMap.get(enrollmentData.sectionId);
 
         if (sectionId) {
           try {
@@ -253,29 +255,29 @@ async function seed() {
                 studentProfileId: sProfileId,
                 sectionId: sectionId,
                 grade: enrollmentData.grade,
-                status: enrollmentData.status,
+                status: enrollmentData.status.toUpperCase(),
                 semester: enrollmentData.semester,
               },
             });
-            // console.log(
-            //   `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
-            // );
+            console.log(
+              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.sectionId}`
+            );
           } catch (enrollError) {
             if (enrollError.code === "P2002") {
               // Unique constraint (studentProfileId, sectionId)
-              // console.warn(
-              //   `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
-              // );
+              console.warn(
+                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.sectionId}.`
+              );
             } else {
               console.error(
-                `  Error enrolling student in CRN ${enrollmentData.crn}:`,
+                `  Error enrolling student in CRN ${enrollmentData.sectionId}:`,
                 enrollError
               );
             }
           }
         } else {
           console.warn(
-            `  Could not find section with CRN ${enrollmentData.crn} for enrollment. Skipping.`
+            `  Could not find section with CRN ${enrollmentData.sectionId} for enrollment. Skipping.`
           );
         }
       }
