@@ -1,62 +1,57 @@
-'use server'
+"use server";
 
-import masterRepo from "../repo/master-repo"
-import { redirect } from "next/navigation"
-import { revalidatePath } from "next/cache"
-
+import MasterRepo from "../repo/master-repo";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 //User
 export async function findUserByUsernameAction(username) {
-    return await masterRepo.findUserByUsername(username)
+  return await MasterRepo.findUserByUsername(username);
 }
 
 export async function findStudentProfileByUIdAction(studentUId) {
-    return await masterRepo.findStudentProfileByUId(studentUId)
+  return await MasterRepo.findStudentProfileByUId(studentUId);
 }
 
 export async function findInstructorProfileByUIdAction(instructorUId) {
-    return await masterRepo.findInstructorProfileByUId(instructorUId)
+  return await MasterRepo.findInstructorProfileByUId(instructorUId);
 }
 
 export async function getAllStudentsAction() {
-    return masterRepo.getAllStudents()
+  return await MasterRepo.getAllStudents();
 }
 
 export async function findCourseByUIdAction() {
-    return masterRepo.findCourseByUId()
+  return await MasterRepo.findCourseByUId();
 }
 
 export async function findCourseByCodeAction() {
-    return masterRepo.findCourseByCode()
+  return await MasterRepo.findCourseByCode();
 }
 
 export async function getEnrollmentsForStudentAction() {
-    return masterRepo.getEnrollmentsForStudent()
+  return await MasterRepo.getEnrollmentsForStudent();
 }
 
 export async function getStudentsEnrolledInSectionAction() {
-    return masterRepo.getStudentsEnrolledInSection()
+  return await MasterRepo.getStudentsEnrolledInSection();
 }
 
 export async function getStudentsEnrolledInSectionAction() {
-    return masterRepo.getStudentsEnrolledInSection()
+  return await MasterRepo.getStudentsEnrolledInSection();
 }
 
-export async function createCourseAction(courseData){
-    return await mealsRepo.addMeal(courseData);
+export async function createCourseAction(courseData) {
+  return await MasterRepo.addMeal(courseData);
 }
 
-export async function updateStudentGradeAction(courseData){
-    return await mealsRepo.updateStudentGrade(courseData);
+export async function updateStudentGradeAction(courseData) {
+  return await MasterRepo.updateStudentGrade(courseData);
 }
 
-export async function registerStudentInCourseAction(courseData){
-    return await mealsRepo.registerStudentInCourse(courseData);
+export async function registerStudentInCourseAction(courseData) {
+  return await MasterRepo.registerStudentInCourse(courseData);
 }
-export async function updateStudentGradeAction(courseData){
-    return await mealsRepo.updateStudentGrade(courseData);
+export async function updateStudentGradeAction(courseData) {
+  return await MasterRepo.updateStudentGrade(courseData);
 }
-
-
-
-

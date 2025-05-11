@@ -60,10 +60,6 @@ class MasterRepo {
     });
   }
 
-
-
-
-
   async findCourseByUId(courseUId) {
     return await prisma.course.findUnique({
       where: { courseUId },
@@ -190,28 +186,23 @@ class MasterRepo {
     });
   }
 
-
-
   async createCourse(courseData) {
-      const newCourse = await prisma.course.create({
-        data: {
-          courseUId : courseData.id,
-          code: courseData.code,
-          name: courseData.name,
-          credits: courseData.credits,
-          category: courseData.category,
-          description: courseData.description || null,
-          sections: course.sections,
-          prerequisites : courseData.prerequisite
+    const newCourse = await prisma.course.create({
+      data: {
+        courseUId: courseData.id,
+        code: courseData.code,
+        name: courseData.name,
+        credits: courseData.credits,
+        category: courseData.category,
+        description: courseData.description || null,
+        sections: course.sections,
+        prerequisites: courseData.prerequisite,
+      },
+    });
+    return newCourse;
+  }
 
-        },
-      });
-      return newCourse;
-    }
-
-
-
-    async updateStudentGrade(studentUId, crn, grade) {
+  async updateStudentGrade(studentUId, crn, grade) {
     const student = await prisma.student.findUnique({
       where: { studentUId },
       select: { studentUId: true },
@@ -241,68 +232,56 @@ class MasterRepo {
     });
 
     if (updatedEnrollment.count === 0) {
-      throw new Error(`Enrollment not found for student ${studentUId} in section ${crn}`);
+      throw new Error(
+        `Enrollment not found for student ${studentUId} in section ${crn}`
+      );
     }
 
     return { message: "Grade updated successfully." };
   }
 
+  //Use case 3
+  async registerStudentInCourse(studentUId, courseUId, crn) {
+    const studentProfile = await prisma.StudentProfile.findUnique({
+      where: { studentUId },
+      select: { id: true },
+    });
 
-//Use case 3
-async registerStudentInCourse(studentUId, courseUId, crn) {
-  const studentProfile = await prisma.StudentProfile.findUnique({
-    where: { studentUId },
-    select: { id: true },
-  });
+    if (!studentProfile) {
+      throw new Error(`Student with UId "${studentUId}" not found.`);
+    }
 
-  if (!studentProfile) {
-    throw new Error(`Student with UId "${studentUId}" not found.`);
+    const section = await prisma.enrollment.findUnique({
+      where: { crn },
+      select: { id: true },
+    });
+
+    if (!section) {
+      throw new Error(`Section with CRN "${crn}" not found.`);
+    }
+
+    // Check if the student is already enrolled in the section
+    // const existingEnrollment = await prisma.enrollment.findFirst({
+    //   where: {
+    //     studentProfileId: studentProfile.id,
+    //     sectionId: section.id,
+    //   },
+    // });
+
+    // if (existingEnrollment) {
+    //   throw new Error(`Student with UId "${studentUId}" is already enrolled in this section.`);
+    // }
+
+    // Create enrollment record
+    const newEnrollment = await prisma.enrollment.create({
+      data: {
+        studentProfileId: studentProfile.id,
+        sectionId: section.id,
+      },
+    });
+
+    return newEnrollment;
   }
-
-  const section = await prisma.enrollment.findUnique({
-    where: { crn },
-    select: { id: true },
-  });
-
-  if (!section) {
-    throw new Error(`Section with CRN "${crn}" not found.`);
-  }
-
-  // Check if the student is already enrolled in the section
-  // const existingEnrollment = await prisma.enrollment.findFirst({
-  //   where: {
-  //     studentProfileId: studentProfile.id,
-  //     sectionId: section.id,
-  //   },
-  // });
-
-  // if (existingEnrollment) {
-  //   throw new Error(`Student with UId "${studentUId}" is already enrolled in this section.`);
-  // }
-
-  // Create enrollment record
-  const newEnrollment = await prisma.enrollment.create({
-    data: {
-      studentProfileId: studentProfile.id,
-      sectionId: section.id,
-    },
-  });
-
-  return newEnrollment;
 }
-
-
-
-  
-
-
-}
-
-
-
-
-
-
-
 
 export default new MasterRepo();
