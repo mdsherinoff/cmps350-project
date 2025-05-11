@@ -257,15 +257,15 @@ async function seed() {
                 semester: enrollmentData.semester,
               },
             });
-            console.log(
-              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
-            );
+            // console.log(
+            //   `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.crn}`
+            // );
           } catch (enrollError) {
             if (enrollError.code === "P2002") {
               // Unique constraint (studentProfileId, sectionId)
-              console.warn(
-                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
-              );
+              // console.warn(
+              //   `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.crn}.`
+              // );
             } else {
               console.error(
                 `  Error enrolling student in CRN ${enrollmentData.crn}:`,
