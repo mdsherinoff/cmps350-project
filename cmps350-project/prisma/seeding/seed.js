@@ -173,7 +173,13 @@ async function seed() {
         }
       }
       // 3. Seed Course Prerequisites (if any)
+      console.log(
+        "-----------------------------------------------------------"
+      );
       console.log("\nSeeding Course Prerequisites...");
+      console.log(
+        "-----------------------------------------------------------"
+      );
       if (
         courseRecord &&
         cData.prerequisites &&
@@ -232,9 +238,12 @@ async function seed() {
   // 4. Seed Enrollments
   console.log("\nSeeding Enrollments...");
   for (const student of studentData) {
+    console.log(student);
     const sProfileId = createdStudentProfilesMap.get(student.id);
+    console.log(sProfileId);
+
     if (sProfileId) {
-      for (const enrollmentData of studentData.courses) {
+      for (const enrollmentData of student.enrollments) {
         const sectionId = createdSectionsMap.get(enrollmentData.crn);
 
         if (sectionId) {
