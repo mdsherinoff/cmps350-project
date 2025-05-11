@@ -99,8 +99,6 @@ model CoursePrerequisite {
   courseId             String
   prerequisiteCourseId String
 
-  assignedAt DateTime @default(now()) // When the prerequisite was defined
-
   // Relations
   course       Course @relation("CourseOffering", fields: [courseId], references: [id], onDelete: Cascade)
   prerequisite Course @relation("PrerequisiteCourse", fields: [prerequisiteCourseId], references: [id], onDelete: Cascade)

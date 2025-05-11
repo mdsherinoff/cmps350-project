@@ -14,7 +14,7 @@ async function seed() {
   const createdSectionsMap = new Map();
 
   console.log("\nSeeding Courses and Sections...");
-  for (const cData of [courseData]) {
+  for (const cData of courseData) {
     let courseRecord;
     try {
       courseRecord = await prisma.course.create({
@@ -82,7 +82,7 @@ async function seed() {
 
           if (mainCourseId && prerequisiteCourseActualId) {
             try {
-              await prisma.coursePrerequisite.create({
+              await prisma.CoursePrerequisite.create({
                 data: {
                   courseId: mainCourseId,
                   prerequisiteCourseId: prerequisiteCourseActualId,
