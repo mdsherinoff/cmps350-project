@@ -79,7 +79,7 @@ async function seed() {
               userId: user.id,
             },
           });
-          createdStudentProfilesMap.set(iData.name, studentProfile.id);
+          createdStudentProfilesMap.set(iData.studentUId, studentProfile.id);
           console.log(`Created Student profile for: ${studentProfile.name}`);
         }
       }
