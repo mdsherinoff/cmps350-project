@@ -45,7 +45,7 @@
     "name": "Prof. Aisha Bakr",
     "department": "Mathematics",
     "userId": "u2250006",
-    "sectionsTaught": ["10004"]
+    "sectionsTaught": []
   },
   {
     "id": "i2250007",
@@ -77,7 +77,7 @@
     "name": "Prof. Noor Abdullah",
     "department": "Computer Science",
     "userId": "u2250010",
-    "sectionsTaught": ["10009"]
+    "sectionsTaught": []
   },
   {
     "id": "i2250011",
@@ -93,7 +93,7 @@
     "name": "Prof. Mariam El-Sayed",
     "department": "Computer Science",
     "userId": "u2250012",
-    "sectionsTaught": ["10007"]
+    "sectionsTaught": []
   },
   {
     "id": "i2250013",
@@ -133,7 +133,7 @@
     "name": "Dr. Huda Al-Zahrani",
     "department": "Information Security",
     "userId": "u2250017",
-    "sectionsTaught": ["10022"]
+    "sectionsTaught": []
   },
   {
     "id": "i2250018",
@@ -141,7 +141,7 @@
     "name": "Prof. Noora Al-Mulla",
     "department": "Computer Science",
     "userId": "u2250018",
-    "sectionsTaught": ["10015"]
+    "sectionsTaught": []
   },
   {
     "id": "i2250019",
