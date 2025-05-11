@@ -37,10 +37,6 @@ export async function getStudentsEnrolledInSectionAction() {
   return await MasterRepo.getStudentsEnrolledInSection();
 }
 
-export async function getStudentsEnrolledInSectionAction() {
-  return await MasterRepo.getStudentsEnrolledInSection();
-}
-
 export async function createCourseAction(courseData) {
   return await MasterRepo.addMeal(courseData);
 }
@@ -51,7 +47,4 @@ export async function updateStudentGradeAction(courseData) {
 
 export async function registerStudentInCourseAction(courseData) {
   return await MasterRepo.registerStudentInCourse(courseData);
-}
-export async function updateStudentGradeAction(courseData) {
-  return await MasterRepo.updateStudentGrade(courseData);
 }

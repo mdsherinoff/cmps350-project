@@ -1,7 +1,5 @@
-"use client";
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { useEffect, useState } from "react";
 
 import {
   Chart as ChartJS,
@@ -41,23 +39,18 @@ const sampleData = {
 };
 
 export default function StudentReport() {
-  const [yearChartData, setYearChartData] = useState({
-    labels: [],
-    datasets: [],
-  });
 
-  useEffect(() => {
-    setYearChartData({
-      labels: sampleData.studentsPerYear.labels,
-      datasets: [
-        {
-          label: "Number of Students",
-          data: sampleData.studentsPerYear.data,
-          backgroundColor: ["rgba(112, 25, 61, 0.8)"],
-        },
-      ],
-    });
-  }, []);
+  const yearChartData = {
+    labels: sampleData.studentsPerYear.labels,
+    datasets: [
+      {
+        label: "Number of Students",
+        data: sampleData.studentsPerYear.data,
+        backgroundColor: "rgba(112, 25, 61, 0.8)",
+      },
+    ],
+  };
+
 
   const yearChartOptions = {
     responsive: true,

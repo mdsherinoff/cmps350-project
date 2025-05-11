@@ -52,7 +52,7 @@ class MasterRepo {
   }
 
   async getAllStudents() {
-    return await prisma.studentProfile.findMany({
+    return await prisma.student.findMany({
       orderBy: { name: "asc" },
       include: {
         user: { select: { username: true } },

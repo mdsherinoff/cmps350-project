@@ -1,7 +1,5 @@
-'use client'
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { useEffect, useState } from "react";
 
 import {
   Chart as ChartJS,
@@ -40,61 +38,47 @@ const sampleData = {
   },
 };
 
-
-
 export default function StudentReport() {
+  const yearChartData = {
+    labels: sampleData.studentsPerYear.labels,
+    datasets: [
+      {
+        label: "Number of Students",
+        data: sampleData.studentsPerYear.data,
+        backgroundColor: "rgba(99, 233, 166, 0.8)",
+      },
+    ],
+  };
 
-     const [yearChartData, setYearChartData] = useState({
-        labels: [],
-        datasets: [],
-      });
-    
-      useEffect(() => {
-        setYearChartData({
-          labels: sampleData.studentsPerYear.labels,
-          datasets: [
-            {
-              label: "Number of Students",
-              data: sampleData.studentsPerYear.data,
-              backgroundColor: [
-                "rgba(112, 25, 61, 0.8)"
-              ],
-            },
-          ],
-        });
-      }, []);
-    
-      const yearChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-          title: {
-            display: true,
-            text: "Student Distribution by Year",
-          },
+  const yearChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: "Student Distribution by Year",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Number of Students",
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: "Number of Students",
-            },
-          },
-          x: {
-            title: {
-              display: true,
-              text: "Academic Year",
-            },
-          },
+      },
+      x: {
+        title: {
+          display: true,
+          text: "Academic Year",
         },
-      };
-    
+      },
+    },
+  };
 
-    
   return (
     <div>
       <section className="Graphsgrid" />
@@ -103,13 +87,10 @@ export default function StudentReport() {
           <section className="stats-section">
             <div className="stats-grid">
               <div className="stats-card">
-
-
                 <h3>Total Instructors per Year</h3>
                 <div style={{ height: "300px" }}>
                   <Bar data={yearChartData} options={yearChartOptions} />
                 </div>
-                
               </div>
             </div>
           </section>
