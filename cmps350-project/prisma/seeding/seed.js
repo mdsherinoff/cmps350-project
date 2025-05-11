@@ -260,13 +260,13 @@ async function seed() {
               },
             });
             console.log(
-              `  Enrolled student ${studentData.name} in section CRN ${enrollmentData.sectionId}`
+              `  Enrolled student ${student.name} in section CRN ${enrollmentData.sectionId}`
             );
           } catch (enrollError) {
             if (enrollError.code === "P2002") {
               // Unique constraint (studentProfileId, sectionId)
               console.warn(
-                `  Student ${studentData.name} likely already enrolled in CRN ${enrollmentData.sectionId}.`
+                `  Student ${student.name} likely already enrolled in CRN ${enrollmentData.sectionId}.`
               );
             } else {
               console.error(
