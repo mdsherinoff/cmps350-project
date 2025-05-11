@@ -236,7 +236,9 @@ async function seed() {
   }
 
   // 4. Seed Enrollments
+  console.log("-----------------------------------------------------------");
   console.log("\nSeeding Enrollments...");
+  console.log("-----------------------------------------------------------");
   for (const student of studentData) {
     console.log(student);
     const sProfileId = createdStudentProfilesMap.get(student.id);
@@ -253,7 +255,7 @@ async function seed() {
                 studentProfileId: sProfileId,
                 sectionId: sectionId,
                 grade: enrollmentData.grade,
-                status: enrollmentData.status,
+                status: enrollmentData.status.toUpperCase,
                 semester: enrollmentData.semester,
               },
             });
