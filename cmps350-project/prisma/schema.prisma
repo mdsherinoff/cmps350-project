@@ -42,7 +42,6 @@ model Student {
   id         String @id @default(uuid())
   studentUId String @unique
   name       String
-  major      String
   year       String
 
   // Relation to User (one-to-one)
