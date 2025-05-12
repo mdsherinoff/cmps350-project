@@ -1,17 +1,22 @@
-import fs from "fs-extra";
-import path from "path";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 class instructorsRepo {
   constructor() {
     console.log("Current working directory:", process.cwd());
-    this.dataFilePath = path.join(process.cwd(), "/app/data/instructors.json");
   }
   async getInstructors() {
-    const instructorsData = await fs.readJSON(this.dataFilePath);
-    return instructorsData;
+    return await prisma.instructor.findMany({
+      orderBy: { name: "asc" },
+    });
   }
   async setInstructors(instructors) {
-    await fs.writeJson(this.dataFilePath, instructors);
+    for (const instructor of instructors) {
+      await prisma.instructor.update({
+        where: { id: instructor.id },
+        data: instructor,
+      });
+    }
     return "instructors changed successfully";
   }
 }
