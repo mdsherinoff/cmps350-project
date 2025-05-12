@@ -26,7 +26,7 @@ export async function GET(request) {
 
 export async function POST(request) {
   const students = await request.json();
-  const newStudents = await studentsRepo.setStudents(students);
+  const newStudents = await masterRepo.setStudents(students);
   return new Response(newStudents, {
     status: 200,
     headers: {
