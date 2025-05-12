@@ -98,18 +98,18 @@ for (const course1 of courses) {
 loadProgramProgress();
 
 async function loadProgramProgress() {
-  const studentList = JSON.parse(localStorage.students);
-  const student = studentList.find(
-    (student) => String(student.id) == currentStudentId
-  );
-
-  const completedCourses = student.courses.filter(
-    (course) => course.status == "completed"
-  );
+  console.log(currUserName.studentProfile?.enrollments.course);
+  
+const completedCourses = currUserName.studentProfile?.enrollments.filter(
+  (enrollment) => enrollment.status === "completed"
+);
+const completedCourseObjects = completedCourses.map(
+  (enrollment) => enrollment.section.course
+);
 
   let gradePoints = 0;
 
-  for (const course of completedCourses) {
+  for (const course of completedCourseObjects) {
     if (gradePointDictionary[course.grade] !== undefined) {
       gradePoints += gradePointDictionary[course.grade];
     }
@@ -130,9 +130,9 @@ async function loadProgramProgress() {
 
   const courseList = JSON.parse(localStorage.courses);
 
-  for (course1 of courseList) {
+  for (const course1 of courseList) {
     let found = false;
-    for (course2 of student.courses) {
+    for (const course2 of student.courses) {
       if (course1.id == course2.courseId) {
         found = true;
         if (course2.status == "completed") {

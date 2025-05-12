@@ -15,24 +15,34 @@ class MasterRepo {
       },
     });
   }
-  async getAllCourses() {
-    return await prisma.course.findMany({
-      orderBy: { code: "asc" },
-      include: {
-        sections: {
-          select: {
-            crn: true,
-            instructor: true,
-            schedule: true,
-            location: true,
-            enrolledCount: true,
-            capacity: true,
-            status: true,
+async getAllCourses() {
+  return await prisma.course.findMany({
+    orderBy: { code: "asc" },
+    include: {
+      sections: {
+        select: {
+          crn: true,
+          instructor: true,
+          schedule: true,
+          location: true,
+          enrolledCount: true,
+          capacity: true,
+          status: true,
+        },
+      },
+      prerequisites: {
+        select: {
+          prerequisite: {
+            select: {
+              code: true,
+              name: true,
+            },
           },
         },
       },
-    });
-  }
+    },
+  });
+}
 
   async getUserbyId(id) {
     return await prisma.user.findUnique({
