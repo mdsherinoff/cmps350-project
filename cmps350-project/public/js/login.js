@@ -42,9 +42,11 @@ async function userInput() {
     let currUserInfo = null;
 
     switch (enteredUserType) {
-      case "student": 
+      case "student":
         userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = studentsData.find((student) => student.studentUId === userId);
+        currUserInfo = studentsData.find(
+          (student) => student.studentUId === userId
+        );
         localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
 

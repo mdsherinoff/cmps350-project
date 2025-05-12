@@ -13,7 +13,7 @@ async function fetchData() {
 
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
-  
+
   // const students = await fetch("../data/students.json");
   const students = await fetch("http://localhost:3000/api/students");
   let studentList = await students.json();
@@ -43,11 +43,21 @@ async function start() {
         <h4>${course.name}</h4>
         <p>${course.description}</p>
         <div class="course-details">
-          <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum) => sum + 1, 0)}</span>
-          <span><i class="fas fa-users"></i> Total Enrolled : ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
+          <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
+            (sum) => sum + 1,
+            0
+          )}</span>
+          <span><i class="fas fa-users"></i> Total Enrolled : ${course.sections.reduce(
+            (sum, section) => sum + section.enrolled,
+            0
+          )}</span>
         </div>
         <div class="course-details">
-          <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+          <span><i class="fas fa-clock"></i> ${
+            course.registrationOpen
+              ? "Registration : Open"
+              : "Registration : Closed"
+          }</span>
         </div>
       </div>
       <div class="course-footer">
@@ -92,18 +102,30 @@ function courseFilter() {
                         <h4>${course.name}</h4>
                         <p>${course.description}</p>
                         <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
+                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
+                              (sum, section) => sum + 1,
+                              0
+                            )}</span>
+                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
+                              (sum, section) => sum + section.enrolled,
+                              0
+                            )}</span>
                         </div>
                         <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+                            <span><i class="fas fa-clock"></i> ${
+                              course.registrationOpen
+                                ? "Registration : Open"
+                                : "Registration : Closed"
+                            }</span>
                         </div>
                         
                     </div>
                     <div class="course-footer">
                         <button onclick='viewDetails(${JSON.stringify(course)})'
                         class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
+                        <button onclick='viewClasses(${JSON.stringify(
+                          course
+                        )})' class="btn btn-primary">View Classes</button>
                     </div>
                 </div>`;
   });
@@ -135,18 +157,30 @@ function searchCourses() {
                         <h4>${course.name}</h4>
                         <p>${course.description}</p>
                         <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
+                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
+                              (sum, section) => sum + 1,
+                              0
+                            )}</span>
+                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
+                              (sum, section) => sum + section.enrolled,
+                              0
+                            )}</span>
                         </div>
                         <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+                            <span><i class="fas fa-clock"></i> ${
+                              course.registrationOpen
+                                ? "Registration : Open"
+                                : "Registration : Closed"
+                            }</span>
                         </div>
                         
                     </div>
                     <div class="course-footer">
                         <button onclick='viewDetails(${JSON.stringify(course)})'
                         class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
+                        <button onclick='viewClasses(${JSON.stringify(
+                          course
+                        )})' class="btn btn-primary">View Classes</button>
                     </div>
                 </div>`;
   });
@@ -174,12 +208,24 @@ function viewDetails(course) {
                         <!-- <p>${course.extraDescription}</p> -->
 
                         <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors :  ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
+                            <span><i class="fas fa-user"></i> Instructors :  ${course.sections.reduce(
+                              (sum, section) => sum + 1,
+                              0
+                            )}</span>
+                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
+                              (sum, section) => sum + section.enrolled,
+                              0
+                            )}</span>
                         </div>
                         <div class="course-details">
-                            <span><i class="fas fa-hourglass-start"></i> Credit : ${course.credits}</span>
-                            <span><i class="fas fa-book-open"></i> Pre-requisites :  ${course.prerequisites.length != 0 ? course.prerequisites : "None"}</span>
+                            <span><i class="fas fa-hourglass-start"></i> Credit : ${
+                              course.credits
+                            }</span>
+                            <span><i class="fas fa-book-open"></i> Pre-requisites :  ${
+                              course.prerequisites.length != 0
+                                ? course.prerequisites
+                                : "None"
+                            }</span>
                         </div>
                     </div>
                 </div>
@@ -202,18 +248,32 @@ async function viewClasses(course) {
                     <div class="course-content">
                         <h4>${course.name}</h4>
                         <div class="course-details">
-                            <span><i class="fas fa-user"></i> ${section.instructor}</span>
-                            <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
+                            <span><i class="fas fa-user"></i> ${
+                              section.instructor
+                            }</span>
+                            <span><i class="fas fa-users"></i> ${
+                              section.enrolled
+                            }/30</span>
                         </div>
                         <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                            <span><i class="fas fa-users"></i> ${section.schedule}</span>
+                            <span><i class="fas fa-clock"></i> ${
+                              course.registrationOpen
+                                ? "Registration : Open"
+                                : "Registration : Closed"
+                            }</span>
+                            <span><i class="fas fa-users"></i> ${
+                              section.schedule
+                            }</span>
 
                         </div>
                         
                     </div>
                     <div style="display: flex; justify-content: center;" class="course-footer">
-                        <button onclick='registerSection(${JSON.stringify(course)}, ${JSON.stringify(section)})' class="btn btn-primary">View Section</button>
+                        <button onclick='registerSection(${JSON.stringify(
+                          course
+                        )}, ${JSON.stringify(
+        section
+      )})' class="btn btn-primary">View Section</button>
                     </div>
                 </div>`)
   );
@@ -223,9 +283,8 @@ function registerSection(course, section) {
   courseGrid.style.display = "flex";
   console.log(section);
 
-  const students = JSON.parse(localStorage.getItem('students'))
+  const students = JSON.parse(localStorage.getItem("students"));
   console.log(students);
-  
 
   courseGrid.style.flexDirection = "column";
 
@@ -240,11 +299,19 @@ function registerSection(course, section) {
                     <h4>${course.name}</h4>
                     <p>${course.description}</p>
                     <div class="course-details">
-                        <span><i class="fas fa-user"></i> ${section.instructor}</span>
-                        <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
+                        <span><i class="fas fa-user"></i> ${
+                          section.instructor
+                        }</span>
+                        <span><i class="fas fa-users"></i> ${
+                          section.enrolled
+                        }/30</span>
                     </div>
                     <div class="course-details">
-                        <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
+                        <span><i class="fas fa-clock"></i> ${
+                          course.registrationOpen
+                            ? "Registration : Open"
+                            : "Registration : Closed"
+                        }</span>
                     </div>
                     
                 </div>
@@ -253,12 +320,26 @@ function registerSection(course, section) {
              <!-- <div class="extended-course-card">
                 <div class="course-content">
                     <h4>Requirements</h4>
-                    <i class="fa-solid fa-check"></i> Pre-Requisites : ${course.prerequisites.length != 0 ? course.prerequisites : "None"} <br>
-                    <i class="fa-solid fa-check"></i> Pre-Requisites : ${course.registrationOpen ? "Registration Open" : "Registration Closed"} <br>
-                    <i class="fa-solid fa-xmark"></i> Pre-Requisites : ${course.registrationOpen ? "Registration Open" : "Registration Closed"} <br>
+                    <i class="fa-solid fa-check"></i> Pre-Requisites : ${
+                      course.prerequisites.length != 0
+                        ? course.prerequisites
+                        : "None"
+                    } <br>
+                    <i class="fa-solid fa-check"></i> Pre-Requisites : ${
+                      course.registrationOpen
+                        ? "Registration Open"
+                        : "Registration Closed"
+                    } <br>
+                    <i class="fa-solid fa-xmark"></i> Pre-Requisites : ${
+                      course.registrationOpen
+                        ? "Registration Open"
+                        : "Registration Closed"
+                    } <br>
             </div> -->
             </div>
-            <button onclick='register(${JSON.stringify(course)}, ${JSON.stringify(section)})' class="course-card">
+            <button onclick='register(${JSON.stringify(
+              course
+            )}, ${JSON.stringify(section)})' class="course-card">
                 <div class="register-button" style="display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;">
                     Register 
                 </div>
@@ -270,14 +351,12 @@ function register(course, section) {
   const studentCourses = studentInfo.courses;
   const courses = JSON.parse(localStorage.getItem("courses"));
 
-
   const completedCourse = studentCourses
     .filter((course) => course.status === "completed")
     .map((course) => course.courseId);
 
   const studentAttemptCourses = studentCourses.map((course) => course.courseId);
   console.log(studentAttemptCourses);
-  
 
   if (studentAttemptCourses.includes(course.id)) {
     alert("This course is already present in your courses");
@@ -293,58 +372,50 @@ function register(course, section) {
     return;
   }
   if (section.enrolled == section.capacity) {
-
     alert("Unable to register, section is full");
     return;
   } else {
-
-    const students = JSON.parse(localStorage.getItem('students'));
-    const currentId = JSON.parse(localStorage.getItem('userId'))
+    const students = JSON.parse(localStorage.getItem("students"));
+    const currentId = JSON.parse(localStorage.getItem("userId"));
     console.log(currentId);
-    
-for (const student of students) {
-  if (student.id === currentId) {
-    console.log(student.courses);
 
-    student.courses.push({
-      courseId: `${course.id}`,
-      code: course.code,
-      grade: null,
-      status: "current",
-      semester: "Fall 2024"
-    })
+    for (const student of students) {
+      if (student.id === currentId) {
+        console.log(student.courses);
 
-for(const courseinFile of courses){
-  if (courseinFile.id == course.id){
-    for(const sectionInFile of courseinFile.sections){
-      if (sectionInFile.crn == section.crn){
-          sectionInFile.enrolled +=1;
-          fetch("http://localhost:3000/api/courses", {
-            method: "ASSIGN",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(courses),
+        student.courses.push({
+          courseId: `${course.id}`,
+          code: course.code,
+          grade: null,
+          status: "current",
+          semester: "Fall 2024",
+        });
+
+        for (const courseinFile of courses) {
+          if (courseinFile.id == course.id) {
+            for (const sectionInFile of courseinFile.sections) {
+              if (sectionInFile.crn == section.crn) {
+                sectionInFile.enrolled += 1;
+                fetch("http://localhost:3000/api/courses", {
+                  method: "ASSIGN",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(courses),
+                });
+                break;
+              }
+            }
           }
-        );
-        break;
-     }
+        }
+
+        localStorage.setItem("currUserInfo", JSON.stringify(student));
+        console.log(JSON.parse(localStorage.currUserInfo));
+      }
     }
-  }
-}
+    console.log(courses);
 
-
-    localStorage.setItem('currUserInfo',JSON.stringify(student))
-    console.log(JSON.parse(localStorage.currUserInfo));
-    
-  }
-}
-console.log(courses);
-
-
-
-console.log(students);
-
+    console.log(students);
 
     fetch("http://localhost:3000/api/students", {
       method: "POST",
