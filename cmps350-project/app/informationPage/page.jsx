@@ -38,7 +38,7 @@ export default function informationPage() {
 
   const [courses, setCourses] = useState(null);
 
-  async function loadInstructors() {
+  async function loadCourses() {
     const courseData = await getCourseAnalyticsAction();
     setCourses(courseData);
   }
@@ -46,6 +46,7 @@ export default function informationPage() {
   useEffect(() => {
     loadStudents();
     loadInstructors();
+    loadCourses();
   }, []);
 
   return (
