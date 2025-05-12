@@ -26,10 +26,10 @@ ChartJS.register(
 const sampleData = {
   studentYears: {
     labels: [
-      "Information Security",
       "Computer Engineering",
-      "Mathematics",
       "Computer Science",
+      "Information Security",
+      "Mathematics",
       "Software Engineering",
     ],
   },
@@ -88,7 +88,6 @@ export default function StudentReport({ instructors }) {
           <section className="stats-section">
             <div className="analytics-grid">
               <div className="stat-container">
-                
                 <div className="stat-card">
                   <div className="stat-icon">
                     <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
@@ -112,7 +111,10 @@ export default function StudentReport({ instructors }) {
                 <h3>Instructors with the most sections taught</h3>
                 <div className="GPAContainer">
                   {instructors.instructorsWithMostSections.map((instructor) => (
-                    <span key={instructor.instructorUId} className="stat-label2">
+                    <span
+                      key={instructor.instructorUId}
+                      className="stat-label2"
+                    >
                       {instructor.name}
                     </span>
                   ))}
@@ -120,16 +122,16 @@ export default function StudentReport({ instructors }) {
               </div>
             </div>
             <div className="stat-card">
-                  <div className="stat-icon">
-                    <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-value" id="total-classes">
-                      {instructors.instructorsWithNoSections}
-                    </span>
-                    <span className="stat-label">Instructors with No Section</span>
-                  </div>
-                </div>
+              <div className="stat-icon">
+                <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+              </div>
+              <div className="stat-info">
+                <span className="stat-value" id="total-classes">
+                  {instructors.instructorsWithNoSections}
+                </span>
+                <span className="stat-label">Instructors with No Section</span>
+              </div>
+            </div>
           </section>
         </div>
       </div>
