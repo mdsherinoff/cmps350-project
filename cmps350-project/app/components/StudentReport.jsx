@@ -40,8 +40,16 @@ export default function StudentReport({ students }) {
       {
         label: "Number of Students",
         data: students.studentsByYear.map((y) => y._count.studentUId),
-        backgroundColor: "rgba(112, 25, 61, 0.8)",
-      },
+        if (students.studentsByYear == "Freshman"){
+                  backgroundColor: "rgba(112, 25, 61, 0.8)"}
+        else if (students.studentsByYear == "Sophomore"){
+                  backgroundColor: "rgba(155, 80, 112, 0.8)"}
+        else if (students.studentsByYear == "Junior"){
+                  backgroundColor: "rgba(177, 102, 133, 0.8)"}
+        else if (students.studentsByYear == "Senior"){
+                  backgroundColor: "rgba(238, 13, 107, 0.8)"}
+        }
+      ,
     ],
   };
 
