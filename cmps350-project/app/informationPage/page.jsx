@@ -12,7 +12,11 @@ import {
 import StudentReport from "../components/StudentReport";
 import InstructorReport from "../components/InstructorReport";
 import CourseReport from "../components/CourseReport";
-import { getCourseAnalyticsAction, getInstructorAnalyticsAction, getStudentAnalyticsAction } from "../actions/server-actions";
+import {
+  getCourseAnalyticsAction,
+  getInstructorAnalyticsAction,
+  getStudentAnalyticsAction,
+} from "../actions/server-actions";
 
 export default function informationPage() {
   const [selectedTab, setSelectedTab] = useState("Student");
@@ -24,34 +28,25 @@ export default function informationPage() {
     setStudents(studentData);
   }
 
-    const [instructors, setInstructors] = useState(null);
+  const [instructors, setInstructors] = useState(null);
 
   async function loadInstructors() {
     const instructorData = await getInstructorAnalyticsAction();
     setInstructors(instructorData);
   }
   console.log(instructors);
-  
 
-    const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState(null);
 
   async function loadInstructors() {
     const courseData = await getCourseAnalyticsAction();
     setCourses(courseData);
   }
 
-
-
-
-
   useEffect(() => {
-    loadStudents()
-    loadInstructors()
+    loadStudents();
+    loadInstructors();
   }, []);
-
-
-
-
 
   return (
     <>
@@ -74,7 +69,7 @@ export default function informationPage() {
         <div className="container">
           <nav className="sidebar">
             <ul className="nav-menu">
-              <li className="nav-item active">
+              <li className="nav-item">
                 <a href="html/admin-home.html" className="nav-link">
                   <FontAwesomeIcon
                     icon={faTachometerAlt}
@@ -94,7 +89,7 @@ export default function informationPage() {
                   <span>Schedule</span>
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item active">
                 <a href="/informationPage" className="nav-link">
                   <FontAwesomeIcon
                     icon={faSquarePollVertical}
@@ -131,7 +126,7 @@ export default function informationPage() {
               <div className="loading-message">Loading Student Data...</div>
             ) : null}
 
-            {selectedTab === "Instructor" && instructors  ? (
+            {selectedTab === "Instructor" && instructors ? (
               <InstructorReport instructors={instructors} />
             ) : selectedTab === "Instructor" ? (
               <div className="loading-message">Loading Instructor data...</div>
