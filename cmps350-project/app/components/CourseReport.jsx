@@ -95,7 +95,7 @@ export default function StudentReport({ courses }) {
                     <span className="stat-value" id="total-classes">
                       {courses.totalCourses}
                     </span>
-                    <span className="stat-label">Total Instructors</span>
+                    <span className="stat-label">Total Courses</span>
                   </div>
                 </div>
               </div>

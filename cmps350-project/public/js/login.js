@@ -1,6 +1,4 @@
 async function userInput() {
-  const users = await fetch("http://localhost:3000/api/users");
-  const userData = await users.json();
 
   const students = await fetch("http://localhost:3000/api/students");
   const studentsData = await students.json();
@@ -13,21 +11,34 @@ async function userInput() {
   const password = document.querySelector("#password");
   const userType = document.querySelector("#userType");
 
-  loginForm.addEventListener("submit", function handleUserValidation(e) {
+  loginForm.addEventListener("submit", async function handleUserValidation(e) {
     e.preventDefault();
 
     const enteredUsername = username.value.trim();
     const enteredPassword = password.value.trim();
     const enteredUserType = userType.value.trim();
 
-    const user = userData.find((user) => user.username === enteredUsername);
+    
+    const user = await getUserbyUsername(enteredUsername);
+    console.log(user);
+    console.log(user.username);
+        console.log(user.passwordHash);
 
-    if (!user || user.password !== enteredPassword) {
+    if (!user) {
+      alert("User not found!");
+      return;
+    }
+
+    if (!user || user.passwordHash !== enteredPassword) {
       alert("Incorrect Username or Password");
       return;
     }
-    if (user.role != enteredUserType) {
+    if (user.role.trim().toUpperCase() !== enteredUserType.trim().toUpperCase()) {
       alert("False User Type");
+      console.log(user.role);
+      console.log(user.role);
+
+      
       return;
     } else {
       alert(
@@ -74,6 +85,19 @@ function handleCredentialResponse(response) {
   console.log("Token:", response.credential);
   window.location.href = "/html/student-home.html";
   localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+}
+
+async function getUserbyUsername(username) {
+  try {
+    const response = await fetch(`http://localhost:3000/api/users?username=${username}`);
+    if (!response.ok) {
+      throw new Error("User not found");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 userInput();
