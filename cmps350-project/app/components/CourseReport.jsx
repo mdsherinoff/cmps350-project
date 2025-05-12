@@ -37,6 +37,10 @@ const sampleData = {
 };
 
 export default function StudentReport({ courses }) {
+
+    const courseWithMostAs = courses.coursesWithMostAs;
+
+
   const yearChartData = {
     labels: sampleData.studentYears.labels,
     datasets: [
@@ -106,29 +110,18 @@ export default function StudentReport({ courses }) {
                 </div>
               </div>
 
-              <div className="stats-card">
-                <h3>Courses with most As</h3>
-                <div className="GPAContainer">
-                  {topGpaStudents.map((student) => (
-                    <span key={student.studentUId} className="stat-label">
-                      {student.name}
-                    </span>
-                  ))}                  
 
-                </div>
+          <div className="stats-card">
+            <h3>Courses with Most A's</h3>
+            {courseWithMostAs.map((course) => (
+              <div key={course.courseUId} className="stat-label">
+                {course.name}
               </div>
+            ))}
+          </div>
+
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">
-                <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
-              </div>
-              <div className="stat-info">
-                <span className="stat-value" id="total-classes">
-                  {/* {instructors.instructorsWithNoSections} */}
-                </span>
-                <span className="stat-label">Instructors with No Section</span>
-              </div>
-            </div>
+
           </section>
         </div>
       </div>
