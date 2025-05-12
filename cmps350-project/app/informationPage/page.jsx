@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -49,6 +50,15 @@ export default function informationPage() {
     loadCourses();
   }, []);
 
+  const router = useRouter();
+
+
+  function handleLogout() {
+  localStorage.removeItem("userId");
+  localStorage.removeItem("currUserInfo");
+  router.push("/index.html"); // or wherever your login page is
+}
+
   return (
     <>
       <div>
@@ -63,7 +73,9 @@ export default function informationPage() {
           </div>
           <div className="header-right">
             <div className="header-username"></div>
-            <button className="btn btn-logout">Logout</button>
+          <button className="btn btn-logout" onClick={handleLogout}>
+            Logout
+          </button>
           </div>
         </header>
 
@@ -138,7 +150,6 @@ export default function informationPage() {
             ) : selectedTab === "Courses" ? (
               <div className="loading-message">Loading Course data...</div>
             ) : null}
-
             <section />
           </div>
         </div>
