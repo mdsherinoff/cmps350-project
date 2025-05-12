@@ -72,4 +72,21 @@ async function userInput() {
   });
 }
 
+async function handleCredentialResponse(response) {
+
+
+  const students = await fetch("http://localhost:3000/api/students");
+  const studentsData = await students.json();  
+  
+  const currUserInfo = studentsData.find((student) => student.id === '1001');
+  console.log(currUserInfo);
+  
+  localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+
+  alert("Login successful! Token received.");
+  console.log("Token:", response.credential);
+  window.location.href = "/html/student-home.html";
+
+}
+
 userInput();
