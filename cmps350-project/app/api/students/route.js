@@ -1,5 +1,7 @@
 import studentsRepo from "../../repo/students-repo";
 import { NextResponse } from "next/server";
+import masterRepo from "../../repo/master-repo";
+
 
 export async function OPTIONS(request) {
   return new Response(null, {
@@ -13,7 +15,7 @@ export async function OPTIONS(request) {
 }
 
 export async function GET(request) {
-  const response = await studentsRepo.getStudents();
+  const response = await masterRepo.getAllStudents();
   return Response.json(response, {
     status: 200,
     headers: {

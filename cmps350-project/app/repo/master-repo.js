@@ -42,15 +42,37 @@ class MasterRepo {
       },
     });
   }
-
-  async findUserByUsername(username) {
-    return await prisma.user.findUnique({
-      where: { username },
-      include: {
-        studentProfile: true,
+async getCoursesByStudentUsername(username) {
+  return await prisma.user.findUnique({
+    where: { username },
+    include: {
+      studentProfile: {
+        include: {
+          enrollments: {
+            include: {
+              section: {
+                include: {
+                  course: {
+                    select: {
+                      courseUId: true,
+                      code: true,
+                      name: true,
+                      credits: true,
+                      category: true,
+                      description: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
-    });
-  }
+    },
+  });
+}
+
+  
 
   async findStudentProfileByUId(studentUId) {
     return await prisma.StudentProfile.findUnique({

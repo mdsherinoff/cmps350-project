@@ -22,7 +22,7 @@ export async function OPTIONS(request) {
 //   }
 
   export async function GET(req, {params}){
-    const meals = await masterRepo.findUserByUsername(params.username)
+    const meals = await masterRepo.getCoursesByStudentUsername(params.username)
     return Response.json(meals, {status : 203})}
 
 // export async function GET(request) {

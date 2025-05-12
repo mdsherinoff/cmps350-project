@@ -1,4 +1,5 @@
 const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
+
 const currentStudentId = JSON.parse(localStorage.getItem("userId"));
 
 const gradePointDictionary = {
