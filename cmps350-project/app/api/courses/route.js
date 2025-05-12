@@ -1,5 +1,4 @@
 import coursesRepo from "../../repo/courses-repo";
-import masterRepo from "../../repo/master-repo";
 
 export async function OPTIONS(request) {
   return new Response(null, {
@@ -12,65 +11,26 @@ export async function OPTIONS(request) {
   });
 }
 
-// export async function GET(request) {
-//   const response = await masterRepo.getAllCourses();
-//   return Response.json(response, {
-//     status: 200,
-//     headers: {
-//       "Access-Control-Allow-Origin": "*",
-//     },
-//   });
-// }
-
 export async function GET(request) {
-  const url = new URL(request.url);
-  const category = url.searchParams.get("category");
-
-  try {
-    const courses = await masterRepo.getCoursesByCategory(category);
-    return new Response(JSON.stringify(courses), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  } catch (err) {
-    console.error("Failed to fetch courses:", err);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
-      status: 500,
-    });
-  }
+  const response = await coursesRepo.getCourses();
+  return Response.json(response, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 }
 
 export async function POST(request) {
-  try {
-    const course = await request.json();
-    console.log("Received course data:", course);
-
-    const newCourse = await coursesRepo.addCourse(course);
-    return new Response(JSON.stringify(newCourse), {
-      status: 201,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
-  } catch (error) {
-    console.error("Error creating course:", error);
-    return new Response(
-      JSON.stringify({
-        error: "Failed to create course",
-        details: error.message,
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    );
-  }
+  const courses = await request.json();
+  const newCourses = await coursesRepo.addCourse(courses);
+  return new Response(JSON.stringify(newCourses), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 }
 
 export async function ASSIGN(request) {

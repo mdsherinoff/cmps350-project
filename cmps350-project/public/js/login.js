@@ -1,9 +1,13 @@
 async function userInput() {
   const users = await fetch("http://localhost:3000/api/users");
   const userData = await users.json();
+  console.log(userData);
+
 
   const students = await fetch("http://localhost:3000/api/students");
   const studentsData = await students.json();
+  console.log(studentsData);
+  
 
   const instructors = await fetch("http://localhost:3000/api/instructors");
   const instructorsData = await instructors.json();
@@ -18,7 +22,7 @@ async function userInput() {
 
     const enteredUsername = username.value.trim();
     const enteredPassword = password.value.trim();
-    const enteredUserType = userType.value.trim();
+    const enteredUserType = userType.value.trim().toLowerCase();
 
     const user = userData.find((user) => user.username === enteredUsername);
 
@@ -26,56 +30,46 @@ async function userInput() {
       alert("Incorrect Username or Password");
       return;
     }
-    if (user.role != enteredUserType) {
+
+    if (user.role !== enteredUserType) {
+      console.log(user.role.toLowerCase());
+            console.log(enteredUserType);
+
+      
       alert("False User Type");
       return;
-    } else {
-      alert(
-        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${
-          user.username
-        }`
-      );
     }
 
+    alert(`Login Successful\nWelcome ${user.role.toUpperCase()}, ${user.username}`);
     localStorage.setItem("userId", JSON.stringify(user.id));
-    let userId = null;
-    let currUserInfo = null;
+
+    const userId = user.id;
+
+    if (enteredUserType === "student") {
+      const currUserInfo = studentsData.find((student) => student.id === userId);
+      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+    } else if (enteredUserType === "instructor") {
+      const currUserInfo = instructorsData.find((instructor) => instructor.id === userId);
+      localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+    } else if (enteredUserType === "admin") {
+      localStorage.setItem("currUserInfo", JSON.stringify(user));
+    }
 
     switch (enteredUserType) {
       case "student":
-        userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = studentsData.find(
-          (student) => student.studentUId === userId
-        );
-        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
-
         break;
       case "instructor":
-        userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = instructorsData.find(
-          (instructor) => instructor.id === userId
-        );
-        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/instructor-home.html";
-
         break;
-      case "administrator":
-        userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = userData.find((user) => user.id === userId);
-        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
+      case "admin":
         window.location.href = "../html/admin-home.html";
-
+        break;
+      default:
+        alert("Unknown user type");
         break;
     }
   });
-}
-
-function handleCredentialResponse(response) {
-  alert("Login successful! Token received.");
-  console.log("Token:", response.credential);
-  window.location.href = "/html/student-home.html";
-  localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
 }
 
 userInput();
