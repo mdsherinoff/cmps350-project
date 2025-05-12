@@ -4,7 +4,6 @@ async function userInput() {
 
   const instructors = await fetch("http://localhost:3000/api/instructors");
   const instructorsData = await instructors.json();
-  
 
   const loginForm = document.querySelector("#loginForm");
   const username = document.querySelector("#username");
@@ -36,36 +35,45 @@ async function userInput() {
       user.role.trim().toUpperCase() !== enteredUserType.trim().toUpperCase()
     ) {
       alert("False User Type");
-    return;} 
-    else {alert(`Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`);}
-    
-    // localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
+      console.log(user.role);
+      console.log(user.role);
+
+      return;
+    } else {
+      alert(
+        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${
+          user.username
+        }`
+      );
+    }
+
+    localStorage.setItem("userId", JSON.stringify(user.id));
     let userId = null;
     let currUserInfo = null;
 
     switch (enteredUserType) {
-      case "STUDENT":
+      case "student":
         userId = JSON.parse(localStorage.getItem("userId"));
         currUserInfo = studentsData.find(
           (student) => student.studentUId === userId
         );
-        localStorage.setItem("currUserInfo", JSON.stringify(user));
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
 
         break;
-      case "INSTRUCTOR":
+      case "instructor":
         userId = JSON.parse(localStorage.getItem("userId"));
         currUserInfo = instructorsData.find(
           (instructor) => instructor.id === userId
         );
-        localStorage.setItem("currUserInfo", JSON.stringify(user));
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/instructor-home.html";
 
         break;
-      case "ADMIN":
-        // userId = JSON.parse(localStorage.getItem("userId"));
-        // currUserInfo = userData.find((user) => user.id === userId);
-        localStorage.setItem("currUserInfo", JSON.stringify(user));
+      case "administrator":
+        userId = JSON.parse(localStorage.getItem("userId"));
+        currUserInfo = userData.find((user) => user.id === userId);
+        localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/admin-home.html";
 
         break;

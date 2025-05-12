@@ -1,5 +1,4 @@
 const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
-
 const currentStudentId = JSON.parse(localStorage.getItem("userId"));
 
 const gradePointDictionary = {
@@ -45,71 +44,60 @@ async function start() {
   const courses = JSON.parse(localStorage.courses);
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
-  console.log(currUserName);
-  
   studentName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
 
   const students = JSON.parse(localStorage.students);
   const student = students.find(
-    (student) => String(student.studentUId.trim()) == currentStudentId.trim()
-  );
-  console.log(currUserName);
-  console.log(student.studentUId.trim());
-  console.log(currentStudentId.trim());
-  
-  
-  
-const studentEnrollments = currUserName.studentProfile?.enrollments;
-console.log(studentEnrollments);
-
-const studentCourses = studentEnrollments.map((enrollment) => ({
-  course: enrollment.section.course,
-  status: enrollment.status,
-}));
-
-console.log(studentCourses);
-
-for (const course1 of courses) {
-  const courseInStudent = studentCourses.find(
-    (course2) => course2.course.courseUId === course1.courseUId
+    (student) => String(student.id) == currentStudentId
   );
 
-  if (courseInStudent) {
-    if (courseInStudent.status === "COMPLETED") {
-      learningPathGrid.innerHTML += `
-        <div class="course-box completed-course">
-          ${course1.code}
-        </div>`;
+  const studentCourses = student.courses;
+  console.log(studentCourses);
+
+  for (const course1 of courses) {
+    const courseInStudent = studentCourses.find(
+      (course2) => course2.courseId === course1.id
+    );
+
+    if (courseInStudent) {
+      console.log(course1);
+
+      if (courseInStudent.status === "completed") {
+        learningPathGrid.innerHTML += `
+                    <div class="course-box completed-course">
+                        ${course1.code}
+                    </div>`;
+      } else {
+        learningPathGrid.innerHTML += `
+                    <div class="course-box progress-course">
+                        ${course1.code}
+                    </div>`;
+      }
     } else {
       learningPathGrid.innerHTML += `
-        <div class="course-box progress-course">
-          ${course1.code}
-        </div>`;
+            <div class="course-box pending-course">
+                ${course1.code}
+            </div>`;
     }
-  } else {
-    learningPathGrid.innerHTML += `
-      <div class="course-box pending-course">
-        ${course1.code}
-      </div>`;
   }
+
+  loadProgramProgress();
 }
 
-loadProgramProgress();
-
 async function loadProgramProgress() {
-  console.log(currUserName.studentProfile?.enrollments.course);
-  
-const completedCourses = currUserName.studentProfile?.enrollments.filter(
-  (enrollment) => enrollment.status === "completed"
-);
-const completedCourseObjects = completedCourses.map(
-  (enrollment) => enrollment.section.course
-);
+  const studentList = JSON.parse(localStorage.students);
+  const student = studentList.find(
+    (student) => String(student.id) == currentStudentId
+  );
+
+  const completedCourses = student.courses.filter(
+    (course) => course.status == "completed"
+  );
 
   let gradePoints = 0;
 
-  for (const course of completedCourseObjects) {
+  for (const course of completedCourses) {
     if (gradePointDictionary[course.grade] !== undefined) {
       gradePoints += gradePointDictionary[course.grade];
     }
@@ -117,22 +105,28 @@ const completedCourseObjects = completedCourses.map(
 
   progressContainer.innerHTML = `<div class="stat-item">
         <span class="stat-label">Completed Courses:</span>
-        <span class="stat-value" id="completed-courses">${completedCourses.length}/20</span>
+        <span class="stat-value" id="completed-courses">${
+          completedCourses.length
+        }/20</span>
         </div>
         <div class="stat-item">
         <span class="stat-label">Credits Earned:</span>
-        <span class="stat-value" id="credits-earned">${completedCourses.length * 3}/100</span>
+        <span class="stat-value" id="credits-earned">${
+          completedCourses.length * 3
+        }/100</span>
         </div>
         <div class="stat-item">
         <span class="stat-label">Current GPA:</span>
-        <span class="stat-value" id="current-gpa">${(gradePoints / completedCourses.length).toFixed(2)}</span>
+        <span class="stat-value" id="current-gpa">${(
+          gradePoints / completedCourses.length
+        ).toFixed(2)}</span>
         </div>`;
 
   const courseList = JSON.parse(localStorage.courses);
 
-  for (const course1 of courseList) {
+  for (course1 of courseList) {
     let found = false;
-    for (const course2 of student.courses) {
+    for (course2 of student.courses) {
       if (course1.id == course2.courseId) {
         found = true;
         if (course2.status == "completed") {
@@ -173,4 +167,3 @@ function logout() {
 // #28a745
 // #ffc107
 // #355c7d
-}
