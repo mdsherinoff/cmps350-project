@@ -1,5 +1,8 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
+import { faSquareReddit } from "@fortawesome/free-brands-svg-icons";
 
 import {
   Chart as ChartJS,
@@ -21,30 +24,26 @@ ChartJS.register(
 );
 
 const sampleData = {
-  studentsPerYear: {
-    labels: ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"],
-    data: [120, 150, 130, 110, 90],
-  },
-  studentsPerCategory: {
+  studentYears: {
     labels: [
-      "Programming",
-      "Mathematics",
       "Systems",
-      "Web & Data",
-      "Software Engineering",
+      "Mathematics",
       "AI & Advanced Tech",
+      "Programming",
+      "Software Engineering",
+      "Web & Data",
     ],
-    data: [250, 180, 150, 200, 170, 140],
   },
 };
 
-export default function StudentReport() {
+export default function StudentReport({ courses }) {
   const yearChartData = {
-    labels: sampleData.studentsPerYear.labels,
+    labels: sampleData.studentYears.labels,
     datasets: [
       {
-        label: "Number of Students",
-        data: sampleData.studentsPerYear.data,
+        label: "Number of Courses",
+        data: courses.coursesByCategory.map((d) => d._count.courseUId),
+
         backgroundColor: "rgba(112, 25, 61, 0.8)",
       },
     ],
@@ -59,7 +58,7 @@ export default function StudentReport() {
       },
       title: {
         display: true,
-        text: "Student Distribution by Year",
+        text: "Number of courses by category",
       },
     },
     scales: {
@@ -67,17 +66,18 @@ export default function StudentReport() {
         beginAtZero: true,
         title: {
           display: true,
-          text: "Number of Students",
+          text: "Number of Courses",
         },
       },
       x: {
         title: {
           display: true,
-          text: "Academic Year",
+          text: "Category",
         },
       },
     },
   };
+  //   console.log(studentCount);
 
   return (
     <div>
@@ -85,12 +85,47 @@ export default function StudentReport() {
       <div className="graphContainer">
         <div className="content">
           <section className="stats-section">
-            <div className="stats-grid">
+            <div className="analytics-grid">
+              <div className="stat-container">
+                <div className="stat-card">
+                  <div className="stat-icon">
+                    <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+                  </div>
+                  <div className="stat-info">
+                    <span className="stat-value" id="total-classes">
+                      {courses.totalCourses}
+                    </span>
+                    <span className="stat-label">Total Instructors</span>
+                  </div>
+                </div>
+              </div>
               <div className="stats-card">
-                <h3>Total Instructors per Year</h3>
+                <h3>Number of courses by category</h3>
                 <div style={{ height: "300px" }}>
                   <Bar data={yearChartData} options={yearChartOptions} />
                 </div>
+              </div>
+
+              <div className="stats-card">
+                <h3>Instructors with the most sections taught</h3>
+                <div className="GPAContainer">
+                  {/* {courses.instructorsWithMostSections.map((instructor) => (
+                    <span key={instructor.instructorUId} className="stat-label2">
+                      {instructor.name}
+                    </span>
+                  ))} */}
+                </div>
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+              </div>
+              <div className="stat-info">
+                <span className="stat-value" id="total-classes">
+                  {/* {instructors.instructorsWithNoSections} */}
+                </span>
+                <span className="stat-label">Instructors with No Section</span>
               </div>
             </div>
           </section>

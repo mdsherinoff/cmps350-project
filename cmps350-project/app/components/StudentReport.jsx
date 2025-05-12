@@ -32,6 +32,8 @@ const sampleData = {
 export default function StudentReport({ students }) {
   //   const studentCount = students.totalStudents;
 
+  const topGpaStudents = students.topStudentsByGPA;
+
   const yearChartData = {
     labels: sampleData.studentYears.labels,
     datasets: [
@@ -103,11 +105,11 @@ export default function StudentReport({ students }) {
               <div className="stats-card">
                 <h3>Top 5 Students By GPA</h3>
                 <div className="GPAContainer">
-                  <span className="stat-label">Total Students</span>
-                  <span className="stat-label">Total Students</span>
-                  <span className="stat-label">Total Students</span>
-                  <span className="stat-label">Total Students</span>
-                  <span className="stat-label">Total Students</span>
+                  {topGpaStudents.map((student) => (
+                    <span key={student.studentUId} className="stat-label">
+                      {student.name}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

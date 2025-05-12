@@ -12,7 +12,7 @@ import {
 import StudentReport from "../components/StudentReport";
 import InstructorReport from "../components/InstructorReport";
 import CourseReport from "../components/CourseReport";
-import { getStudentAnalyticsAction } from "../actions/server-actions";
+import { getCourseAnalyticsAction, getInstructorAnalyticsAction, getStudentAnalyticsAction } from "../actions/server-actions";
 
 export default function informationPage() {
   const [selectedTab, setSelectedTab] = useState("Student");
@@ -24,10 +24,27 @@ export default function informationPage() {
     setStudents(studentData);
   }
 
+    const [instructors, setInstructors] = useState(null);
+
+  async function loadInstructors() {
+    const instructorData = await getInstructorAnalyticsAction();
+    setInstructors(instructorData);
+  }
+
+    const [courses, setCourses] = useState(null);
+
+  async function loadInstructors() {
+    const courseData = await getCourseAnalyticsAction();
+    setCourses(courseData);
+  }
+
+
+
 
 
   useEffect(() => {
-    loadStudents();
+    loadStudents()
+    loadInstructors()
   }, []);
 
 
@@ -112,13 +129,13 @@ export default function informationPage() {
               <div className="loading-message">Loading Student Data...</div>
             ) : null}
 
-            {selectedTab === "Instructor" && students ? (
+            {selectedTab === "Instructor" && instructors  ? (
               <InstructorReport instructors={instructors} />
             ) : selectedTab === "Instructor" ? (
               <div className="loading-message">Loading Instructor data...</div>
             ) : null}
 
-            {selectedTab === "Courses" && students ? (
+            {selectedTab === "Courses" && courses ? (
               <CourseReport courses={courses} />
             ) : selectedTab === "Courses" ? (
               <div className="loading-message">Loading Course data...</div>
