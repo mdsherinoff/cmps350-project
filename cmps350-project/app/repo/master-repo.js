@@ -3,8 +3,11 @@ const prisma = new PrismaClient();
 
 class MasterRepo {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   async getAllUsers() {
 =======
+=======
+>>>>>>> Stashed changes
   async getUsers() {
 >>>>>>> Stashed changes
     return await prisma.user.findMany({
@@ -40,6 +43,7 @@ class MasterRepo {
   }
 
   async getUserbyId(id) {
+<<<<<<< Updated upstream
     return await prisma.user.findUnique({
       where: { id },
       include: {
@@ -51,11 +55,16 @@ class MasterRepo {
 =======
 
   async getUserbyId(id) {
+=======
+>>>>>>> Stashed changes
     return await prisma.user.findUnique({
       where: { id },
     });
   }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   async findUserByUsername(username) {
     return await prisma.user.findUnique({
