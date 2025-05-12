@@ -2,6 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
+import { faChalkboardUser } from "@fortawesome/free-solid-svg-icons";
 import { faSquareReddit } from "@fortawesome/free-brands-svg-icons";
 
 import {
@@ -13,6 +14,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
 ChartJS.register(
   CategoryScale,
@@ -110,8 +112,10 @@ export default function StudentReport({ instructors }) {
               </div>
 
               <div className="stats-card">
-                <h3>Instructors with the most sections taught</h3>
+                <h3>Instructor(s) with the most sections taught</h3>
                 <div className="GPAContainer">
+                  <FontAwesomeIcon icon={faChalkboardUser} size="3x" />
+                  <FontAwesomeIcon icon="fa-solid fa-chalkboard-user" />
                   {instructors.instructorsWithMostSections.map((instructor) => (
                     <span
                       key={instructor.instructorUId}
