@@ -2,34 +2,13 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class MasterRepo {
-
-
-
-  async getUsers() {
-    return await prisma.user.findMany({
-      orderBy: { username: "asc" }
-    });
-  }
-
-    async getAllStudents() {
-    return await prisma.student.findMany({
-      orderBy: { name: "asc" },
-      include: {
-        user: { select: { username: true } },
-      },
-    });
-  }
-
-    async getUserbyId(id) {
-    return await prisma.user.findUnique({
-      where: { id },
-    });
-  }
-
-
   async findUserByUsername(username) {
-    return await prisma.user.findUnique({
+    return await prisma.User.findUnique({
       where: { username },
+      include: {
+        studentProfile: true,
+        instructorProfile: true,
+      },
     });
   }
 
@@ -68,6 +47,14 @@ class MasterRepo {
     });
   }
 
+  async getAllStudents() {
+    return await prisma.student.findMany({
+      orderBy: { name: "asc" },
+      include: {
+        user: { select: { username: true } },
+      },
+    });
+  }
 
   async findCourseByUId(courseUId) {
     return await prisma.course.findUnique({

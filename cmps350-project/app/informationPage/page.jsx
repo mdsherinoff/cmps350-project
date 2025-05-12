@@ -30,8 +30,6 @@ export default function informationPage() {
     const instructorData = await getInstructorAnalyticsAction();
     setInstructors(instructorData);
   }
-  console.log(instructors);
-  
 
     const [courses, setCourses] = useState(null);
 
