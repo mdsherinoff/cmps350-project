@@ -1,5 +1,4 @@
 async function userInput() {
-
   const students = await fetch("http://localhost:3000/api/students");
   const studentsData = await students.json();
 
@@ -18,11 +17,10 @@ async function userInput() {
     const enteredPassword = password.value.trim();
     const enteredUserType = userType.value.trim();
 
-    
     const user = await getUserbyUsername(enteredUsername);
     console.log(user);
     console.log(user.username);
-        console.log(user.passwordHash);
+    console.log(user.passwordHash);
 
     if (!user) {
       alert("User not found!");
@@ -33,26 +31,36 @@ async function userInput() {
       alert("Incorrect Username or Password");
       return;
     }
-    if (user.role.trim().toUpperCase() !== enteredUserType.trim().toUpperCase()) {
+    if (
+      user.role.trim().toUpperCase() !== enteredUserType.trim().toUpperCase()
+    ) {
       alert("False User Type");
       console.log(user.role);
       console.log(user.role);
-    return;} 
-    else {alert(`Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`);}
-    
-    localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
+      return;
+    } else {
+      alert(
+        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${
+          user.username
+        }`
+      );
+    }
+
+    // localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
     let userId = null;
     let currUserInfo = null;
 
     switch (enteredUserType) {
-      case "student": 
+      case "STUDENT":
         userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = studentsData.find((student) => student.studentUId === userId);
+        currUserInfo = studentsData.find(
+          (student) => student.studentUId === userId
+        );
         localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
 
         break;
-      case "instructor":
+      case "INSTRUCTOR":
         userId = JSON.parse(localStorage.getItem("userId"));
         currUserInfo = instructorsData.find(
           (instructor) => instructor.id === userId
@@ -61,9 +69,9 @@ async function userInput() {
         window.location.href = "../html/instructor-home.html";
 
         break;
-      case "administrator":
-        userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = userData.find((user) => user.id === userId);
+      case "ADMIN":
+        // userId = JSON.parse(localStorage.getItem("userId"));
+        // currUserInfo = userData.find((user) => user.id === userId);
         localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/admin-home.html";
 
@@ -81,7 +89,9 @@ function handleCredentialResponse(response) {
 
 async function getUserbyUsername(username) {
   try {
-    const response = await fetch(`http://localhost:3000/api/users?username=${username}`);
+    const response = await fetch(
+      `http://localhost:3000/api/users?username=${username}`
+    );
     if (!response.ok) {
       throw new Error("User not found");
     }

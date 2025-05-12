@@ -1,7 +1,6 @@
 import coursesRepo from "../../repo/courses-repo";
 import masterRepo from "../../repo/master-repo";
 
-
 export async function OPTIONS(request) {
   return new Response(null, {
     status: 204,
@@ -13,14 +12,34 @@ export async function OPTIONS(request) {
   });
 }
 
+// export async function GET(request) {
+//   const response = await masterRepo.getAllCourses();
+//   return Response.json(response, {
+//     status: 200,
+//     headers: {
+//       "Access-Control-Allow-Origin": "*",
+//     },
+//   });
+// }
+
 export async function GET(request) {
-  const response = await masterRepo.getAllCourses();
-  return Response.json(response, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
+  const url = new URL(request.url);
+  const category = url.searchParams.get("category");
+
+  try {
+    const courses = await masterRepo.getCoursesByCategory(category);
+    return new Response(JSON.stringify(courses), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.error("Failed to fetch courses:", err);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+    });
+  }
 }
 
 export async function POST(request) {
@@ -45,4 +64,3 @@ export async function ASSIGN(request) {
     },
   });
 }
-

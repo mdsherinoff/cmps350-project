@@ -26,12 +26,15 @@ export async function OPTIONS(request) {
 // }
 
 export async function GET(request) {
-    const url = new URL(request.url);
-    const username = url.searchParams.get("username");
-    
-    const user = await masterRepo.getUsers(username);
-    return Response.json(user, {status : 203})
-    console.log(user);
+  const url = new URL(request.url);
+  const username = url.searchParams.get("username");
+
+  let result;
+
+  if (username) {
+    result = await masterRepo.getCoursesByStudentUsername(username);
+  } else {
+    result = await masterRepo.getAllUsers();
   }
-
-
+  return Response.json(result, { status: 200 });
+}
