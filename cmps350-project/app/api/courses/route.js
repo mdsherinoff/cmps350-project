@@ -1,4 +1,6 @@
 import coursesRepo from "../../repo/courses-repo";
+import masterRepo from "../../repo/master-repo";
+
 
 export async function OPTIONS(request) {
   return new Response(null, {
@@ -12,7 +14,7 @@ export async function OPTIONS(request) {
 }
 
 export async function GET(request) {
-  const response = await coursesRepo.getCourses();
+  const response = await masterRepo.getAllCourses();
   return Response.json(response, {
     status: 200,
     headers: {

@@ -37,18 +37,10 @@ async function userInput() {
       alert("False User Type");
       console.log(user.role);
       console.log(user.role);
-
-      
-      return;
-    } else {
-      alert(
-        `Login Successful \nWelcome ${user.role.toUpperCase()}, ${
-          user.username
-        }`
-      );
-    }
-
-    localStorage.setItem("userId", JSON.stringify(user.id));
+    return;} 
+    else {alert(`Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`);}
+    
+    localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
     let userId = null;
     let currUserInfo = null;
 
