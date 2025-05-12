@@ -746,12 +746,13 @@ body {
   background-color: white;
   border-radius: 8px;
   padding: 1.5rem;
-  margin: 1rem;
+  gap: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: center;
   display: flex;
   align-items: center;
   transition: transform 0.2s;
-  height: 7rem;
+  height: 100%;
 }
 
 .stat-card:hover {
@@ -760,8 +761,6 @@ body {
 }
 
 .stat-icon {
-  width: 48px;
-  height: 48px;
   border-radius: 50%;
   background-color: rgba(139, 0, 0, 0.1);
   display: flex;
@@ -770,25 +769,28 @@ body {
   margin-right: 1rem;
 }
 
-.stat-icon i {
-  font-size: 1.5rem;
-  color: #8b0000; /* QU maroon */
-}
-
 .stat-info {
   display: flex;
   flex-direction: column;
 }
 
 .stat-value {
-  font-size: 1.75rem;
+  font-size: 3.75rem;
   font-weight: 700;
   color: #333;
 }
 
 .stat-label {
-  font-size: 0.875rem;
+  font-size: 1.875rem;
   color: #666;
+}
+
+.GPAContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
 

@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
 import { faSquareReddit } from "@fortawesome/free-brands-svg-icons";
 
-
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,20 +24,8 @@ ChartJS.register(
 );
 
 const sampleData = {
-  studentsPerYear: {
-    labels: ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"],
-    data: [120, 150, 130, 110, 90],
-  },
-  studentsPerCategory: {
-    labels: [
-      "Programming",
-      "Mathematics",
-      "Systems",
-      "Web & Data",
-      "Software Engineering",
-      "AI & Advanced Tech",
-    ],
-    data: [250, 180, 150, 200, 170, 140],
+  studentYears: {
+    labels: ["Freshman", "Senior", "Sophomore", "Junior"],
   },
 };
 
@@ -47,11 +33,11 @@ export default function StudentReport({ students }) {
   //   const studentCount = students.totalStudents;
 
   const yearChartData = {
-    labels: sampleData.studentsPerYear.labels,
+    labels: sampleData.studentYears.labels,
     datasets: [
       {
         label: "Number of Students",
-        data: sampleData.studentsPerYear.data,
+        data: students.studentsByYear.map((y) => y._count.studentUId),
         backgroundColor: "rgba(112, 25, 61, 0.8)",
       },
     ],
@@ -94,32 +80,35 @@ export default function StudentReport({ students }) {
         <div className="content">
           <section className="stats-section">
             <div className="analytics-grid">
+              <div className="stat-container">
+                <div className="stat-card">
+                  <div className="stat-icon">
+                    <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+                  </div>
+                  <div className="stat-info">
+                    <span className="stat-value" id="total-classes">
+                      {students.totalStudents}
+                    </span>
+                    <span className="stat-label">Total Students</span>
+                  </div>
+                </div>
+              </div>
               <div className="stats-card">
-                <h3>Total Instructors per Year</h3>
+                <h3>Number of students per academic year</h3>
                 <div style={{ height: "300px" }}>
                   <Bar data={yearChartData} options={yearChartOptions} />
                 </div>
               </div>
 
               <div className="stats-card">
-                <h3>Total Students</h3>
-                {/* <div className="count-center">{studentCount}</div> */}
-              </div>
-
-              <div className="stat-container">
-                <div className="stat-card">
-                  <div className="stat-icon">
-                <FontAwesomeIcon icon={faSquarePollVertical}size="2x"/>
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-value" id="total-classes">
-                    {students.totalStudents}
-                    </span>
-                    <span className="stat-label">Active Classes</span>
-                  </div>
+                <h3>Top 5 Students By GPA</h3>
+                <div className="GPAContainer">
+                  <span className="stat-label">Total Students</span>
+                  <span className="stat-label">Total Students</span>
+                  <span className="stat-label">Total Students</span>
+                  <span className="stat-label">Total Students</span>
+                  <span className="stat-label">Total Students</span>
                 </div>
-                <div className="stat-card"></div>
-                <div className="stat-card"></div>
               </div>
             </div>
           </section>
