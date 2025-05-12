@@ -105,21 +105,15 @@ async function loadProgramProgress() {
 
   progressContainer.innerHTML = `<div class="stat-item">
         <span class="stat-label">Completed Courses:</span>
-        <span class="stat-value" id="completed-courses">${
-          completedCourses.length
-        }/20</span>
+        <span class="stat-value" id="completed-courses">${completedCourses.length}/20</span>
         </div>
         <div class="stat-item">
         <span class="stat-label">Credits Earned:</span>
-        <span class="stat-value" id="credits-earned">${
-          completedCourses.length * 3
-        }/100</span>
+        <span class="stat-value" id="credits-earned">${completedCourses.length * 3}/100</span>
         </div>
         <div class="stat-item">
         <span class="stat-label">Current GPA:</span>
-        <span class="stat-value" id="current-gpa">${(
-          gradePoints / completedCourses.length
-        ).toFixed(2)}</span>
+        <span class="stat-value" id="current-gpa">${(gradePoints / completedCourses.length).toFixed(2)}</span>
         </div>`;
 
   const courseList = JSON.parse(localStorage.courses);
