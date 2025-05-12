@@ -9,10 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="js/login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/next-auth@latest/dist/index.umd.js"></script>
 </head>
-
-
-
 
 <body>
     <div class="login-container">
@@ -33,7 +31,8 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required
+                            autocomplete="current-password">
                     </div>
 
                     <div class="form-group">
@@ -45,24 +44,55 @@
                             <option value="ADMIN">Department Administrator</option>
                         </select>
                     </div>
-                    
-                    <div id="g_id_onload" 
-                    data-client_id="534020392954-i545saoniv7fk3sccglk8h4s7upup33d.apps.googleusercontent.com"
-                    data-callback="handleCredentialResponse"
-                    data-auto_prompt="false">
+
+                    <div class="social-login-buttons">
+                        <div id="g_id_onload"
+                            data-client_id="534020392954-i545saoniv7fk3sccglk8h4s7upup33d.apps.googleusercontent.com"
+                            data-callback="handleCredentialResponse" data-auto_prompt="false">
+                        </div>
+                        <div id="g_id_signin" class="g_id_signin" data-type="standard"></div>
+
+                        <button type="button" onclick="handleGithubSignIn()" class="btn btn-social btn-github">
+                            <img src="images/github-icon.svg" alt="GitHub" class="social-icon">
+                            Sign in with GitHub
+                        </button>
                     </div>
 
-                <div id="g_id_signin" class="g_id_signin" data-type="standard"></div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Login with Credentials</button>
                 </form>
 
                 <div class="login-footer">
-                    <p  >CMPS 350 Web Development Course Project Phase 1</p>
+                    <p>CMPS 350 Web Development Course Project Phase 1</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        async function handleGithubSignIn() {
+            try {
+                const response = await fetch('/api/auth/signin/github', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    window.location.href = data.url;
+                } else {
+                    console.error('GitHub sign-in failed');
+                }
+            } catch (error) {
+                console.error('Error during GitHub sign-in:', error);
+            }
+        }
+    </script>
 </body>
 
 </html>

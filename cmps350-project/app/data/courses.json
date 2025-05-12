@@ -472,5 +472,32 @@
         "status": "open"
       }
     ]
+  },
+  {
+    "code": "CS 501",
+    "name": "Why am I still here?",
+    "credits": 3,
+    "category": "Artificial Intelligence",
+    "description": "ai coming for you",
+    "registrationOpen": true,
+    "prerequisites": ["CS 401"],
+    "sections": [
+      {
+        "crn": "123213",
+        "schedule": "Mon/Wed 9:00-10:15 AM",
+        "location": "Building 5, Room 203",
+        "capacity": 30,
+        "enrolled": 0,
+        "status": "open"
+      },
+      {
+        "crn": "213213",
+        "schedule": "Mon/Wed 9:00-10:15 AM",
+        "location": "Building 5, Room 203",
+        "capacity": 30,
+        "enrolled": 0,
+        "status": "open"
+      }
+    ]
   }
 ]
