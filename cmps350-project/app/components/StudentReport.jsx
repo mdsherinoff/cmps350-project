@@ -25,7 +25,7 @@ ChartJS.register(
 
 const sampleData = {
   studentYears: {
-    labels: ["Freshman", "Sophomore", "Junior", "Senior"],
+    labels: ["Freshman", "Senior", "Sophomore", "Junior"],
   },
 };
 

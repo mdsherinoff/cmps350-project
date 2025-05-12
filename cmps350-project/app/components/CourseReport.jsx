@@ -114,7 +114,7 @@ export default function StudentReport({ courses }) {
           <div className="stats-card">
             <h3>Courses with Most A's</h3>
             {courseWithMostAs.map((course) => (
-              <div key={course.courseUId} className="stat-label">
+              <div key={course.courseUId} className="stat-report">
                 {course.name}
               </div>
             ))}
