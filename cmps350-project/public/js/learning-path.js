@@ -54,45 +54,48 @@ async function start() {
   const student = students.find(
     (student) => String(student.studentUId.trim()) == currentStudentId.trim()
   );
-  console.log(student);
+  console.log(currUserName);
   console.log(student.studentUId.trim());
   console.log(currentStudentId.trim());
   
   
   
+const studentEnrollments = currUserName.studentProfile?.enrollments;
+console.log(studentEnrollments);
 
-  const studentCourses = student.sections;
-  console.log(studentCourses);
+const studentCourses = studentEnrollments.map((enrollment) => ({
+  course: enrollment.section.course,
+  status: enrollment.status,
+}));
 
-  for (const course1 of courses) {
-    const courseInStudent = studentCourses.find(
-      (course2) => course2.courseId === course1.id
-    );
+console.log(studentCourses);
 
-    if (courseInStudent) {
-      console.log(course1);
+for (const course1 of courses) {
+  const courseInStudent = studentCourses.find(
+    (course2) => course2.course.courseUId === course1.courseUId
+  );
 
-      if (courseInStudent.status === "completed") {
-        learningPathGrid.innerHTML += `
-                    <div class="course-box completed-course">
-                        ${course1.code}
-                    </div>`;
-      } else {
-        learningPathGrid.innerHTML += `
-                    <div class="course-box progress-course">
-                        ${course1.code}
-                    </div>`;
-      }
+  if (courseInStudent) {
+    if (courseInStudent.status === "COMPLETED") {
+      learningPathGrid.innerHTML += `
+        <div class="course-box completed-course">
+          ${course1.code}
+        </div>`;
     } else {
       learningPathGrid.innerHTML += `
-            <div class="course-box pending-course">
-                ${course1.code}
-            </div>`;
+        <div class="course-box progress-course">
+          ${course1.code}
+        </div>`;
     }
+  } else {
+    learningPathGrid.innerHTML += `
+      <div class="course-box pending-course">
+        ${course1.code}
+      </div>`;
   }
-
-  loadProgramProgress();
 }
+
+loadProgramProgress();
 
 async function loadProgramProgress() {
   const studentList = JSON.parse(localStorage.students);
@@ -170,3 +173,4 @@ function logout() {
 // #28a745
 // #ffc107
 // #355c7d
+}
