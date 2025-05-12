@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const courseData = {
-      id: courseId,
       code: courseCode,
       name: courseName,
       credits: 3,
@@ -116,12 +115,18 @@ document.addEventListener("DOMContentLoaded", function () {
       description: courseDescription,
       registrationOpen: true,
       prerequisites: prerequisites,
-      sections: sections,
+      sections: sections.map((section) => ({
+        crn: section.crn,
+        schedule: section.schedule,
+        location: section.location,
+        capacity: 30,
+        enrolled: 0,
+        status: "open",
+      })),
     };
 
-    console.log(courseData);
+    console.log("Sending course data:", courseData);
 
-    alert("Course created successfully!\n");
     fetch("http://localhost:3000/api/courses", {
       method: "POST",
       headers: {
@@ -129,7 +134,23 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify(courseData),
     })
-    // location.reload();
+      .then(async (response) => {
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(
+            data.details || data.error || "Failed to create course"
+          );
+        }
+        return data;
+      })
+      .then((data) => {
+        alert("Course created successfully!");
+        window.location.href = "../html/admin-home.html";
+      })
+      .catch((error) => {
+        console.error("Error details:", error);
+        alert(`Failed to create course: ${error.message}`);
+      });
   });
 
   cancelBtn.addEventListener("click", function () {

@@ -39,8 +39,19 @@ async function start() {
   const totalCourses = document.querySelector("#total-courses");
   const totalStudents = document.querySelector("#total-students");
   const totalSections = document.querySelector("#total-classes");
+  const totalInstructors = document.querySelector("#total-instructors");
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+
+  // Get unique instructors by collecting all instructors from sections
+  const uniqueInstructors = new Set();
+  courses.forEach((course) => {
+    course.sections.forEach((section) => {
+      if (section.instructor) {
+        uniqueInstructors.add(section.instructor);
+      }
+    });
+  });
 
   adminName.innerHTML = `<div class="user-info">
     <span>Welcome, <strong>${
@@ -52,6 +63,7 @@ async function start() {
     (total, course) => total + course.sections.length,
     0
   );
+  totalInstructors.innerHTML = `${uniqueInstructors.size}`;
 
   adminCourseContainer.innerHTML = "";
 
@@ -292,5 +304,5 @@ async function validateSection(validatedCourse, validatedSection, button) {
   button.style.cursor = "not-allowed";
   button.disabled = true;
   button.innerText = "Class Validated";
-  await fetchData(); 
+  await fetchData();
 }
