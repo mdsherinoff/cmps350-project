@@ -27,7 +27,7 @@ async function start() {
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
   studentName.innerHTML = `<div class="user-info">
-                <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
+                <span>Welcome, <strong>${currUserName.user.username}</strong></span></div>`;
 
   courses.forEach((course) => {
     const courseCard = document.createElement("div");

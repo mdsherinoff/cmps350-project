@@ -39,7 +39,7 @@ async function userInput() {
     return;} 
     else {alert(`Login Successful \nWelcome ${user.role.toUpperCase()}, ${user.username}`);}
     
-    localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
+    // localStorage.setItem("userId", JSON.stringify(user.studentProfile.studentUId));
     let userId = null;
     let currUserInfo = null;
 
