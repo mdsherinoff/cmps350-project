@@ -12,38 +12,26 @@ progressButton.addEventListener("click", start);
 openButton.addEventListener("click", OpenPage);
 allCourseButton.addEventListener("click", AllCourses);
 
-let courses = "";
-let students = "";
-
-// For modifying JSON
-let courseList = "";
-let studentList = "";
-
+let courses = [];
+let students = [];
 let currentButton = "";
 
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  // const coursesJSON = await fetch("../data/courses.json");
-  const coursesJSON = await fetch("http://localhost:3000/api/courses");
-  courseList = await coursesJSON.json();
-  localStorage.courses = JSON.stringify(courseList);
+  const coursesJSON = await fetch("/api/courses");
+  courses = await coursesJSON.json();
 
-  const studentsJSON = await fetch("http://localhost:3000/api/students");
-  studentList = await studentsJSON.json();
-  localStorage.students = JSON.stringify(studentList);
-
-  courses = JSON.parse(localStorage.courses);
-  students = JSON.parse(localStorage.students);
+  const studentsJSON = await fetch("/api/students");
+  students = await studentsJSON.json();
 
   start();
 }
 
 async function start() {
-  if (currentButton != "") {
+  if (currentButton) {
     currentButton.classList.remove("active");
   }
-
   progressButton.classList.add("active");
   currentButton = progressButton;
 
@@ -51,21 +39,36 @@ async function start() {
   const totalCourses = document.querySelector("#total-courses");
   const totalStudents = document.querySelector("#total-students");
   const totalSections = document.querySelector("#total-classes");
+  const totalInstructors = document.querySelector("#total-instructors");
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
 
+  // Get unique instructors by collecting all instructors from sections
+  const uniqueInstructors = new Set();
+  courses.forEach((course) => {
+    course.sections.forEach((section) => {
+      if (section.instructor) {
+        uniqueInstructors.add(section.instructor);
+      }
+    });
+  });
+
   adminName.innerHTML = `<div class="user-info">
-                <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
+    <span>Welcome, <strong>${
+      currUserName?.username || "Admin"
+    }</strong></span></div>`;
   totalCourses.innerHTML = `${courses.length}`;
   totalStudents.innerHTML = `${students.length}`;
-  totalSections.innerHTML = courses.reduce((total, course) => {
-    return total + course.sections.length;
-  }, 0);
+  totalSections.innerHTML = courses.reduce(
+    (total, course) => total + course.sections.length,
+    0
+  );
+  totalInstructors.innerHTML = `${uniqueInstructors.size}`;
 
-  adminCourseContainer.innerHTML = ``;
+  adminCourseContainer.innerHTML = "";
 
   for (const course of courses) {
-    if (course.registrationOpen === false) {
+    if (!course.registrationOpen) {
       adminCourseContainer.innerHTML += generateCourseCard(course);
       const sectionContainer =
         adminCourseContainer.lastElementChild.querySelector(".class-list");
@@ -82,13 +85,13 @@ function logout() {
 }
 
 function OpenPage() {
-  currentButton.classList.remove("active");
+  if (currentButton) currentButton.classList.remove("active");
   openButton.classList.add("active");
   currentButton = openButton;
 
-  adminCourseContainer.innerHTML = ``;
+  adminCourseContainer.innerHTML = "";
   for (const course of courses) {
-    if (course.registrationOpen === true) {
+    if (course.registrationOpen) {
       adminCourseContainer.innerHTML += generateOpenCourseCard(course);
       const sectionContainer =
         adminCourseContainer.lastElementChild.querySelector(".class-list");
@@ -100,11 +103,11 @@ function OpenPage() {
 }
 
 function AllCourses() {
-  currentButton.classList.remove("active");
+  if (currentButton) currentButton.classList.remove("active");
   allCourseButton.classList.add("active");
   currentButton = allCourseButton;
 
-  adminCourseContainer.innerHTML = ``;
+  adminCourseContainer.innerHTML = "";
   for (const course of courses) {
     adminCourseContainer.innerHTML += generateCourseCard(course);
     const sectionContainer =
@@ -120,78 +123,24 @@ courseDD.addEventListener("change", courseFilter);
 
 function courseFilter() {
   const category = courseDD.value;
-  const allCourses = JSON.parse(localStorage.courses);
-  courseGrid.innerHTML = "";
+  let filteredCourses = courses;
 
-  if (currentButton == openButton) {
-    const courseCategorizing = allCourses.filter(
-      (course) => course.registrationOpen === true
-    );
-
-    const categorizedCourses = courseCategorizing.filter(
-      (course) => category === course.category
-    );
-
-    const filteredCourses =
-      category === "all" ? courseCategorizing : categorizedCourses;
-    console.log(filteredCourses);
-
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateOpenCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
+  if (category !== "all") {
+    filteredCourses = courses.filter((course) => course.category === category);
   }
-  if (currentButton == allCourseButton) {
-    categorizedCourses = allCourses.filter(
-      (course) => category === course.category
+
+  if (currentButton === openButton) {
+    filteredCourses = filteredCourses.filter(
+      (course) => course.registrationOpen
     );
-
-    const filteredCourses =
-      category === "all" ? allCourses : categorizedCourses;
-    console.log(filteredCourses);
-
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateOpenCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
+    renderCourses(filteredCourses, generateOpenCourseCard);
+  } else if (currentButton === allCourseButton) {
+    renderCourses(filteredCourses, generateCourseCard);
   } else {
-    const courseCategorizing = allCourses.filter(
-      (course) => course.registrationOpen === false
+    filteredCourses = filteredCourses.filter(
+      (course) => !course.registrationOpen
     );
-
-    const categorizedCourses = courseCategorizing.filter(
-      (course) => category === course.category
-    );
-
-    const filteredCourses =
-      category === "all" ? courseCategorizing : categorizedCourses;
-    console.log(filteredCourses);
-
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateOpenCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
+    renderCourses(filteredCourses, generateCourseCard);
   }
 }
 
@@ -199,68 +148,38 @@ const searchBox = document.querySelector(".search-input");
 searchBox.addEventListener("input", searchCourses);
 
 function searchCourses() {
-  const allCourses = JSON.parse(localStorage.courses);
   const searchingCourse = searchBox.value.trim().toLowerCase();
-  console.log(searchingCourse);
+  let filteredCourses = courses.filter(
+    (course) =>
+      course.name.toLowerCase().includes(searchingCourse) ||
+      course.code.toLowerCase().includes(searchingCourse)
+  );
 
-  let filteredCourses = [];
-
-  if (currentButton == openButton) {
-    filteredCourses = allCourses.filter(
-      (course) =>
-        course.registrationOpen === true &&
-        (course.name.toLowerCase().includes(searchingCourse) ||
-          course.code.toLowerCase().includes(searchingCourse))
+  if (currentButton === openButton) {
+    filteredCourses = filteredCourses.filter(
+      (course) => course.registrationOpen
     );
-
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateOpenCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
-  } else if (currentButton == allCourseButton) {
-    filteredCourses = allCourses.filter(
-      (course) =>
-        course.name.toLowerCase().includes(searchingCourse) ||
-        course.code.toLowerCase().includes(searchingCourse)
-    );
-
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
+    renderCourses(filteredCourses, generateOpenCourseCard);
+  } else if (currentButton === allCourseButton) {
+    renderCourses(filteredCourses, generateCourseCard);
   } else {
-    filteredCourses = allCourses.filter(
-      (course) =>
-        course.registrationOpen === false &&
-        (course.name.toLowerCase().includes(searchingCourse) ||
-          course.code.toLowerCase().includes(searchingCourse))
+    filteredCourses = filteredCourses.filter(
+      (course) => !course.registrationOpen
     );
-    courseGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      courseGrid.innerHTML += generateOpenCourseCard(course);
-
-      const sectionContainer =
-        courseGrid.lastElementChild.querySelector(".class-list");
-
-      for (const section of course.sections) {
-        sectionContainer.innerHTML += generateSectionCard(section);
-      }
-    });
+    renderCourses(filteredCourses, generateCourseCard);
   }
+}
+
+function renderCourses(courseList, cardGenerator) {
+  courseGrid.innerHTML = "";
+  courseList.forEach((course) => {
+    courseGrid.innerHTML += cardGenerator(course);
+    const sectionContainer =
+      courseGrid.lastElementChild.querySelector(".class-list");
+    for (const section of course.sections) {
+      sectionContainer.innerHTML += generateSectionCard(section);
+    }
+  });
 }
 
 const newCourse = document.querySelector("#createCourseBtn");
@@ -278,14 +197,12 @@ function generateCourseCard(course) {
       </div>
       <div class="course-content">
           <h4>${course.name}</h4>
-
           <div class="class-info-container">
               <div class="class-info-header">
                   <h5>Sections</h5>
                   <span class="classes-count">${course.sections.length} Section</span>
               </div>
-              <div class="class-list">
-              </div>
+              <div class="class-list"></div>
           </div>
       </div>
   </div>`;
@@ -299,68 +216,73 @@ function generateOpenCourseCard(course) {
       </div>
       <div class="course-content">
           <h4>${course.name}</h4>
-
           <div class="class-info-container">
               <div class="class-info-header">
                   <h5>Sections</h5>
-                  <span class="classes-count">${course.sections.length} Section</span>
+                  <span class="classes-count">${
+                    course.sections.length
+                  } Section</span>
               </div>
-              <div class="class-list">
-              </div>
+              <div class="class-list"></div>
           </div>
       </div>
       <div class="course-footer">
-          <button onclick='manageClasses(${JSON.stringify(course)})' class="btn btn-primary btn-small">Manage Classes</button>
+          <button onclick='manageClasses(${JSON.stringify(
+            course
+          )})' class="btn btn-primary btn-small">Manage Classes</button>
       </div>
   </div>`;
 }
 
 function generateValidateCourseCard(course, section) {
   return `
-                    <div class="course-card">
-                    <div class="course-header">
-                        <h3>${course.code} - L${section.crn}</h3>
-                        <span class="course-category">${course.category}</span>
-                    </div>
-                    <div class="course-content">
-                        <h4>${course.name}</h4>
-                        <div class="course-details">
-                            <span><i class="fas fa-user"></i> ${section.instructor}</span>
-                            <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
-                        </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                            <span><i class="fas fa-users"></i> ${section.schedule}</span>
-
-                        </div>
-                        
-                    </div>
-                    <div style="display: flex; justify-content: center;" class="course-footer">
-                        <button onclick='validateSection(${JSON.stringify(course)}, ${JSON.stringify(section)}, this)' class="btn btn-primary">Validate Section</button>
-                    </div>
-                </div>`;
+    <div class="course-card">
+      <div class="course-header">
+        <h3>${course.code} - L${section.crn}</h3>
+        <span class="course-category">${course.category}</span>
+      </div>
+      <div class="course-content">
+        <h4>${course.name}</h4>
+        <div class="course-details">
+          <span><i class="fas fa-user"></i> ${section.instructor}</span>
+          <span><i class="fas fa-users"></i> ${section.enrolled}/30</span>
+        </div>
+        <div class="course-details">
+          <span><i class="fas fa-clock"></i> ${
+            course.registrationOpen
+              ? "Registration : Open"
+              : "Registration : Closed"
+          }</span>
+          <span><i class="fas fa-users"></i> ${section.schedule}</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center;" class="course-footer">
+        <button onclick='validateSection(${JSON.stringify(
+          course
+        )}, ${JSON.stringify(
+    section
+  )}, this)' class="btn btn-primary">Validate Section</button>
+      </div>
+    </div>`;
 }
 
 function generateSectionCard(section) {
   return `
     <div class="class-item">
-        <div class="class-details">
-            <span class="instructor">${section.instructor}</span>
-            <span class="schedule">${section.schedule}</span>
-        </div>
-
-        <div class="class-enrollment">
-            <span>${section.enrolled}/30</span>
-        </div>
+      <div class="class-details">
+        <span class="instructor">${section.instructor}</span>
+        <span class="schedule">${section.schedule}</span>
+      </div>
+      <div class="class-enrollment">
+        <span>${section.enrolled}/30</span>
+      </div>
     </div>`;
 }
 
 function manageClasses(course) {
-  adminCourseContainer.innerHTML = ``;
+  adminCourseContainer.innerHTML = "";
   for (const section of course.sections) {
-    if (section.status == "open") {
-      console.log(section);
-      console.log(section.status);
+    if (section.status === "open") {
       adminCourseContainer.innerHTML += generateValidateCourseCard(
         course,
         section
@@ -369,27 +291,18 @@ function manageClasses(course) {
   }
 }
 
-function validateSection(validatedCourse, validatedSection, button) {
-  alert("Class has been validated");
+async function validateSection(validatedCourse, validatedSection, button) {
+  await fetch(`/api/sections`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      crn: validatedSection.crn,
+      status: "closed",
+    }),
+  });
   button.style.backgroundColor = "green";
   button.style.cursor = "not-allowed";
   button.disabled = true;
   button.innerText = "Class Validated";
-  console.log(button);
-
-  validatedSection.status = "close";
-
-  console.log(courseList);
-  for (const course of courseList) {
-    console.log(course);
-    if (course.id == validatedCourse.id) {
-      for (const section of course.sections) {
-        console.log(section);
-        if (section.crn == validatedSection.crn) {
-          section.status = "close";
-          return;
-        }
-      }
-    }
-  }
+  await fetchData();
 }

@@ -1,7 +1,8 @@
-'use client'
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
+import { faSquareReddit } from "@fortawesome/free-brands-svg-icons";
 
 import {
   Chart as ChartJS,
@@ -23,93 +24,114 @@ ChartJS.register(
 );
 
 const sampleData = {
-  studentsPerYear: {
-    labels: ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"],
-    data: [120, 150, 130, 110, 90],
-  },
-  studentsPerCategory: {
+  studentYears: {
     labels: [
-      "Programming",
+      "Computer Engineering",
+      "Computer Science",
+      "Information Security",
       "Mathematics",
-      "Systems",
-      "Web & Data",
       "Software Engineering",
-      "AI & Advanced Tech",
     ],
-    data: [250, 180, 150, 200, 170, 140],
   },
 };
 
+export default function StudentReport({ instructors }) {
+  const yearChartData = {
+    labels: sampleData.studentYears.labels,
+    datasets: [
+      {
+        label: "Number of Instructors",
+        data: instructors.instructorsByDepartment
+          .map((d) => ({
+            key: d.department,
+            value: d._count.instructorUId,
+          }))
+          .map((d) => d.value),
+        backgroundColor: "rgba(112, 25, 61, 0.8)",
+      },
+    ],
+  };
 
-
-export default function StudentReport() {
-
-     const [yearChartData, setYearChartData] = useState({
-        labels: [],
-        datasets: [],
-      });
-    
-      useEffect(() => {
-        setYearChartData({
-          labels: sampleData.studentsPerYear.labels,
-          datasets: [
-            {
-              label: "Number of Students",
-              data: sampleData.studentsPerYear.data,
-              backgroundColor: [
-                "rgba(112, 25, 61, 0.8)"
-              ],
-            },
-          ],
-        });
-      }, []);
-    
-      const yearChartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-          title: {
-            display: true,
-            text: "Student Distribution by Year",
-          },
+  const yearChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: "Number of instructors by department",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Number of Instructors",
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: "Number of Students",
-            },
-          },
-          x: {
-            title: {
-              display: true,
-              text: "Academic Year",
-            },
-          },
+      },
+      x: {
+        title: {
+          display: true,
+          text: "Department",
         },
-      };
-    
+      },
+    },
+  };
+  //   console.log(studentCount);
 
-    
   return (
     <div>
       <section className="Graphsgrid" />
       <div className="graphContainer">
         <div className="content">
           <section className="stats-section">
-            <div className="stats-grid">
+            <div className="analytics-grid">
+              <div className="stat-container">
+                <div className="stat-card">
+                  <div className="stat-icon">
+                    <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+                  </div>
+                  <div className="stat-info">
+                    <span className="stat-value" id="total-classes">
+                      {instructors.totalInstructors}
+                    </span>
+                    <span className="stat-label">Total Instructors</span>
+                  </div>
+                </div>
+              </div>
               <div className="stats-card">
-
-
-                <h3>Total Instructors per Year</h3>
+                <h3>Number of instructors by department</h3>
                 <div style={{ height: "300px" }}>
                   <Bar data={yearChartData} options={yearChartOptions} />
                 </div>
-                
+              </div>
+
+              <div className="stats-card">
+                <h3>Instructors with the most sections taught</h3>
+                <div className="GPAContainer">
+                  {instructors.instructorsWithMostSections.map((instructor) => (
+                    <span
+                      key={instructor.instructorUId}
+                      className="stat-label2"
+                    >
+                      {instructor.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-icon">
+                <FontAwesomeIcon icon={faSquarePollVertical} size="5x" />
+              </div>
+              <div className="stat-info">
+                <span className="stat-value" id="total-classes">
+                  {instructors.instructorsWithNoSections}
+                </span>
+                <span className="stat-label">Instructors with No Section</span>
               </div>
             </div>
           </section>

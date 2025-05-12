@@ -4,17 +4,16 @@ document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
 const studentName = document.querySelector(".header-username");
 
+
 const logoutButton = document.querySelector(".btn-logout");
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  // const courses = await fetch("../data/courses.json");
   const courses = await fetch("http://localhost:3000/api/courses");
 
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
   
-  // const students = await fetch("../data/students.json");
   const students = await fetch("http://localhost:3000/api/students");
   let studentList = await students.json();
   localStorage.students = JSON.stringify(studentList);
@@ -28,7 +27,7 @@ async function start() {
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
   studentName.innerHTML = `<div class="user-info">
-                <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
+                <span>Welcome, <strong>${currUserName.user.username}</strong></span></div>`;
 
   courses.forEach((course) => {
     const courseCard = document.createElement("div");
@@ -70,42 +69,71 @@ async function start() {
 const courseDD = document.querySelector("#category-filter");
 courseDD.addEventListener("change", courseFilter);
 
-function courseFilter() {
+async function courseFilter() {
   const category = courseDD.value;
-  const allCourses = JSON.parse(localStorage.courses);
-  courseGrid.innerHTML = "";
-  categorizedCourses = allCourses.filter(
-    (course) => category === course.category
-  );
+  const response = await fetch(`/api/courses${category !== "all" ? `?category=${category}` : ""}`);
+  const filteredCourses = await response.json();
 
-  const filteredCourses = category === "all" ? allCourses : categorizedCourses;
-  console.log(filteredCourses);
+  courseGrid.innerHTML = "";
 
   filteredCourses.forEach((course) => {
     courseGrid.innerHTML += `
-                    <div class="course-card">
-                    <div class="course-header">
-                        <h3>${course.code}</h3>
-                        <span class="course-category">${course.category}</span>
-                    </div>
-                    <div class="course-content">
-                        <h4>${course.name}</h4>
-                        <p>${course.description}</p>
-                        <div class="course-details">
-                            <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce((sum, section) => sum + 1, 0)}</span>
-                            <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce((sum, section) => sum + section.enrolled, 0)}</span>
-                        </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration : Open" : "Registration : Closed"}</span>
-                        </div>
-                        
-                    </div>
-                    <div class="course-footer">
-                        <button onclick='viewDetails(${JSON.stringify(course)})'
-                        class="btn btn-secondary">View Details</button>
-                        <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
-                    </div>
-                </div>`;
+      <div class="course-card">
+        <div class="course-header">
+            <h3>${course.code}</h3>
+            <span class="course-category">${course.category}</span>
+        </div>
+        <div class="course-content">
+            <h4>${course.name}</h4>
+            <p>${course.description}</p>
+            <div class="course-details">
+                <span><i class="fas fa-user"></i> Instructors: ${course.sections.length}</span>
+                <span><i class="fas fa-users"></i> Total Enrolled: ${course.sections.reduce((sum, section) => sum + section.enrolledCount, 0)}</span>
+            </div>
+            <div class="course-details">
+                <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration: Open" : "Registration: Closed"}</span>
+            </div>
+        </div>
+        <div class="course-footer">
+            <button onclick='viewDetails(${JSON.stringify(course)})' class="btn btn-secondary">View Details</button>
+            <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
+        </div>
+      </div>`;
+  });
+}
+
+
+// Pulls From Database
+async function courseFilter() {
+  const category = courseDD.value;
+  const response = await fetch(`/api/courses${category !== "all" ? `?category=${category}` : ""}`);
+  const filteredCourses = await response.json();
+
+  courseGrid.innerHTML = "";
+
+  filteredCourses.forEach((course) => {
+    courseGrid.innerHTML += `
+      <div class="course-card">
+        <div class="course-header">
+            <h3>${course.code}</h3>
+            <span class="course-category">${course.category}</span>
+        </div>
+        <div class="course-content">
+            <h4>${course.name}</h4>
+            <p>${course.description}</p>
+            <div class="course-details">
+                <span><i class="fas fa-user"></i> Instructors: ${course.sections.length}</span>
+                <span><i class="fas fa-users"></i> Total Enrolled: ${course.sections.reduce((sum, section) => sum + section.enrolledCount, 0)}</span>
+            </div>
+            <div class="course-details">
+                <span><i class="fas fa-clock"></i> ${course.registrationOpen ? "Registration: Open" : "Registration: Closed"}</span>
+            </div>
+        </div>
+        <div class="course-footer">
+            <button onclick='viewDetails(${JSON.stringify(course)})' class="btn btn-secondary">View Details</button>
+            <button onclick='viewClasses(${JSON.stringify(course)})' class="btn btn-primary">View Classes</button>
+        </div>
+      </div>`;
   });
 }
 
@@ -153,9 +181,13 @@ function searchCourses() {
 }
 
 function viewDetails(course) {
+  console.log(course);
+  
   if (typeof course === "string") {
     course = JSON.parse(course);
   }
+  console.log(course);
+  
 
   const availableCourses = document.querySelector(".search-section");
   availableCourses.style.display = "none";

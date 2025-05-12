@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QU Student Management System - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+
+
+
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="images/logo qu w.png" alt="Qatar University Logo" class="logo">
+            <h1>Student Management System</h1>
+            <p class="subtitle">CSE Department - Qatar University</p>
+        </div>
+
+        <div class="login-form-container">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userType">I am a:</label>
+                        <select id="userType" name="userType" required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="administrator">Department Administrator</option>
+                        </select>
+                    </div>
+                    
+                    <div id="g_id_onload" 
+                    data-client_id="534020392954-i545saoniv7fk3sccglk8h4s7upup33d.apps.googleusercontent.com"
+                    data-callback="handleCredentialResponse"
+                    data-auto_prompt="false">
+                    </div>
+
+                <div id="g_id_signin" class="g_id_signin" data-type="standard"></div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="login-footer">
+                    <p  >CMPS 350 Web Development Course Project Phase 1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

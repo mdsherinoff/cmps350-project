@@ -1,4 +1,5 @@
 const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
+
 const currentStudentId = JSON.parse(localStorage.getItem("userId"));
 
 const gradePointDictionary = {
@@ -44,60 +45,71 @@ async function start() {
   const courses = JSON.parse(localStorage.courses);
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  console.log(currUserName);
+  
   studentName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
 
   const students = JSON.parse(localStorage.students);
   const student = students.find(
-    (student) => String(student.id) == currentStudentId
+    (student) => String(student.studentUId.trim()) == currentStudentId.trim()
+  );
+  console.log(currUserName);
+  console.log(student.studentUId.trim());
+  console.log(currentStudentId.trim());
+  
+  
+  
+const studentEnrollments = currUserName.studentProfile?.enrollments;
+console.log(studentEnrollments);
+
+const studentCourses = studentEnrollments.map((enrollment) => ({
+  course: enrollment.section.course,
+  status: enrollment.status,
+}));
+
+console.log(studentCourses);
+
+for (const course1 of courses) {
+  const courseInStudent = studentCourses.find(
+    (course2) => course2.course.courseUId === course1.courseUId
   );
 
-  const studentCourses = student.courses;
-  console.log(studentCourses);
-
-  for (const course1 of courses) {
-    const courseInStudent = studentCourses.find(
-      (course2) => course2.courseId === course1.id
-    );
-
-    if (courseInStudent) {
-      console.log(course1);
-
-      if (courseInStudent.status === "completed") {
-        learningPathGrid.innerHTML += `
-                    <div class="course-box completed-course">
-                        ${course1.code}
-                    </div>`;
-      } else {
-        learningPathGrid.innerHTML += `
-                    <div class="course-box progress-course">
-                        ${course1.code}
-                    </div>`;
-      }
+  if (courseInStudent) {
+    if (courseInStudent.status === "COMPLETED") {
+      learningPathGrid.innerHTML += `
+        <div class="course-box completed-course">
+          ${course1.code}
+        </div>`;
     } else {
       learningPathGrid.innerHTML += `
-            <div class="course-box pending-course">
-                ${course1.code}
-            </div>`;
+        <div class="course-box progress-course">
+          ${course1.code}
+        </div>`;
     }
+  } else {
+    learningPathGrid.innerHTML += `
+      <div class="course-box pending-course">
+        ${course1.code}
+      </div>`;
   }
-
-  loadProgramProgress();
 }
 
-async function loadProgramProgress() {
-  const studentList = JSON.parse(localStorage.students);
-  const student = studentList.find(
-    (student) => String(student.id) == currentStudentId
-  );
+loadProgramProgress();
 
-  const completedCourses = student.courses.filter(
-    (course) => course.status == "completed"
-  );
+async function loadProgramProgress() {
+  console.log(currUserName.studentProfile?.enrollments.course);
+  
+const completedCourses = currUserName.studentProfile?.enrollments.filter(
+  (enrollment) => enrollment.status === "completed"
+);
+const completedCourseObjects = completedCourses.map(
+  (enrollment) => enrollment.section.course
+);
 
   let gradePoints = 0;
 
-  for (const course of completedCourses) {
+  for (const course of completedCourseObjects) {
     if (gradePointDictionary[course.grade] !== undefined) {
       gradePoints += gradePointDictionary[course.grade];
     }
@@ -118,9 +130,9 @@ async function loadProgramProgress() {
 
   const courseList = JSON.parse(localStorage.courses);
 
-  for (course1 of courseList) {
+  for (const course1 of courseList) {
     let found = false;
-    for (course2 of student.courses) {
+    for (const course2 of student.courses) {
       if (course1.id == course2.courseId) {
         found = true;
         if (course2.status == "completed") {
@@ -161,3 +173,4 @@ function logout() {
 // #28a745
 // #ffc107
 // #355c7d
+}
