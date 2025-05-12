@@ -45,15 +45,23 @@ async function start() {
   const courses = JSON.parse(localStorage.courses);
 
   const currUserName = JSON.parse(localStorage.getItem("currUserInfo"));
+  console.log(currUserName);
+  
   studentName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.name}</strong></span></div>`;
 
   const students = JSON.parse(localStorage.students);
   const student = students.find(
-    (student) => String(student.id) == currentStudentId
+    (student) => String(student.studentUId.trim()) == currentStudentId.trim()
   );
+  console.log(student);
+  console.log(student.studentUId.trim());
+  console.log(currentStudentId.trim());
+  
+  
+  
 
-  const studentCourses = student.courses;
+  const studentCourses = student.sections;
   console.log(studentCourses);
 
   for (const course1 of courses) {

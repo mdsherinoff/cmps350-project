@@ -41,10 +41,12 @@ export default function StudentReport({ instructors }) {
     datasets: [
       {
         label: "Number of Instructors",
-        data: instructors.instructorsByDepartment.map(
-          (d) => d._count.instructorUId
-        ),
-
+        data: instructors.instructorsByDepartment
+          .map((d) => ({
+            key: d.department,
+            value: d._count.instructorUId,
+          }))
+          .map((d) => d.value),
         backgroundColor: "rgba(112, 25, 61, 0.8)",
       },
     ],
