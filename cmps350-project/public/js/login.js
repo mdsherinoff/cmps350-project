@@ -45,14 +45,16 @@ async function userInput() {
     let currUserInfo = null;
 
     switch (enteredUserType) {
-      case "student": 
+      case "STUDENT":
         userId = JSON.parse(localStorage.getItem("userId"));
-        currUserInfo = studentsData.find((student) => student.studentUId === userId);
+        currUserInfo = studentsData.find(
+          (student) => student.studentUId === userId
+        );
         localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
         window.location.href = "../html/student-home.html";
 
         break;
-      case "instructor":
+      case "INSTRUCTOR":
         userId = JSON.parse(localStorage.getItem("userId"));
         currUserInfo = instructorsData.find(
           (instructor) => instructor.id === userId
@@ -61,7 +63,7 @@ async function userInput() {
         window.location.href = "../html/instructor-home.html";
 
         break;
-      case "administrator":
+      case "ADMIN":
         userId = JSON.parse(localStorage.getItem("userId"));
         currUserInfo = userData.find((user) => user.id === userId);
         localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));

@@ -2,7 +2,11 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class MasterRepo {
+<<<<<<< Updated upstream
   async getAllUsers() {
+=======
+  async getUsers() {
+>>>>>>> Stashed changes
     return await prisma.user.findMany({
       orderBy: { username: "asc" },
     });
@@ -15,6 +19,7 @@ class MasterRepo {
       },
     });
   }
+<<<<<<< Updated upstream
   async getAllCourses() {
     return await prisma.course.findMany({
       orderBy: { code: "asc" },
@@ -43,6 +48,15 @@ class MasterRepo {
     });
   }
 
+=======
+
+  async getUserbyId(id) {
+    return await prisma.user.findUnique({
+      where: { id },
+    });
+  }
+
+>>>>>>> Stashed changes
   async findUserByUsername(username) {
     return await prisma.user.findUnique({
       where: { username },
@@ -523,6 +537,16 @@ class MasterRepo {
       topStudentsByGPA,
       studentsByYear,
     };
+  }
+
+  async getAllSections() {
+    return await prisma.section.findMany({
+      include: { course: true, instructor: true },
+    });
+  }
+
+  async createSection(data) {
+    return await prisma.section.create({ data });
   }
 }
 
