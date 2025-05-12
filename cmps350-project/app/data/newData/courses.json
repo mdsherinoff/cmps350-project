@@ -11,30 +11,21 @@
     "sections": [
       {
         "crn": "10001",
-        "instructor": "Khalil",
+        "instructor": "2250001",
         "schedule": "Mon/Wed 9:00-10:15 AM",
         "location": "Building 5, Room 203",
         "enrolled": 15,
         "capacity": 30,
-        "status": "close"
+        "status": "open"
       },
       {
         "crn": "10002",
-        "instructor": "Mohammed",
+        "instructor": "2250004",
         "schedule": "Tue/Thu 11:00 AM-12:15 PM",
         "location": "Building 3, Room 105",
         "enrolled": 20,
         "capacity": 30,
         "status": "open"
-      },
-      {
-        "crn": "10003",
-        "instructor": "Fatima",
-        "schedule": "Wed/Fri 2:00-3:15 PM",
-        "location": "Building 2, Room 310",
-        "enrolled": 18,
-        "capacity": 30,
-        "status": "close"
       }
     ]
   },
@@ -50,7 +41,7 @@
     "sections": [
       {
         "crn": "10004",
-        "instructor": "Ahmed",
+        "instructor": "2260003",
         "schedule": "Mon/Wed 10:30-11:45 AM",
         "location": "Building 4, Room 112",
         "enrolled": 15,
@@ -59,7 +50,7 @@
       },
       {
         "crn": "10005",
-        "instructor": "Noor",
+        "instructor": "2250007",
         "schedule": "Tue/Thu 1:00-2:15 PM",
         "location": "Building 1, Room 205",
         "enrolled": 12,
@@ -80,7 +71,7 @@
     "sections": [
       {
         "crn": "10006",
-        "instructor": "Yousef",
+        "instructor": "2250013",
         "schedule": "Mon/Wed/Fri 8:00-8:50 AM",
         "location": "Building 5, Room 301",
         "enrolled": 20,
@@ -89,7 +80,7 @@
       },
       {
         "crn": "10007",
-        "instructor": "Mariam",
+        "instructor": "2260005",
         "schedule": "Tue/Thu 9:30-10:45 AM",
         "location": "Building 3, Room 208",
         "enrolled": 18,
@@ -110,7 +101,7 @@
     "sections": [
       {
         "crn": "10008",
-        "instructor": "Ali",
+        "instructor": "2250009",
         "schedule": "Mon/Wed 1:00-2:15 PM",
         "location": "Building 2, Room 105",
         "enrolled": 20,
@@ -119,7 +110,7 @@
       },
       {
         "crn": "10009",
-        "instructor": "Layla",
+        "instructor": "2260001",
         "schedule": "Tue/Thu 3:00-4:15 PM",
         "location": "Building 4, Room 302",
         "enrolled": 15,
@@ -140,7 +131,7 @@
     "sections": [
       {
         "crn": "10010",
-        "instructor": "Omar",
+        "instructor": "2250005",
         "schedule": "Wed/Fri 11:00 AM-12:15 PM",
         "location": "Building 1, Room 107",
         "enrolled": 10,
@@ -161,7 +152,7 @@
     "sections": [
       {
         "crn": "10011",
-        "instructor": "Khalid",
+        "instructor": "2250003",
         "schedule": "Mon/Wed 2:30-3:45 PM",
         "location": "Building 3, Room 210",
         "enrolled": 30,
@@ -170,7 +161,7 @@
       },
       {
         "crn": "10012",
-        "instructor": "Aisha",
+        "instructor": "2250025",
         "schedule": "Tue/Thu 8:00-9:15 AM",
         "location": "Building 5, Room 104",
         "enrolled": 25,
@@ -191,7 +182,7 @@
     "sections": [
       {
         "crn": "10013",
-        "instructor": "Abdullah",
+        "instructor": "2250011",
         "schedule": "Mon/Wed/Fri 10:00-10:50 AM",
         "location": "Building 2, Room 201",
         "enrolled": 14,
@@ -212,7 +203,7 @@
     "sections": [
       {
         "crn": "10014",
-        "instructor": "Hassan",
+        "instructor": "2250002",
         "schedule": "Tue/Thu 2:00-3:15 PM",
         "location": "Building 4, Room 204",
         "enrolled": 28,
@@ -233,7 +224,7 @@
     "sections": [
       {
         "crn": "10015",
-        "instructor": "Noora",
+        "instructor": "2260002",
         "schedule": "Wed/Fri 1:00-2:15 PM",
         "location": "Building 1, Room 303",
         "enrolled": 17,
@@ -254,7 +245,7 @@
     "sections": [
       {
         "crn": "10016",
-        "instructor": "Faisal",
+        "instructor": "2250014",
         "schedule": "Mon/Wed 4:00-5:15 PM",
         "location": "Building 3, Room 305",
         "enrolled": 26,
@@ -275,7 +266,7 @@
     "sections": [
       {
         "crn": "10017",
-        "instructor": "Rashid",
+        "instructor": "2250022",
         "schedule": "Tue/Thu 10:00-11:15 AM",
         "location": "Building 5, Room 202",
         "enrolled": 25,
@@ -296,7 +287,7 @@
     "sections": [
       {
         "crn": "10018",
-        "instructor": "Salma",
+        "instructor": "2250008",
         "schedule": "Mon/Wed 3:00-4:15 PM",
         "location": "Building 2, Room 107",
         "enrolled": 16,
@@ -317,7 +308,7 @@
     "sections": [
       {
         "crn": "10019",
-        "instructor": "Tariq",
+        "instructor": "2250015",
         "schedule": "Tue/Thu 4:30-5:45 PM",
         "location": "Building 4, Room 308",
         "enrolled": 30,
@@ -338,7 +329,7 @@
     "sections": [
       {
         "crn": "10020",
-        "instructor": "Leila",
+        "instructor": "2250019",
         "schedule": "Mon/Wed 11:00 AM-12:15 PM",
         "location": "Building 1, Room 209",
         "enrolled": 28,
@@ -359,7 +350,7 @@
     "sections": [
       {
         "crn": "10021",
-        "instructor": "Zayed",
+        "instructor": "2250016",
         "schedule": "Wed/Fri 9:00-10:15 AM",
         "location": "Building 3, Room 107",
         "enrolled": 24,
@@ -380,7 +371,7 @@
     "sections": [
       {
         "crn": "10022",
-        "instructor": "Huda",
+        "instructor": "2260004",
         "schedule": "Tue/Thu 1:30-2:45 PM",
         "location": "Building 5, Room 306",
         "enrolled": 22,
@@ -401,7 +392,7 @@
     "sections": [
       {
         "crn": "10023",
-        "instructor": "Karim",
+        "instructor": "2250023",
         "schedule": "Mon/Wed 5:30-6:45 PM",
         "location": "Building 2, Room 205",
         "enrolled": 20,
@@ -422,7 +413,7 @@
     "sections": [
       {
         "crn": "10024",
-        "instructor": "Maha",
+        "instructor": "2250020",
         "schedule": "Tue/Thu 3:30-4:45 PM",
         "location": "Building 4, Room 110",
         "enrolled": 25,
@@ -443,7 +434,7 @@
     "sections": [
       {
         "crn": "10025",
-        "instructor": "Adel",
+        "instructor": "2250024",
         "schedule": "Fri 1:00-3:30 PM",
         "location": "Building 1, Lab 402",
         "enrolled": 18,
@@ -464,7 +455,7 @@
     "sections": [
       {
         "crn": "10026",
-        "instructor": "Samir",
+        "instructor": "2250021",
         "schedule": "Mon 6:00-8:30 PM",
         "location": "Building 3, Room 209",
         "enrolled": 30,
