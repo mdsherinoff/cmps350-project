@@ -107,13 +107,14 @@ export default function StudentReport({ courses }) {
               </div>
 
               <div className="stats-card">
-                <h3>Instructors with the most sections taught</h3>
+                <h3>Courses with most As</h3>
                 <div className="GPAContainer">
-                  {/* {courses.instructorsWithMostSections.map((instructor) => (
-                    <span key={instructor.instructorUId} className="stat-label2">
-                      {instructor.name}
+                  {topGpaStudents.map((student) => (
+                    <span key={student.studentUId} className="stat-label">
+                      {student.name}
                     </span>
-                  ))} */}
+                  ))}                  
+
                 </div>
               </div>
             </div>
