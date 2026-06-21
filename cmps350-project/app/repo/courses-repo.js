@@ -1,23 +1,50 @@
-import fs from "fs-extra";
-import path from "path";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 class coursesRepo {
-  constructor() {
-    this.dataFilePath = path.join(process.cwd(), "app/data/courses.json");
-  }
   async getCourses() {
-    const coursesData = await fs.readJSON(this.dataFilePath);
-    return coursesData;
+    return await prisma.course.findMany({
+      orderBy: { code: "asc" },
+      include: {
+        sections: true,
+        prerequisites: true,
+        isPrerequisiteFor: true,
+      },
+    });
   }
+
   async setCourses(courses) {
-    const coursesData = await fs.writeJson(this.dataFilePath, courses);
+    await prisma.course.deleteMany();
+    for (const course of courses) {
+      await prisma.course.create({
+        data: {
+          courseUId: course.courseUId || course.id,
+          code: course.code,
+          name: course.name,
+          credits: course.credits || 3,
+          category: course.category || "General",
+          description: course.description || "",
+          registrationOpen: course.registrationOpen || false,
+        },
+      });
+    }
     return "courses changed successfully";
   }
+
   async addCourse(course) {
-    const courses = await this.getCourses();
-    courses.push(course);
-    await fs.writeJSON(this.dataFilePath, courses);
-    return course;
+    return await prisma.course.create({
+      data: {
+        courseUId: course.courseUId || course.id,
+        code: course.code,
+        name: course.name,
+        credits: course.credits || 3,
+        category: course.category || "General",
+        description: course.description || "",
+        registrationOpen: course.registrationOpen || false,
+      },
+    });
   }
 }
+
 export default new coursesRepo();

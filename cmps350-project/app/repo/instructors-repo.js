@@ -1,17 +1,37 @@
-import fs from "fs-extra";
-import path from "path";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 class instructorsRepo {
-  constructor() {
-    this.dataFilePath = path.join(process.cwd(), "app/data/instructors.json");
-  }
   async getInstructors() {
-    const instructorsData = await fs.readJSON(this.dataFilePath);
-    return instructorsData;
+    return await prisma.instructor.findMany({
+      include: {
+        user: true,
+        sectionsTaught: true,
+      },
+    });
   }
+
   async setInstructors(instructors) {
-    await fs.writeJson(this.dataFilePath, instructors);
+    await prisma.instructor.deleteMany();
+    for (const instructor of instructors) {
+      const user = await prisma.user.findUnique({
+        where: { username: instructor.username || instructor.instructorUId },
+      });
+
+      if (user) {
+        await prisma.instructor.create({
+          data: {
+            instructorUId: instructor.instructorUId || instructor.id,
+            name: instructor.name,
+            department: instructor.department || "Engineering",
+            userId: user.id,
+          },
+        });
+      }
+    }
     return "instructors changed successfully";
   }
 }
+
 export default new instructorsRepo();
