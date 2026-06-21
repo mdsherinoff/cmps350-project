@@ -1,11 +1,10 @@
 # Course Management System
 
-This README.md is an in-depth file to our university project for Web Development. One of the best experiences me and my team ever had with such an intensive time schedule of a semester. Nevertheless will not trade it for anything.
+This README.md is an in-depth review into our university project for Web Development. One of the best experiences me and my team ever had with such a time-intensive schedule of a semester. Nevertheless will not trade it for anything.
 
 This is a full-stack course management system built with Next.js that enables instructors, students, and administrators to manage courses, enrollments, schedules, and academic reporting.
 
 ## Features
-
 - **Role-Based Access Control**: Three user roles with different permissions and pages
   - **Students**: View enrolled courses, check progress, access learning materials
   - **Instructors**: Create and manage courses, sections, and view student reports
@@ -19,7 +18,6 @@ This is a full-stack course management system built with Next.js that enables in
 - **Database**: PostgreSQL with Prisma ORM for type-safe database operations
 
 ## Tech Stack
-
 - **Frontend**: React 19, Next.js 15 (App Router)
 - **Backend**: Next.js API Routes
 - **Database**: PostgreSQL with Prisma ORM
@@ -30,14 +28,12 @@ This is a full-stack course management system built with Next.js that enables in
 - **Language**: JavaScript/TypeScript
 
 ## Prerequisites
-
 - Node.js 18+
 - npm or yarn package manager
 - PostgreSQL database
 - Supabase account
 
 ## Project Structure
-
 ```
 app/
 ├── api/                    # API endpoints
@@ -84,39 +80,33 @@ public/
 ### Core Models
 
 **User**
-
 - Represents system users with role-based access
 - Roles: STUDENT, INSTRUCTOR, ADMIN
 - Related to Student or Instructor profiles
 
 **Student**
-
 - Student profile linked to User
 - Tracks studentUId, name, year
 - Has many Enrollments
 
 **Instructor**
-
 - Instructor profile linked to User
 - Tracks instructorUId, name, department
 - Teaches many Sections
 
 **Course**
-
 - Core course entity
 - Properties: code, name, credits, category, prerequisites
 - Has many Sections
 - Supports prerequisites
 
 **Section**
-
 - Represents course offerings
 - Status: OPEN, CLOSED
 - Taught by an Instructor
 - Has many Enrollments
 
 **Enrollment**
-
 - Represents student enrollment in sections
 - Status: PENDING, CURRENT, COMPLETED
 - Links Student to Section
@@ -124,12 +114,10 @@ public/
 ## API Endpoints
 
 ### Authentication
-
 - `POST /api/auth/login` - User login
 - `POST /api/auth/[...nextauth]` - NextAuth routes
 
 ### Courses
-
 - `GET /api/courses` - List all courses
 - `POST /api/courses` - Create new course
 - `GET /api/courses/:id` - Get course details
@@ -137,59 +125,50 @@ public/
 - `DELETE /api/courses/:id` - Delete course
 
 ### Students
-
 - `GET /api/students` - List all students
 - `POST /api/students` - Create new student
 - `GET /api/students/:id` - Get student details
 
 ### Instructors
-
 - `GET /api/instructors` - List all instructors
 - `POST /api/instructors` - Create new instructor
 - `GET /api/instructors/:id` - Get instructor details
 
 ### Sections
-
 - `GET /api/sections` - List all sections
 - `POST /api/sections` - Create new section
 - `PUT /api/sections/:id` - Update section status
 
 ### Enrollments
-
 - `GET /api/enrollments` - List enrollments
 - `POST /api/enrollments` - Create enrollment
 - `PUT /api/enrollments/:id` - Update enrollment status
 
 ### Users
-
 - `GET /api/users` - List all users
 - `POST /api/users` - Create new user
 
 ## User Roles & Permissions
 
 ### Student
-
 - View enrolled courses and sections
 - Check enrollment status
 - Access learning materials
 - View personal reports
 
 ### Instructor
-
 - Create and manage courses
 - Create and manage sections
 - View student reports
 - Check enrollment statistics
 
 ### Administrator
-
 - Full system access
 - User management
 - Course and section management
 - System-wide reporting and analytics
 
 ## Development Notes
-
 - **Authentication**: Uses JWT tokens stored in cookies via NextAuth
 - **Database Migrations**: Use Prisma migrations for schema changes
 - **Type Safety**: TypeScript configuration available for enhanced development
@@ -197,9 +176,7 @@ public/
 - **CORS**: Configured in `app/cors.js` for cross-origin requests
 
 ## License
-
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Support
-
 For issues or questions, please open an issue in the repository or contact the development team.
