@@ -15,7 +15,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
-    "@prisma/client": "^7.8.0",
+    "@prisma/client": "^6.7.0",
     "chart.js": "^4.4.9",
     "fs-extra": "^11.3.0",
     "next": "15.3.8",
