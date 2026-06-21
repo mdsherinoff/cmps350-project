@@ -1,7 +1,7 @@
 {
   "builds": [{ "src": "cmps350-project/package.json", "use": "@vercel/next" }],
   "routes": [
-    { "src": "^/favicon.ico$", "dest": "/cmps350-project/public/favicon.ico" },
+    { "src": "^/favicon.ico$", "dest": "/cmps350-project/public/file.svg" },
     {
       "src": "^/_next/static/(.*)$",
       "dest": "/cmps350-project/.next/static/$1"
