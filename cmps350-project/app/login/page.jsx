@@ -1,137 +1,76 @@
-// 'use client'
-// import React, { useState } from 'react';
-// // import { useNavigate } from 'react-router-dom';
+"use client"
+import React, { useState } from "react";
 
-// const Login = () => {
-//   const [formData, setFormData] = useState({
-//     username: '',
-//     password: '',
-//     userType: ''
-//   });
-//   const [error, setError] = useState('');
+const Login = () => {
+  const [formData, setFormData] = useState({ username: "", password: "", userType: "" });
+  const [error, setError] = useState("");
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData(prevState => ({
-//       ...prevState,
-//       [name]: value.trim()
-//     }));
-//   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-//     try {
-//       // Fetch all necessary data
-//       const [usersRes, studentsRes, instructorsRes] = await Promise.all([
-//         fetch("http://localhost:3000/api/users"),
-//         fetch("http://localhost:3000/api/students"),
-//         fetch("http://localhost:3000/api/instructors")
-//       ]);
+    try {
+      const res = await fetch("/api/users");
+      const users = await res.json();
+      const user = users.find((item) => item.username === formData.username);
 
-//       const userData = await usersRes.json();
-//       const studentsData = await studentsRes.json();
-//       const instructorsData = await instructorsRes.json();
+      if (!user || user.password !== formData.password) {
+        setError("Incorrect username or password.");
+        return;
+      }
 
-//       const user = userData.find(user => user.username === formData.username);
+      if (user.role !== formData.userType) {
+        setError("User type does not match.");
+        return;
+      }
 
-//       if (!user || user.password !== formData.password) {
-//         setError("Incorrect Username or Password");
-//         return;
-//       }
+      localStorage.setItem("userId", JSON.stringify(user.id));
+      localStorage.setItem("currUserInfo", JSON.stringify(user));
 
-//       if (user.role !== formData.userType) {
-//         setError("False User Type");
-//         return;
-//       }
+      let destination = "/";
+      if (user.role === "student") destination = "/student-home";
+      if (user.role === "instructor") destination = "/instructor-home";
+      if (user.role === "admin") destination = "/admin-home";
+      window.location.href = destination;
+    } catch (error) {
+      setError("Unable to login. Please try again later.");
+      console.error(error);
+    }
+  };
 
-//       // Store user ID in localStorage
-//       localStorage.setItem("userId", JSON.stringify(user.id));
+  return (
+    <main className="login-page">
+      <section className="login-card">
+        <h1>Login</h1>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username
+            <input name="username" value={formData.username} onChange={handleChange} required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+          </label>
+          <label>
+            Role
+            <select name="userType" value={formData.userType} onChange={handleChange} required>
+              <option value="">Select role</option>
+              <option value="student">Student</option>
+              <option value="instructor">Instructor</option>
+              <option value="admin">Administrator</option>
+            </select>
+          </label>
+          <button type="submit">Sign In</button>
+        </form>
+      </section>
+    </main>
+  );
+};
 
-//       // Store current user info based on user type
-//       let currUserInfo;
-//       if (formData.userType === "student") {
-//         currUserInfo = studentsData.find(student => student.id === user.id);
-//       } else if (formData.userType === "instructor") {
-//         currUserInfo = instructorsData.find(instructor => instructor.id === user.id);
-//       } else if (formData.userType === "administrator") {
-//         currUserInfo = user;
-//       }
-
-//       localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
-
-//       // Navigate based on user type
-//       switch (formData.userType) {
-//         case "student":
-//           navigate("/student-home");
-//           break;
-//         case "instructor":
-//           navigate("/instructor-home");
-//           break;
-//         case "administrator":
-//           navigate("/admin-home");
-//           break;
-//         default:
-//           break;
-//       }
-
-//     } catch (error) {
-//       setError("An error occurred during login. Please try again.");
-//       console.error("Login error:", error);
-//     }
-//   };
-
-//   return (
-//     <div className="login-container">
-//       <form onSubmit={handleSubmit} className="login-form">
-//         <h2>Login</h2>
-//         {error && <div className="error-message">{error}</div>}
-        
-//         <div className="form-group">
-//           <label htmlFor="username">Username:</label>
-//           <input
-//             type="text"
-//             id="username"
-//             name="username"
-//             value={formData.username}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-
-//         <div className="form-group">
-//           <label htmlFor="password">Password:</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-
-//         <div className="form-group">
-//           <label htmlFor="userType">User Type:</label>
-//           <select
-//             id="userType"
-//             name="userType"
-//             value={formData.userType}
-//             onChange={handleChange}
-//             required
-//           >
-//             <option value="">Select User Type</option>
-//             <option value="student">Student</option>
-//             <option value="instructor">Instructor</option>
-//             <option value="administrator">Administrator</option>
-//           </select>
-//         </div>
-
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Login; 
+export default Login;

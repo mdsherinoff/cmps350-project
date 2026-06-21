@@ -1,30 +1,15 @@
-// import { getUsers } from "./users-repo"
-// import { verifyJwt } from "@/app/lib/jwt"
+import { NextResponse } from "next/server";
 
-// export async function GET(request) {
-//   const idToken = request.headers.get("authorization");
-//   if (!idToken) {
-//     return Response.json(
-//       { error: "🚫 Unauthorized - id token is missing" },
-//       { status: 401 }
-//     );
-//   }
+export async function GET() {
+  return NextResponse.json(
+    { error: "This auth login endpoint is not implemented." },
+    { status: 404 },
+  );
+}
 
-//   const user = verifyJwt(idToken);
-//   if (!user) {
-//     return Response.json(
-//       { error: "🚫 Unauthorized - id token is invalid." },
-//       { status: 401 }
-//     );
-//   }
-
-//   if (!user.role || user.role.toLowerCase() !== "admin") {
-//     return Response.json(
-//       { error: `⛔ Forbidden - Role should be Admin. Désolé ${user.name}!` },
-//       { status: 403 }
-//     );
-//   }
-
-//   const users = await getUsers();
-//   return Response.json(users);
-// }
+export async function POST() {
+  return NextResponse.json(
+    { error: "This auth login endpoint is not implemented." },
+    { status: 404 },
+  );
+}
