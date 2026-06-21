@@ -7,7 +7,7 @@ async function userInput() {
   const studentsData = await students.json();
   console.log(studentsData);
 
-  const instructors = await fetch("http://localhost:3000/api/instructors");
+  const instructors = await fetch("/api/instructors");
   const instructorsData = await instructors.json();
 
   const loginForm = document.querySelector("#loginForm");
@@ -29,7 +29,7 @@ async function userInput() {
       return;
     }
 
-    if (user.role !== enteredUserType) {
+    if (user.role.toLowerCase() !== enteredUserType) {
       console.log(user.role.toLowerCase());
       console.log(enteredUserType);
 
