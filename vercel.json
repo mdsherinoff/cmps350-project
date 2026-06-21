@@ -6,6 +6,10 @@
       "src": "^/_next/static/(.*)$",
       "dest": "/cmps350-project/.next/static/$1"
     },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/cmps350-project/api/$1"
+    },
     { "src": "^/(.*)$", "dest": "/cmps350-project/$1" }
   ]
 }
