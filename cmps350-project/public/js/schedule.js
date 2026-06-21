@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", fetchData);
 
 const scheduleGrid = document.querySelector(".schedule-grid");
@@ -8,10 +6,8 @@ const logoutButton = document.querySelector(".btn-logout");
 const allButton = document.querySelector("#all-days-button");
 const specificButton = document.querySelector("#specific-days-button");
 
-
 const daysDD = document.querySelector(".days-filter");
-daysDD.addEventListener("click",dayscourseFilter);
-
+daysDD.addEventListener("click", dayscourseFilter);
 
 allButton.addEventListener("click", start);
 specificButton.addEventListener("click", specifics);
@@ -28,16 +24,14 @@ let currentButton = "";
 
 async function fetchData() {
   // const coursesJSON = await fetch("../data/courses.json");
-  const coursesJSON = await fetch("http://localhost:3000/api/courses");
+  const coursesJSON = await fetch("/api/courses");
 
   courseList = await coursesJSON.json();
-  courseList = courseList.filter(
-    (course) => course.registrationOpen === false
-  );
+  courseList = courseList.filter((course) => course.registrationOpen === false);
 
   localStorage.courses = JSON.stringify(courseList);
 
-  const studentsJSON = await fetch("http://localhost:3000/api/students");
+  const studentsJSON = await fetch("/api/students");
   // const studentsJSON = await fetch("../data/students.json");
   studentList = await studentsJSON.json();
   localStorage.students = JSON.stringify(studentList);
@@ -73,59 +67,56 @@ async function start() {
   adminName.innerHTML = `<div class="user-info">
                 <span>Welcome, <strong>${currUserName.username}</strong></span></div>`;
 
-
   scheduleGrid.innerHTML += `<h4 style="color: red">Please note there's no class on Saturday and Sunday !!!</h5>`;
   scheduleGrid.innerHTML += `<h3>Monday</h3>`;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("mon")){
+      if (section.schedule.toLowerCase().includes("mon")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
     }
-    }
+  }
 
   scheduleGrid.innerHTML += `<h3>Tuesday</h3>`;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("tue")){
+      if (section.schedule.toLowerCase().includes("tue")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
     }
-    }
-  
+  }
+
   scheduleGrid.innerHTML += `<h3>Wednesday</h3>`;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("wed")){
+      if (section.schedule.toLowerCase().includes("wed")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
     }
-    }
-  
+  }
+
   scheduleGrid.innerHTML += `<h3>Thursday</h3>`;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("thu")){
+      if (section.schedule.toLowerCase().includes("thu")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
     }
-    }
-    
+  }
+
   scheduleGrid.innerHTML += `<h3>Friday</h3>`;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("fri")){
+      if (section.schedule.toLowerCase().includes("fri")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
     }
-    } 
- 
-  
+  }
 }
 
 function specifics() {
@@ -135,61 +126,59 @@ function specifics() {
 
   scheduleGrid.innerHTML = ``;
   daysDD.selectedIndex = 1;
-  
+
   for (const course of courses) {
     for (const section of course.sections) {
-      if (section.schedule.toLowerCase().includes("mon")){
+      if (section.schedule.toLowerCase().includes("mon")) {
         scheduleGrid.innerHTML += generateScheduleCard(course);
       }
-    } 
     }
-
+  }
 }
 
 const courseDD = document.querySelector(".category-filter");
 courseDD.addEventListener("change", dayscourseFilter);
 
 function dayscourseFilter() {
-
   scheduleGrid.innerHTML = ``;
 
   if (daysDD.selectedIndex == 0) {
     currentButton.classList.remove("active");
     allButton.classList.add("active");
     currentButton = allButton;
-  }
-  else {
+  } else {
     currentButton.classList.remove("active");
     specificButton.classList.add("active");
     currentButton = specificButton;
-  };
+  }
 
   const category = courseDD.value;
   const day = daysDD.value;
 
   const allCourses = JSON.parse(localStorage.courses);
-  
-  const progressCourse = allCourses.filter( (course) => course.registrationOpen === false);
 
-  const categorizedCourses = progressCourse.filter( (course) => category === course.category);
+  const progressCourse = allCourses.filter(
+    (course) => course.registrationOpen === false,
+  );
 
-  const filteredCourses = category === 'all' ? progressCourse : categorizedCourses;
+  const categorizedCourses = progressCourse.filter(
+    (course) => category === course.category,
+  );
+
+  const filteredCourses =
+    category === "all" ? progressCourse : categorizedCourses;
 
   scheduleGrid.innerHTML = ``;
   for (course of filteredCourses) {
-
-    if (day == "all" && category == 'all') {
+    if (day == "all" && category == "all") {
       start();
-    }
-    else {
+    } else {
       for (const section of course.sections) {
-        if (section.schedule.toLowerCase().includes(day)){
+        if (section.schedule.toLowerCase().includes(day)) {
           scheduleGrid.innerHTML += generateScheduleCard(course);
         }
-      } 
-
+      }
     }
-    
   }
 }
 

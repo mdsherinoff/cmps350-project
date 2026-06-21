@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const prerequisites = [
       ...document.querySelectorAll(
-        "#prerequisites input[name='prerequisites[]']"
+        "#prerequisites input[name='prerequisites[]']",
       ),
     ].map((input) => input.value.trim());
 
@@ -87,13 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const crnElement = document.querySelector(`#section${sectionIndex}-crn`);
       const instructorElement = document.querySelector(
-        `#section${sectionIndex}-instructor`
+        `#section${sectionIndex}-instructor`,
       );
       const scheduleElement = document.querySelector(
-        `#section${sectionIndex}-schedule`
+        `#section${sectionIndex}-schedule`,
       );
       const locationElement = document.querySelector(
-        `#section${sectionIndex}-location`
+        `#section${sectionIndex}-location`,
       );
 
       return {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Sending course data:", courseData);
 
-    fetch("http://localhost:3000/api/courses", {
+    fetch("/api/courses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.json();
         if (!response.ok) {
           throw new Error(
-            data.details || data.error || "Failed to create course"
+            data.details || data.error || "Failed to create course",
           );
         }
         return data;

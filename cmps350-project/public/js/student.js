@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
+const BASE_URL = "/";
 
 document.addEventListener("DOMContentLoaded", fetchData);
 const courseGrid = document.querySelector(".courses-grid");
@@ -9,13 +9,13 @@ logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
   // const courses = await fetch("../data/courses.json");
-  const courses = await fetch("http://localhost:3000/api/courses");
+  const courses = await fetch("/api/courses");
 
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
   // const students = await fetch("../data/students.json");
-  const students = await fetch("http://localhost:3000/api/students");
+  const students = await fetch("/api/students");
   let studentList = await students.json();
   localStorage.students = JSON.stringify(studentList);
 
@@ -45,11 +45,11 @@ async function start() {
         <div class="course-details">
           <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
             (sum) => sum + 1,
-            0
+            0,
           )}</span>
           <span><i class="fas fa-users"></i> Total Enrolled : ${course.sections.reduce(
             (sum, section) => sum + section.enrolled,
-            0
+            0,
           )}</span>
         </div>
         <div class="course-details">
@@ -85,7 +85,7 @@ function courseFilter() {
   const allCourses = JSON.parse(localStorage.courses);
   courseGrid.innerHTML = "";
   categorizedCourses = allCourses.filter(
-    (course) => category === course.category
+    (course) => category === course.category,
   );
 
   const filteredCourses = category === "all" ? allCourses : categorizedCourses;
@@ -104,11 +104,11 @@ function courseFilter() {
                         <div class="course-details">
                             <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
                               (sum, section) => sum + 1,
-                              0
+                              0,
                             )}</span>
                             <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
                               (sum, section) => sum + section.enrolled,
-                              0
+                              0,
                             )}</span>
                         </div>
                         <div class="course-details">
@@ -124,7 +124,7 @@ function courseFilter() {
                         <button onclick='viewDetails(${JSON.stringify(course)})'
                         class="btn btn-secondary">View Details</button>
                         <button onclick='viewClasses(${JSON.stringify(
-                          course
+                          course,
                         )})' class="btn btn-primary">View Classes</button>
                     </div>
                 </div>`;
@@ -142,7 +142,7 @@ function searchCourses() {
   const filteredCourses = allCourses.filter(
     (course) =>
       course.name.toLowerCase().includes(searchingCourse) ||
-      course.code.toLowerCase().includes(searchingCourse)
+      course.code.toLowerCase().includes(searchingCourse),
   );
   console.log(filteredCourses);
   courseGrid.innerHTML = "";
@@ -159,11 +159,11 @@ function searchCourses() {
                         <div class="course-details">
                             <span><i class="fas fa-user"></i> Instructors : ${course.sections.reduce(
                               (sum, section) => sum + 1,
-                              0
+                              0,
                             )}</span>
                             <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
                               (sum, section) => sum + section.enrolled,
-                              0
+                              0,
                             )}</span>
                         </div>
                         <div class="course-details">
@@ -179,7 +179,7 @@ function searchCourses() {
                         <button onclick='viewDetails(${JSON.stringify(course)})'
                         class="btn btn-secondary">View Details</button>
                         <button onclick='viewClasses(${JSON.stringify(
-                          course
+                          course,
                         )})' class="btn btn-primary">View Classes</button>
                     </div>
                 </div>`;
@@ -210,11 +210,11 @@ function viewDetails(course) {
                         <div class="course-details">
                             <span><i class="fas fa-user"></i> Instructors :  ${course.sections.reduce(
                               (sum, section) => sum + 1,
-                              0
+                              0,
                             )}</span>
                             <span><i class="fas fa-users"></i> Total Enrolled :  ${course.sections.reduce(
                               (sum, section) => sum + section.enrolled,
-                              0
+                              0,
                             )}</span>
                         </div>
                         <div class="course-details">
@@ -270,12 +270,12 @@ async function viewClasses(course) {
                     </div>
                     <div style="display: flex; justify-content: center;" class="course-footer">
                         <button onclick='registerSection(${JSON.stringify(
-                          course
+                          course,
                         )}, ${JSON.stringify(
-        section
-      )})' class="btn btn-primary">View Section</button>
+                          section,
+                        )})' class="btn btn-primary">View Section</button>
                     </div>
-                </div>`)
+                </div>`),
   );
 }
 
@@ -338,7 +338,7 @@ function registerSection(course, section) {
             </div> -->
             </div>
             <button onclick='register(${JSON.stringify(
-              course
+              course,
             )}, ${JSON.stringify(section)})' class="course-card">
                 <div class="register-button" style="display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;">
                     Register 
@@ -367,7 +367,7 @@ function register(course, section) {
     course.prerequisites.length !== 0
   ) {
     alert(
-      `Unable to register, you have pending prerequisites ${course.prerequisites}`
+      `Unable to register, you have pending prerequisites ${course.prerequisites}`,
     );
     return;
   }
@@ -396,7 +396,7 @@ function register(course, section) {
             for (const sectionInFile of courseinFile.sections) {
               if (sectionInFile.crn == section.crn) {
                 sectionInFile.enrolled += 1;
-                fetch("http://localhost:3000/api/courses", {
+                fetch("/api/courses", {
                   method: "ASSIGN",
                   headers: {
                     "Content-Type": "application/json",
@@ -417,7 +417,7 @@ function register(course, section) {
 
     console.log(students);
 
-    fetch("http://localhost:3000/api/students", {
+    fetch("/api/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

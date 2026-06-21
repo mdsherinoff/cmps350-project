@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "cd cmps350-project && npm run dev",
+    "build": "cd cmps350-project && npm install && npm run build",
+    "vercel-build": "cd cmps350-project && npm install && npm run vercel-build",
+    "start": "cd cmps350-project && npm run start"
   },
   "repository": {
     "type": "git",

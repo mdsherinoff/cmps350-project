@@ -1,13 +1,11 @@
 async function userInput() {
-  const users = await fetch("http://localhost:3000/api/users");
+  const users = await fetch("/api/users");
   const userData = await users.json();
   console.log(userData);
 
-
-  const students = await fetch("http://localhost:3000/api/students");
+  const students = await fetch("/api/students");
   const studentsData = await students.json();
   console.log(studentsData);
-  
 
   const instructors = await fetch("http://localhost:3000/api/instructors");
   const instructorsData = await instructors.json();
@@ -33,23 +31,28 @@ async function userInput() {
 
     if (user.role !== enteredUserType) {
       console.log(user.role.toLowerCase());
-            console.log(enteredUserType);
+      console.log(enteredUserType);
 
-      
       alert("False User Type");
       return;
     }
 
-    alert(`Login Successful\nWelcome ${user.role.toUpperCase()}, ${user.username}`);
+    alert(
+      `Login Successful\nWelcome ${user.role.toUpperCase()}, ${user.username}`,
+    );
     localStorage.setItem("userId", JSON.stringify(user.id));
 
     const userId = user.id;
 
     if (enteredUserType === "student") {
-      const currUserInfo = studentsData.find((student) => student.id === userId);
+      const currUserInfo = studentsData.find(
+        (student) => student.id === userId,
+      );
       localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
     } else if (enteredUserType === "instructor") {
-      const currUserInfo = instructorsData.find((instructor) => instructor.id === userId);
+      const currUserInfo = instructorsData.find(
+        (instructor) => instructor.id === userId,
+      );
       localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
     } else if (enteredUserType === "admin") {
       localStorage.setItem("currUserInfo", JSON.stringify(user));
@@ -73,20 +76,17 @@ async function userInput() {
 }
 
 async function handleCredentialResponse(response) {
-
-
   const students = await fetch("http://localhost:3000/api/students");
-  const studentsData = await students.json();  
-  
-  const currUserInfo = studentsData.find((student) => student.id === '1001');
+  const studentsData = await students.json();
+
+  const currUserInfo = studentsData.find((student) => student.id === "1001");
   console.log(currUserInfo);
-  
+
   localStorage.setItem("currUserInfo", JSON.stringify(currUserInfo));
 
   alert("Login successful! Token received.");
   console.log("Token:", response.credential);
   window.location.href = "/html/student-home.html";
-
 }
 
 userInput();

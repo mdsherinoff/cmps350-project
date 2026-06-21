@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function loadData() {
   // const courses = await fetch("../data/courses.json");
-  const courses = await fetch("http://localhost:3000/api/courses");
+  const courses = await fetch("/api/courses");
 
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const studentsResponse = await fetch("http://localhost:3000/api/students");
+  const studentsResponse = await fetch("/api/students");
   const students = await studentsResponse.json();
   localStorage.students = JSON.stringify(students);
 
@@ -31,12 +31,12 @@ async function loadData() {
   let pendingGrades = 0;
   for (const section of instructorSections) {
     const enrolledStudents = students.filter((student) =>
-      student.courses.some((course) => course.crn === section.crn)
+      student.courses.some((course) => course.crn === section.crn),
     );
     totalStudents += enrolledStudents.length;
     enrolledStudents.forEach((student) => {
       const courseEnrollment = student.courses.find(
-        (course) => course.crn === section.crn
+        (course) => course.crn === section.crn,
       );
       if (courseEnrollment && courseEnrollment.grade) {
         gradedStudents++;
@@ -60,7 +60,7 @@ function loadClasses() {
     // Find the corresponding course and section
     const course = findCourseBySection(coursesData, instructorSection.crn);
     const section = course.sections.find(
-      (s) => s.crn === instructorSection.crn
+      (s) => s.crn === instructorSection.crn,
     );
     const enrolledStudents = await getEnrolledStudents(instructorSection.crn);
     container.innerHTML += `
@@ -163,12 +163,12 @@ async function getEnrolledStudents(crn) {
   const students = await response.json();
 
   const enrolledStudents = students.filter((student) =>
-    student.courses.some((course) => course.crn === crn)
+    student.courses.some((course) => course.crn === crn),
   );
   // Map to the format needed for your UI
   const formattedStudents = enrolledStudents.map((student) => {
     const courseEnrollment = student.courses.find(
-      (course) => course.crn === crn
+      (course) => course.crn === crn,
     );
     return {
       id: student.id,
@@ -220,7 +220,7 @@ async function handleSubmit(event) {
     }
   });
 
-  fetch("http://localhost:3000/api/students", {
+  fetch("/api/students", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

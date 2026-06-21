@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:3000/cmps350-project/home.html";
+const BASE_URL = "/";
 const currentStudentId = JSON.parse(localStorage.getItem("userId"));
 
 const gradePointDictionary = {
@@ -29,11 +29,11 @@ const logoutButton = document.querySelector(".btn-logout");
 logoutButton.addEventListener("click", logout);
 
 async function fetchData() {
-  const courses = await fetch("http://localhost:3000/api/courses");
+  const courses = await fetch("/api/courses");
   let courseList = await courses.json();
   localStorage.courses = JSON.stringify(courseList);
 
-  const students = await fetch("http://localhost:3000/api/students");
+  const students = await fetch("/api/students");
   let studentList = await students.json();
   localStorage.students = JSON.stringify(studentList);
 
@@ -49,7 +49,7 @@ async function start() {
 
   const students = JSON.parse(localStorage.students);
   const student = students.find(
-    (student) => String(student.id) == currentStudentId
+    (student) => String(student.id) == currentStudentId,
   );
 
   const studentCourses = student.courses;
@@ -57,7 +57,7 @@ async function start() {
 
   for (const course1 of courses) {
     const courseInStudent = studentCourses.find(
-      (course2) => course2.courseId === course1.id
+      (course2) => course2.courseId === course1.id,
     );
 
     if (courseInStudent) {
@@ -88,11 +88,11 @@ async function start() {
 async function loadProgramProgress() {
   const studentList = JSON.parse(localStorage.students);
   const student = studentList.find(
-    (student) => String(student.id) == currentStudentId
+    (student) => String(student.id) == currentStudentId,
   );
 
   const completedCourses = student.courses.filter(
-    (course) => course.status == "completed"
+    (course) => course.status == "completed",
   );
 
   let gradePoints = 0;
