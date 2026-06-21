@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -55,8 +56,8 @@ model Student {
 }
 
 model Instructor {
-  id            String   @id @default(uuid())
-  instructorUId String   @unique
+  id            String @id @default(uuid())
+  instructorUId String @unique
   name          String
   department    String
 
@@ -79,8 +80,7 @@ model Course {
   category  String
 
   description      String?
-  registrationOpen Boolean  @default(false)
-
+  registrationOpen Boolean @default(false)
 
   // Relation to Sections (one-to-many)
   sections Section[]
@@ -115,7 +115,6 @@ model Section {
   enrolledCount Int           @default(0)
   capacity      Int
   status        SectionStatus @default(CLOSED)
-
 
   // Relation to Course (many-to-one)
   courseId String
